@@ -1,0 +1,424 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Equivalence Relations and Partitions</title>
+  <introduction>
+    <p>
+      Our goal in this chapter is to understand the relationship between partitions and equivalence relations.
+      Before we delve into the formal definitions,
+      lets look at two examples that illustrate our goal.
+    </p>
+
+    <p>
+      Suppose we break our class into four subsets by rank:
+      freshmen, sophomores, juniors and seniors.
+      Our collection of subsets is called a partition of the class because the collection has three properties. (1) The union of the subsets is the entire class. (2) The intersection of any two of the subsets is empty. (3) Each subset is non-empty.
+      We can use our partition to define what it means for two students to be equivalent,
+      by saying that two students in the class are equivalent if they have the same class rank.
+      Thus if we have a partition of a set,
+      we have a way to define equivalence.
+    </p>
+
+    <p>
+      Now consider the set of all integers.
+      Let's define equivalence for this set by saying that two integers are equivalent if they have the same remainder when divided by 3.
+      For example, 4 and 7 both have remainder 1, so they are equivalent.
+      Since there are only three possible remainders when dividing an integer by 3, we can put all the integers with remainder 0 into one set,
+      put all the integers with remainder 1 into another set and put all the integers with remainder 2 into a third set.
+      These three sets partition the integers because they satisfy the three properties above. (1) Their union is all integers. (2) No number has two different remainders when divided by 3, so the intersection of any two of our sets is empty. (3) Each set is non-empty.
+    </p>
+
+    <p>
+      Summarizing, if you have a partition of a set,
+      then you can define what it means for two elements of the set to be equivalent.
+      Conversely,
+      if you have a definition of what it means for elements in a set to be equivalent,
+      then you can create a partition of the set from that definition.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A collection <m>P</m> of sets is said to be
+          <term>pairwise disjoint</term>
+          if the intersection of any two sets in the collection is empty.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A collection <m>P</m> of subsets of a set <m>A</m> is said to be a <term>partition</term>
+          of the set <m>A</m> if the collection is pairwise disjoint,
+          the union of the sets in <m>P</m> is <m>A</m> and each set is non-empty.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Construct three different partitions of the integers.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Let's recall what we know about relations before we move to a special kind of relation called an equivalence relation.
+    </p>
+
+    <p>
+      Recall from <xref ref="cartesian">Definitions</xref>
+      and <xref ref="function"></xref>
+      that if <m>\A</m> and <m>\B</m> are sets,
+      then the <em>Cartesian product</em>
+      of <m>\A</m> and <m>\B</m> is the set of all ordered pairs <m>(x,y)</m> where <m>x\in \A</m> and <m>y\in \B</m>,
+      <me>
+        \A\times \B = \{\,(x,y) \mid x\in \A \mbox{ and }  y\in \B\,\}
+      </me>,
+      and that a <em>relation</em>
+      on <m>A \times B</m> is any subset of this set.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>R = \Big\{(x, y) \mid x \in \{a,b,c,d,e\} \mbox{ and } y \in \{u,v, w\}\Big\}</m>.
+          List all the elements of this relation.
+          Is <m>R</m> a function?
+          Create some type of graphical representation for this relation.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>A= \{1,2,3\}</m>.
+          Write out all elements of <m>A \times A</m>.
+          List two examples of relations on the set <m>A= \{1,2,3\}</m>,
+          one which is not a function and one which is a function.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Functions are one example of relations and equivalence relations are a second example of relations.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>R</m> is any relation,
+          then <m>xRy</m> means <m>(x,y) \in R</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          Suppose <m>A</m> is a set and
+          <m>R \subseteq A \times A</m> is a relation on <m>A</m>.
+
+          <ol>
+            <li>
+              <p>
+                If for every <m>x \in A</m> we have <m>xRx</m>,
+                then <m>R</m> is said to be <em>reflexive</em>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If for every <m>x,y \in A</m> satisfying <m>xRy</m> we have <m>yRx</m>,
+                then <m>R</m> is said to be <em>symmetric</em>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If for every <m>x,y,z \in A</m> satisfying <m>xRy</m> and <m>yRz</m> we have <m>xRz</m>,
+                then <m>R</m> is said to be <em>transitive</em>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If <m>R</m> is reflexive, symmetric and transitive,
+                then <m>R</m> is said to be an
+                <em>equivalence relation</em>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Note that for equivalence relations,
+      the domain and range must be the same.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Suppose <m>X = \{\mbox{ all people in the world } \}</m> and
+          <em><m>x</m> is related to <m>y</m></em>
+          means <m>x</m> is a friend of <m>y</m>.
+          Discuss whether the reflexive,
+          symmetric and transitive properties hold.
+          Can we construct a partition based on this relation?
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          Suppose <m>X = \{\mbox{ students in our class } \}</m> and
+          <em><m>x</m> is related to <m>y</m></em>
+          means <m>x</m> and <m>y</m> have the same class rank (freshman,
+          sophomore, junior, senior).
+          Discuss whether the reflexive,
+          symmetric and transitive properties hold and foreshadow the equivalence classes.
+          Can we construct a partition based on this relation?
+          EXTRA<fn>First I query one individual as to whether this is reflexive,
+          looking for the statement, <q>if <m>x</m> is a student in this class,
+          then <m>x</m> has the same classification as <m>x</m>,</q> or something to that effect.
+          After asking two more individuals to tell me whether this relation is symmetric and transitive,
+          we conclude that it is indeed an equivalence relation.
+          Then, even with a class of up to thirty students, I take the time to list them by initials at the board so that we have a full example of a partition of a set into its equivalence classes.
+          This concrete example, is what I return to each time in order to solidify the fact that if <m>R</m> is an equivalence class, then it <em>must</em> partition the entire set into pairwise disjoint equivalence classes.</fn></p>
+      </statement>
+    </example>
+
+    <problem xml:id="equiv1">
+      <statement>
+        <p>
+          Let <m>A</m> be the set of all real numbers.
+          Suppose that <m>x</m> is related to <m>y</m> if <m>x</m> and <m>y</m> are equal.
+          In other words, <m>xRy</m> if <m>x=y</m>.
+          Which of these properties hold for the relation <m>R</m>?
+
+          <ol>
+            <li>
+              <p>
+                reflexive (Is <m>x</m> related to <m>x</m>?
+                I.e.
+                Does <m>x=x</m>?)
+              </p>
+            </li>
+
+            <li>
+              <p>
+                symmetric (If <m>xRy</m>, then is <m>yRx</m>?
+                I.e.
+                If <m>x=y</m>, then does <m>y=x</m>?)
+              </p>
+            </li>
+
+            <li>
+              <p>
+                transitive (If <m>xRy</m> and <m>yRz</m>, then must <m>xRz</m>?)
+              </p>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          Construct a partition of <m>A</m> based on this relation.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>A</m> be the set of all real numbers.
+          Let <m>xRy</m> if <m>x \leq y</m>.
+          Check whether <m>R</m> is reflexive, symmetric and transitive.
+          Is <m>R</m> an equivalence relation?
+          Can we construct a partition based on this relation?
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          Given two integers <m>x</m> and <m>y</m> we say that <m>x</m> is a <term>multiple</term>
+          of <m>y</m> if there is an integer <m>k</m> so that <m>x=ky</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>A</m> be the set of all positive integers.
+          Define a relation <m>R</m> by <m>xRy</m> if <m>x</m> is a multiple of <m>y</m>.
+          Which of these properties hold for the relation <m>R</m>?
+
+          <ol>
+            <li>
+              <p>
+                reflexive (Is <m>x</m> a multiple of <m>x</m>?)
+              </p>
+            </li>
+
+            <li>
+              <p>
+                symmetric (If <m>x</m> is a multiple of <m>y</m>,
+                then must <m>y</m> be a multiple of <m>x</m>?)
+              </p>
+            </li>
+
+            <li>
+              <p>
+                transitive (If <m>x</m> is a multiple of <m>y</m> and <m>y</m> is a multiple of <m>z</m>,
+                then must <m>x</m> be a multiple of <m>z</m>?)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="equiv2">
+      <statement>
+        <p>
+          Let <m>A</m> be the set of all integers.
+          Suppose that <m>xRy</m> if <m>x</m> and <m>y</m> have the same remainder when divided by <m>5</m>.
+          Is <m>R</m> an equivalence relation?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Recall the equivalence relation on our class where two students are related if they have the same class rank.
+      This equivalence relation partitions our class into subsets where everyone in a given subset is related to everyone else in that subset,
+      no person is in two different subsets,
+      and the union of all the subsets is the entire class.
+      The next definition gives us a name for the subsets in the partition.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>R</m> is an equivalence relation on the set <m>A</m> and <m>a \in A</m>,
+          then the <term>equivalence class of</term>
+          <m>a</m> is the set <m>\{y \in A \mid yRa\}</m> and is denoted by <m>[a]</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      To determine what the equivalence classes are,
+      just pick an element and ask yourself,
+      <q>What other elements are related to this element?</q>
+      Once you've done this for a few elements,
+      you'll understand all the equivalence classes for that particular relation.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          For each <xref ref="equiv1">problems</xref>
+          through <xref ref="equiv2"></xref>
+          where <m>R</m> turned out to be an equivalence relation,
+          define the equivalence classes.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Up to this point,
+      we were given a relation and we checked to see if it was reflexive,
+      symmetric, and transitive.
+      If it was, then we listed all the equivalence classes and they formed a partition.
+      Thus each equivalence relation yielded a partition.
+      The fact that this always works is stated formally as the following theorem and the proof is the first problem in <xref ref="projeqclass">Section</xref>.
+    </p>
+
+    <p>
+      <em>Theorem.</em> If <m>R</m> is an equivalence relation on the set <m>A</m>,
+      then the set of all equivalence classes defined by <m>R</m> form a partition of <m>A</m>.
+    </p>
+
+    <p>
+      We now consider the converse of this process,
+      showing that every partition yields an equivalence relation.
+      Suppose we have a set that we partition into a collection of non-empty subsets which are pairwise disjoint and whose union is our set.
+      Then we can define a relation by saying that <m>x</m> and <m>y</m> are related if,
+      and only if, they are in the same subset in the partition.
+      This relation will be an equivalence relation,
+      so we now have a way to create equivalence relations from partitions.
+      In other words,
+      equivalence relations and partitions are the exact same idea written in different mathematical language.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose <m>P</m> is a partition of the set <m>A</m>.
+          Define the relation <m>R</m> on <m>A</m> by <m>xRy</m> if there is <m>B \in P</m> such that <m>x</m> and <m>y</m> are both in <m>B</m>.
+          Prove that <m>R</m> is an equivalence relation on <m>A</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>\A</m> be the set of points <m>(x,y)</m> in the plane and suppose that
+          <m>(x,y) R (x',y')</m> if <m>(x,y)</m> and <m>(x',y')</m> are the same distance from the origin.
+          Describe the equivalence class for (0,2), that is,
+          describe <m>[(0,2)] = \{ (x,y) \in \R^2 \mid (x,y)R(0,2) \}</m>.
+          Determine if <m>R</m> is an equivalence relation and if so,
+          describe all the equivalence classes.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>A</m> be the set of all integers.
+          Suppose <m>x R y</m> if <m>x</m> and <m>y</m> are integers and <m>x - y</m> is a multiple of <m>3</m>.
+          Determine if <m>R</m> is an equivalence relation and if so,
+          describe the equivalence classes.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>A</m> be the set of integers.
+          Suppose <m>x R y</m> if <m>x</m> and <m>y</m> are integers and <m>x + y</m> is even.
+          Determine if <m>R</m> is an equivalence relation and if so,
+          describe the equivalence classes.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          There is a standard and important notion of equivalence between sets.
+          Let <m>\textbf{S}</m> denote the collection of all sets.
+          For <m>X, Y \in \textbf{S}</m>,
+          we say that <m>X R Y</m> if there is a bijection
+          <m>f:X \to Y</m> from <m>X</m> to <m>Y</m>.
+          Thus finite sets <m>X</m> and <m>Y</m> are equivalent if and only if they have the same number of elements,
+          but in general they need not be finite.
+          Show that <m>R</m> is reflexive, symmetric and transitive.
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+  <xi:include  href="projeqclass.ptx" />
+</chapter>
+

@@ -1,0 +1,952 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Counting</title>
+  <introduction>
+    <p>
+      A more formal title for this chapter would be <em>combinatorics</em>.
+      Many problems involving probability and statistics require knowing how many elements are in a particular set.
+      Consider poker hands.
+      What is the probability that a hand of five cards has two aces?
+      To answer this,
+      we would divide the number of five-card hands having two aces by the total number of five-card hands.
+      We could list all possible five-card hands and then count the number of these hands that have two aces.
+      Doing this would give us real insight into the problem,
+      so listing is a very good way to solve counting problems.
+      Many times after you start listing elements,
+      you'll find ways to count the elements without listing all of them.
+      If we could count the number of five-card hands having two aces without listing <em>all</em> of them,
+      that would be more efficient.
+      In this chapter,
+      to solve a problem will mean to convince the class that you have counted all the items correctly.
+      Perhaps you'll list all the items,
+      or perhaps you'll list a smaller example to demonstrate the counting technique you used.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          The standard license plate for a non-commercial vehicle titled in the State of Maryland consists of six characters.
+          The first character must be one of the nine digits 1, 2, ..., 9.
+          Each of the next three characters must be a letter of the alphabet other than i, o, q, or u.
+          Each of the last two characters must be one of the ten digits 0, 1, 2, ..., 9.
+          How many standard license plates for non-commercial vehicles can be issued by the State of Maryland?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          There are six area codes used for Maryland telephone numbers: 227, 240, 301, 410, 443, 667.
+          Following each area code are a three-digit <q>prefix</q>
+          and a four-digit <q>exchange.</q>
+          The prefix may not be the number 555, or begin with the number 0.
+          How many telephone numbers can be issued for the State of Maryland?
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="p1">
+      <statement>
+        <p>
+          Andrew, Bob, Carly,
+          and Diane are the only entrants in a prize giveaway.
+          Both prizes are the same model of PlayStation.
+          In how many ways can two winners be chosen from them?
+          EXTRA<fn>Students inevitably solve this problem in two different ways,
+          some assuming that the winners must be different people and some allowing for the winners to be the same person.
+          I leave the problem as it stands because the ensuing discussions are valuable.
+          First, we discuss the question, <q>if I say I have two friends, would anyone assume that they could be the same person?</q> Second, we discuss the two solutions that arise from the two different interpretations of the phrase <q>two winners.</q></fn></p>
+      </statement>
+    </problem>
+
+    <problem xml:id="p2">
+      <statement>
+        <p>
+          Andrew, Bob, Carly,
+          and Diane are the only entrants in a prize giveaway.
+          The first prize is an Audi TT, and the second is a Ford Focus.
+          No one person is allowed to win both prizes.
+          In how many ways can the prizes be awarded?
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="p3">
+      <statement>
+        <p>
+          Andrew, Bob, Carly,
+          and Diane are the only entrants in a prize giveaway.
+          The first prize is an Audi TT, and the second is a Ford Focus.
+          It is allowable for the same person to win both prizes.
+          In how many ways can the prizes be awarded?
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          A set <m>M</m> is <term>finite</term>
+          if there is a nonnegative integer <m>n</m> so that <m>M</m> has <m>n</m> elements and does not have <m>n+1</m> elements.
+          If the set <m>M</m> has <m>n</m> elements but does not have <m>n+1</m> elements,
+          then we write <m>|M| = n</m> and say that <m>M</m> is an
+          <term><m>n</m>-element set</term>.
+          A set is <term>infinite</term> if it is not finite.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      The next two theorems simply give names to the tools you probably used to solve the last few problems.
+    </p>
+
+    <theorem xml:id="MP">
+      <statement>
+        <p>
+          <em>Multiplication Principle.</em>
+          If each of <m>m</m> and <m>n</m> is a positive integer,
+          <m>A</m> is an <m>m</m>-element set,
+          and <m>B</m> is an <m>n</m>-element set,
+          then <m>|A \times B| = mn</m> or restated,
+          <m>|A \times B| = |A||B|</m>.
+          This is sometimes called the Fundamental Principle of Counting.
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem xml:id="GMP">
+      <statement>
+        <p>
+          <em>Generalized Multiplication Principle.</em>
+          Suppose that <m>n</m> is a positive integer and each of <m>A_1, A_2, \dots ,A_n</m> is a finite set.
+          Then <m>|A_1 \times A_2 \times A_3 \times \cdots \times A_n| = |A_1||A_2|\cdots|A_n|</m>.
+          This is sometimes called the Generalized or Fundamental Principle of Counting.
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <statement>
+        <p>
+          Suppose a mathematician has four different pairs of pants,
+          three different shirts, and five different hats.
+          How many outfits can s/he make assuming an outfit consists of exactly one pair of pants,
+          exactly one shirt and exactly one hat?
+          EXTRA<fn>I use this example to illustrate both Multiplication Principles,
+          but perhaps more importantly, I use it to emphasize the very important aspect of
+          <em>stating our assumptions</em>.
+          For example, while this is a perfectly good textbook problem,
+          the real world is never so simple.
+          I joke that,
+          as a mathematician, I have no worries about how what I wear actually looks to the rest of the world,
+          but that this is definitely an assumption I am making.
+          Others would place restrictions on which pairs of pants can be matched with which shirts.
+          In each problem they present, I try to ask what implicit assumptions are being made and I have them write them down as we list them.
+          Then I might discuss paying attention to which principle we are using.
+          Since each of the four pairs of pants can be matched with any of the three shirts,
+          you have <m>4 \cdot 3 = 12</m> ways to pick a pants/shirt combination.
+          Once you pick one of the twelve combinations of pants and shirts,
+          you can pick any of the hats,
+          so you have <m>12 \cdot 5 = 60</m> choices.
+          We used the Multiplication Principle twice to do this, but of course <m>4 \cdot 3 \cdot 5 = 60</m> so we could have used the Generalized Multiplication Principle.</fn></p>
+      </statement>
+    </example>
+
+    <problem>
+      <statement>
+        <p>
+          There are thirteen cards of each of the four suits in a fifty-two card deck.
+          How many possible four-card hands are there containing a card from each of the four suits?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Sherwoodn't Cars sells five models of car in three colors.
+          How many different cars could you see in Sherwoodn't's lot,
+          ignoring accessories and options?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          A program to produce greeting cards has 100 pictures to choose from and twenty-five sayings.
+          How many different cards can the program produce?
+          EXTRA<fn>This is a great problem for talking about assumptions.
+          Does the placement of the picture matter?
+          Is it the same card if we put a picture on the left and the saying on the right and then reverse them?
+          May we put multiple pictures on one card?
+          Often two students work two different problems, allowing us to again accept both as long as the assumptions are stated and reasonable.</fn></p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose there are four 400-level mathematics courses: MATH 406, 402, 465, and 482,
+          offered in a particular semester,
+          and you want to take two of them.
+          How many options do you have?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Consider the algorithm below.
+        </p>
+
+        <pre>
+          Let i = 1
+          While i &lt; 7 do
+          Let j=2
+          While j &lt; 6 do
+          Print ''Here is an ordered pair'', (i,j)
+          j = j + 1
+          End j While Loop
+          i = i + 1
+          End i While Loop
+        </pre>
+
+        <p>
+          How many ordered pairs would this program print?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose that a web site has you choose a username and a password.
+          The username must consist of ten alphanumeric
+          characters.
+          The password must consist of seven alphanumeric characters,
+          the last of which must be numeric and the
+          first of which must be alphabetical.
+
+          <ol>
+            <li>
+              <p>
+                How many usernames are possible if they are not case-sensitive?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many passwords are possible if they are not case-sensitive?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many usernames are possible if they are case-sensitive?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many passwords are possible if they are case-sensitive?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      In counting the number of ways we can select several objects from a particular finite set,
+      two questions arise: Does order matter?
+      Is repetition (replacement) allowed?
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>A</m> be a set.
+          By an <term>unordered sample</term>
+          of size <m>n</m> chosen from <m>A</m> we mean an <m>n</m>-element subset of<nbsp /><m>A</m>.
+          By an <term>ordered sample</term>
+          of size <m>n</m> chosen from <m>A</m> we mean an <m>n</m>-element sequence of <m>(</m>not necessarily distinct<m>)</m> elements of<nbsp /><m>A</m>.
+          In this context,
+          the set <m>A</m> is called the <term>population</term>
+          from which the samples are drawn.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      For example, <m>\{1,2,3\}</m> and
+      <m>\{2,3,1\}</m> are the same unordered sample of size 3 from the population of positive integers since order doesn't matter in the specification of a subset.
+      In contrast,
+      <m>(1,1,3)</m> and <m>(1,3,1)</m> are different ordered samples of size 3 from the same population.
+    </p>
+
+    <p>
+      Using this language, we can restate <xref ref="p1">Problem</xref>
+      as <q>How many unordered samples of size two can be chosen without replacement (or `<q>without repetition</q>) from the four-element <q>population</q>
+      (Andrew, Bob, Carly, Diane)?</q>' In <xref ref="p2">Problem</xref>,
+      we sought an ordered sample of size two without replacement (repetition) from the same population.
+      Finally, in <xref ref="p3">Problem</xref>
+      we desired an ordered sample of size two <q>with replacement</q> (or
+      <q>with repetition</q>).
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Suppose you are working on a ten-digit keypad to open a door.
+          You know the combination is exactly three digits long.
+          EXTRA<fn>When to present this example is always determined by the class.
+          At some point they have discovered the three basic formulas that the first three parts of this problem illustrate.
+          When I feel they have a grasp on these formulas, I think a summary lecture that discusses the concepts of <q>order matters,
+          repetition is allowed,</q>  <q>order matters,
+          repetition isn't allowed,</q> 
+          <q>order doesn't matter,
+          repetition isn't allowed,</q> and <q>order doesn't matter,
+          repetition is allowed</q> is appropriate.
+          The first three we have discovered and the last one, I leave hanging as a challenge.
+          I've had students solve the last one in some quite clever ways and I've always taught them the formula once they did.</fn><ol>
+            <li>
+              <p>
+                How many choices are there if you may use a number multiple times and the order matters?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many choices are there if you may not use a number multiple times and the order matters?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many choices are there if you may not use a number multiple times and the order does not matter?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many choices are there if you may use a number multiple times and the order does not matter?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+    <p>
+      <em>Ordered Samples with Repetition Allowed (n-tuples)</em>
+    </p>
+
+    <p>
+      The expression (3,-5) is an example of an ordered pair; (-1,0,<m>\frac{1}{2}</m>) is an ordered triple;
+      and (7,<m>\frac{1}{4}</m>,<m>\pi</m>,z) is an ordered quadruple.
+      If <m>n</m> is a positive integer and <m>A</m> is a set and
+      <m>a_i \in A</m> for each integer <m>i \in \{1,...,n\}</m>,
+      then (<m>a_1</m>,
+      <m>a_2</m>, ..., <m>a_n</m>) is an ordered <m>n</m>-tuple.
+    </p>
+
+    <theorem xml:id="tuple">
+      <statement>
+        <p>
+          If each of n and k is a positive integer and A is an n-element set,
+          then the number of ordered <m>k</m>-tuples that can be selected from <m>A</m> is <m>n^k</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      <xref ref="tuple2">Theorem</xref>
+      is simply a restatement of <xref ref="tuple">Theorem</xref> using fancy words!
+    </p>
+
+    <theorem xml:id="tuple2">
+      <statement>
+        <p>
+          If each of <m>n</m> and <m>k</m> is a positive integer and <m>P</m> is an n-element set (population),
+          then the number of ordered samples of size <m>k</m> that can be drawn with replacement (repetition) from <m>P</m> is <m>n^k</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      <em>Ordered Samples without Repetition (permutations)</em>
+    </p>
+
+    <theorem xml:id="t4">
+      <statement>
+        <p>
+          If n and k are positive integers with
+          <m>k \leq n</m> and <m>P</m> is an n-element set (population),
+          then the number of ordered samples of size k that can be drawn without replacement from <m>P</m>,
+          is <m>(n-0)(n-1)(n-2) \cdots (n-(k-1)) = n (n - 1) (n - 2) \cdots (n - k + 1)</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>n</m> is a non-negative integer then <term>n factorial</term>
+          is denoted by <m>n!</m> and defined by
+          <me>
+            n! =  \left\{
+            \begin{array}{ll}
+            1 \amp  \mbox{if}  \;\;\;\; n=0 \; \; \mbox{or}  \; \; n=1 \\
+            n \cdot (n - 1)   \cdots  2 \cdot 1 \amp  \mbox{if}   \;\;\;\; n > 1 \; \; \mbox{\qquad \((\)the product of integers \(1\) to \(n)\)} 
+            \end{array} 
+            \right
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Let each of <m>n</m> and <m>k</m> represent positive integers with
+          <m>k \leq n</m> and show that <m>n(n - 1)(n - 2) \cdots (n - k + 1) = n!/(n - k)!</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      The next theorem is merely a restatement of <xref ref="t4">Theorem</xref> when <m>k=n</m>.
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          If <m>P</m> is an n-element population,
+          then the number of ordered samples of size <m>n</m> that can be drawn without replacement from <m>P</m> is <m>n!</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <definition>
+      <statement>
+        <p>
+          If n is a positive integer and S is an n-element set,
+          then a <term>permutation of S</term> is a bijection on S.
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Let <m>S = \{1, 2, 3\}</m>.
+          One permutation of <m>S</m> would be the bijection
+          <m>f : S \to S</m> defined by <m>f(1) = 2, f(2) = 3</m>,
+          and <m>f(3)=1</m>.
+          Typically, we omit all the function notation and just write the range of <m>f</m> as <m>(2,3,1)</m>.
+          Recall that the order matters when we use <m>()</m> but not when we use <m>\{\}</m>.
+        </p>
+      </statement>
+    </example>
+
+    <problem>
+      <statement>
+        <p>
+          List all the permutations of <m>S=\{1,2,3\}</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          How many seven-letter strings can be formed using the letters from the word TUESDAY, where no letter may be used twice?
+          How many five-letter strings?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>D=\{a,b,c\}</m> and <m>R=\{1,2,3,4,5\}</m>.
+          How many functions are there with domain all of <m>D</m> and with range a subset of <m>R</m>?
+          How many are one-to-one?
+          How many are onto <m>R</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>D=\{a,b,c,d,e\}</m> and <m>R=\{1,2,3\}</m>.
+          How many functions are there with domain all of <m>D</m> and range a subset of <m>R</m>?
+          How many are one-to-one?
+          How many are onto <m>R</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      <em>Unordered Samples without Repetition (subsets)</em>
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>D=\{a,b,c,d,e\}</m>.
+          How many three element subsets are there of <m>D</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <theorem>
+      <statement>
+        <p>
+          If <m>n</m> is a positive integer and <m>k</m> is a nonnegative integer not larger than n, then the number of k-element subsets of an n-element set is
+          <me>
+            \frac{n!}{(n-k)!k!}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <statement>
+        <p>
+          Compute <m>\dsp{\frac{n!}{(n-k)!k!}}</m> for each of
+
+          <ol>
+            <li>
+              <p>
+                <m>n=10</m>, <m>k=3</m>,
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>n=10</m>, <m>k=7</m>,
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>n=5</m>, <m>k=5</m>, and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>n=5</m>, <m>k=0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that
+
+          <ol>
+            <li>
+              <p>
+                if <m>n=20</m> and <m>k=12</m> and <m>j=8</m> then <m>\dsp{\frac{n!}{(n-k)!k!} = \frac{n!}{(n-j)!j!}}</m> and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                if <m>n</m> is a positive integer and <m>k</m> is a nonnegative integer not larger than <m>n</m> and <m>j=n-k</m> then <m>\dsp{ \frac{n!}{(n-k)!k!} = \frac{n!}{(n-j)!j!}}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Dr.
+          Shannon has a total of six nieces and nephews.
+          She has just won a set of eight
+          <em>different</em> CD's.
+          In how many different ways can she
+
+          <ol>
+            <li>
+              <p>
+                Give each child exactly one CD?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Give away all the CD's so that each child gets at least one without giving any child more than two?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Give away all the CD's so that each child gets at least one?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose that each of <m>m</m> and <m>n</m> is a positive integer and each of <m>A</m> and <m>B</m> is a set such that <m>|A| = n</m> and <m>|B| = m</m>.
+          How many functions are there from <m>A</m> to <m>B</m>?
+          How many are one-to-one?
+          How many are onto <m>B</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Six cards are to be drawn from a standard deck and laid on a table in the order in which they were drawn.
+          How many outcomes are possible in this experiment?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          You and thirteen of your closest friends have decided to form a club.
+
+          <ol>
+            <li>
+              <p>
+                If you decide to elect four officers,
+                a president, a vice president,
+                a secretary, and a treasurer,
+                then how many possible slates of officers are there?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If you decide that the job of secretary is too much for one person and elect a president,
+                a vice president, a treasurer,
+                and two secretaries, then how many slates are there?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          To avoid the diplomatic quagmire of deciding who will sit at the head of the table and who at the foot,
+          a group planning peace talks with the single heads of state of four nations decides to seat all four at a round table,
+          where all spots are equally prestigious and powerful.
+
+          <ol>
+            <li>
+              <p>
+                How many possible seating arrangements are there?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many arrangements are there if you only care who sits next to whom but not on which side of the person each neighbor sits?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          An elementary-school teacher is directing an after-school parade with twelve of his students.
+          Three of them will be twirling batons,
+          five will be playing cymbals,
+          and four will be doing somersaults.
+          They will be parading in single file.
+
+          <ol>
+            <li>
+              <p>
+                How many different parades are possible if he wants to have the twirlers followed by the cymbal players,
+                with the tumblers at the rear?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many are possible if he simply keeps together the children who are doing the same thing?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many would be possible in a free-for-all,
+                where the kids are in any order?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many are possible if the twirlers stay together but the others can be in any order?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          A coin is tossed six times and the results,
+          heads or tails on each toss, are recorded in order.
+
+          <ol>
+            <li>
+              <p>
+                How many outcomes are possible?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many of these have exactly one head?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many have at least one head?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many have at least one head and at least one tail?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          Suppose that <m>A</m> is a set and <m>f: A \to A</m> is a function.
+          If <m>x\in A</m> satisfies <m>f(x)=x</m>,
+          then we say that <m>x</m> is a
+          <term>fixed point of <m>A</m> with respect to <m>f</m></term>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose that <m>A = \{a, b, c, d\}</m>.
+
+          <ol>
+            <li>
+              <p>
+                How many functions are there on <m>A</m> for which <m>a</m> is a fixed point?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many for which <m>a</m> and <m>b</m> are fixed points?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many for which <m>a</m>,
+                <m>b</m> and <m>c</m> are fixed points?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many functions are there that fix every point of <m>A</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose <m>A = \{a, b, c, d \}</m>.
+          Let F1 be the set of functions
+          <m>f:A \to A</m> for which <m>a</m> is a fixed point.
+          Let F2 be the set of functions
+          <m>f:A \to A</m> for which <m>a</m> and <m>b</m> are fixed points.
+          Let F3 be the set of functions <m>f:A \to A</m> for which <m>a</m>,
+          <m>b</m> and <m>c</m> are fixed points.
+          Let F4 be the set of functions for which all four elements are fixed points.
+          What are <m>|F1 \cap F2|</m>, <m>|F3 \cap F2|</m>,
+          <m>|F3 \cap F4|</m> and <m>|F1 \cap F2 \cap F3|</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          If six cards are chosen without replacement from a standard deck,
+          how many hands are possible if
+
+          <ol>
+            <li>
+              <p>
+                the six cards can be anything?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                at least one card is an ace?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                at least four are clubs?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                exactly three of the cards are hearts?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The five-member math club decided to hold a raffle,
+          with each member being responsible for selling ten tickets.
+          Each club member bought one ticket and sold nine to non-members.
+          The stubs were then to be thrown into a fish bowl and three winning tickets were to be chosen at random.
+
+          <ol>
+            <li>
+              <p>
+                Of the possible outcomes,
+                in how many would at least one math-club member win?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many outcomes involve no math club member winning?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many outcomes involve exactly two math club members winning?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many outcomes involve all three winners being club members?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <theorem xml:id="binomial">
+      <statement>
+        <p>
+          <em>Binomial Theorem.</em>
+          If each of <m>x</m> and <m>y</m> is a real number and <m>n</m> is a non-negative integer, then
+          <me>
+            (x+y)^n = \begin{pmatrix}n \cr 0
+            \end{pmatrix}  x^n + \begin{pmatrix}n \cr 1
+            \end{pmatrix}  x^{n-1}y +
+            \begin{pmatrix}n \cr 2
+            \end{pmatrix}  x^{n-2}y^2 + \dots + \begin{pmatrix}n \cr n-1
+            \end{pmatrix}  x y^{n-1}
+            + \begin{pmatrix}n \cr n
+            \end{pmatrix}  y^n
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <statement>
+        <p>
+          Prove <xref ref="binomial">Theorem</xref>.
+          This theorem may be proved either using tools from this chapter (a counting argument) or using tools from the forthcoming chapter on induction.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Expand <m>(x + y)^3</m> by hand and using the Binomial Theorem.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Expand <m>(x - y)^5</m> using the Binomial Theorem.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Use the Binomial Theorem to expand <m>(x - 1)^{10}</m>.
+              When <m>x = 2</m>, what happens?
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          What is the coefficient of <m>x^7</m> in the expansion of <m>(1 + x)^{23}</m>?
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+  <xi:include  href="section5-1.ptx" />
+</chapter>
+

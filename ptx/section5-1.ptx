@@ -1,0 +1,202 @@
+
+
+<section>
+  <title>Project: Unordered Samples and Probability, Inclusion and Exclusion</title>
+  <p>
+    <em>Unordered Samples and Probability</em>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>A</m>, <m>B</m>,
+        and <m>C</m> are sets such that <m>B \subseteq A</m>,
+        <m>C \subseteq A</m>, <m>B \cap C = \emptyset</m>,
+        <m>|A| = 60</m>, <m>|B| = 25</m>, and <m>|C| = 20</m>.
+
+        <ol>
+          <li>
+            <p>
+              How many four-element subsets does <m>A</m> have?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many five-element subsets of <m>A</m> contain no elements of <m>B</m>?
+              How many contain no elements of <m>C</m>?
+              How many contain no elements of <m>B</m> and no elements of <m>C</m>?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many six-element subsets of <m>A</m> contain an element of <m>B</m>?
+              How many contain an element of <m>B</m> or an element of <m>C</m>?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many seven-element subsets of <m>A</m> contain at least three elements of <m>B</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Suppose that <m>A</m> and <m>B</m> are sets and <m>B \subseteq A</m>.
+        If we randomly choose an element of <m>A</m>,
+        then the <term>probabilty</term>
+        that the element we pick is in <m>B</m> is <m>|B|/|A|</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    We may now rephrase our last problem in terms of probabilities.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>A</m>, <m>B</m>,
+        and <m>C</m> are sets such that <m>B \subseteq A</m>,
+        <m>C \subseteq A</m>, <m>B \cap C = \emptyset</m>,
+        <m>|A| = 60</m>, <m>|B| = 25</m>, and <m>|C| = 20</m>.
+
+        <ol>
+          <li>
+            <p>
+              Suppose I choose a five-element set from <m>A</m>.
+              What is the probability that the set contains no elements of <m>B</m>?
+              What is the probability that the set contains no elements of <m>C</m>?
+              What is the probability that the set contains no elements of <m>B</m> and no elements of <m>C</m>?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Suppose I choose a six-element subset of <m>A</m>.
+              What is the probability that the set contains an element of <m>B</m>?
+              What is the probability that the set contains an element of <m>B</m> or an element of <m>C</m>?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Suppose I choose a seven-element subset of <m>A</m>.
+              What is the probability that it contains at least three elements of <m>B</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Consider the simplest game of poker where we start with a fifty-two card deck and draw hands of five cards.
+    The goal is to have the <q>best</q> hand.
+    For example, three sevens beats two kings.
+    Similarly three fours and two jacks (a full house) beats three aces (three of a kind).
+    The order, from weakest hand to strongest hand,
+    goes like this: High Card <m>\lt</m> One Pair <m>\lt</m> Two Pair <m>\lt</m> Three of a Kind <m>\lt</m> Straight <m>\lt</m> Flush <m>\lt</m> Full House <m>\lt</m> Four of a Kind <m>\lt</m> Straight Flush.
+    We won't define and discuss all these possibilities.
+    Rather, we will just pick two and ask the relevant question related to probability.
+  </p>
+
+  <p>
+    Why should three of a kind beat two pair?
+    Well it must be that you are more likely to find in a five card hand a pair of threes and a pair of kings than three queens.
+    The next two problems will demonstrate this,
+    first by counting and then by probability.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose we have a fifty-two card deck and a five card hand from that deck.
+
+        <ol>
+          <li>
+            <p>
+              How many five card hands are there?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many five card hands have two pair in them?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many five card hands have three of a kind in them?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We may now rephrase our last problem in terms of probabilities.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose we have a fifty-two card deck and draw a five card hand from that deck.
+
+        <ol>
+          <li>
+            <p>
+              What is the probability that there are two pair in the hand?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              What is the probability that there are three of a kind in the hand?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <em>The Principle of Inclusion and Exclusion</em>
+  </p>
+
+  <theorem xml:id="t7">
+    <statement>
+      <p>
+        If A and B are finite sets, then <m>|A \cup B| = |A| + |B| - |A \cap B|</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize <xref ref="t7">Theorem</xref> to three sets.
+        That is, find a nice formula for <m>|A \cup B \cup C| = \dots</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize <xref ref="t7">Theorem</xref> to four sets.
+      </p>
+    </statement>
+  </problem>
+</section>
+

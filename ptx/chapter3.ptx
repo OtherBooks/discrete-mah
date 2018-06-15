@@ -1,0 +1,650 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Sets</title>
+  <introduction>
+    <p>
+      Every mathematics, science, and engineering course uses sets,
+      the basic building blocks of mathematics, so we start here.
+      It might seem that we should start with numbers.
+      However, set theory is required to do a mathematically rigorous development of the numbers as well,
+      so sets are the best starting point.
+    </p>
+
+    <p>
+      We won't define the words <q>element,</q>
+      <q>set</q> and <q>universe.</q> Rather,
+      we will rely on our intuition.
+      We will consider a <em>set</em>
+      to be a collection of <em>elements</em>
+      coming from some <em>universe</em> <m>\U</m> of elements.
+      For example, if we are talking about numbers,
+      our universe might be the set of all real numbers or might be the set of all integers.
+      If we are talking about animals,
+      our universe might be all animals in the San Diego Zoo or it might be all animals on this planet.
+    </p>
+
+    <axiom>
+      <statement>
+        <p>
+          <term>Containment.</term> If <m>\A</m> is a set,
+          then for each element <m>x</m> in <m>\U</m> either <m>x</m> is in <m>\A</m>
+          (written <m>x\in \A</m>)
+          or <m>x</m> is not in <m>\A</m> (written <m>x \not \in \A</m>).
+        </p>
+      </statement>
+    </axiom>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>\A</m> and <m>\B</m> are sets and every element of <m>\A</m> is also in <m>\B</m>,
+          then we say that <m>\A</m> is a <term>subset</term>
+          of <m>\B</m> and write <m>\A \subseteq \B</m> .
+        </p>
+      </statement>
+    </definition>
+
+    <axiom xml:id="seteq">
+      <statement>
+        <p>
+          <term>Set Equality.</term>
+          If <m>\A</m> and <m>\B</m> are sets that have the same elements
+          (that is, <m>\A \subseteq \B</m> and <m>\B \subseteq \A</m>),
+          then we say that <m>\A</m> and <m>\B</m> are the same set and write <m>\A = \B</m>.
+        </p>
+      </statement>
+    </axiom>
+
+    <axiom>
+      <statement>
+        <p>
+          <term>Set Specification.</term>
+          If <m>\Q</m> is a property that each element in <m>\U</m> either has or does not have,
+          then there is a set, denoted by
+          <me>
+            \{x \in \U \mid  x \mbox{ has property }   \Q \}
+          </me>,
+          whose elements are exactly those elements in <m>\U</m> having property<nbsp /><m>\Q</m>.
+        </p>
+      </statement>
+    </axiom>
+
+    <definition>
+      <statement>
+        <p>
+          The set <m>\R</m> is the set of all real numbers.
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Are the sets <m>\dsp \A = \{ (x,y) \mid x\in \R \mbox{ and } x=\sqrt{y} \}</m> and <m>\dsp \B = \{ (x,y) \mid x\in \R \mbox{ and } x^2 = y \}</m> the same sets?
+          What are some elements of <m>\A</m>?
+          Of <m>\B</m>?
+          EXTRA<fn>My primary goal on the first day,
+          is to have some students write some simple solutions on the board.
+          This seems a simple example, but my goals are many.
+          I want to give concrete examples of two sets,
+          to illustrate Set Specification Axiom,
+          and to foreshadow the question of when two functions are equal.
+          While I won't define function here, I will ask if these sets are the same.
+          By getting them to list
+          (at the board)
+          elements of each set and perhaps even graph each collection of ordered pairs, I'll illustrate the notation we will use and we'll prove that one of these sets is a subset of the other,
+          but not vice versa.
+          Thus we will illustrate the notion of a proof and of a counter-example.
+          With any luck at all,
+          by the time we've discussed this example, I'll already have multiple students having gone to the board to answer the questions I ask.
+          And I'll have politely asked them elementary questions that they can answer at the board.</fn></p>
+      </statement>
+    </example>
+
+    <definition>
+      <statement>
+        <p>
+          The <term>empty set</term> is the set having no members,
+          <me>
+            \emptyset = \{x \in \U \mid  x   \ne x\}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      We can construct new sets from old using the Set Specification Axiom.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>\A</m> and <m>\B</m> be sets.
+          The <term>intersection</term>
+          of <m>\A</m> and <m>\B</m> is the set
+          <me>
+            \A \cap \B = \{x \in \U \mid x \in \A \ \mbox{ and }  \ x \in \B\}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>\A</m> and <m>\B</m> be sets.
+          The <term>union</term>
+          of <m>\A</m> and <m>\B</m> is the set
+          <me>
+            \A \cup \B = \{x \in \U \mid x \in \A \ \mbox{ or }  \ x \in \B\}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>\B</m> be a set.
+          The <term>complement</term> of <m>\B</m> is the set
+          <me>
+            \sim \B = \{x \in \U \mid  x \not \in \B\}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>\A</m> and <m>\B</m> be sets.
+          The <term>difference</term>
+          between <m>\A</m> and <m>\B</m> is the set
+          <me>
+            \A \sim \B = \A \cap (\sim \B)
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      The following illustrations are
+      <em>Venn diagrams</em> for the sets just defined.
+    </p>
+    <image source="images/3e9220d92af9b4b4ef487c1c7c98473cd261978e.png"/>
+    <me>
+      \A\cap \B \qquad\qquad\qquad \A\cup \B \qquad\qquad\qquad \A \sim   \B \qquad\qquad\qquad \sim \B
+    </me>
+    <p>
+      Different expressions might represent the same set as illustrated by the next example,
+      which together with <xref ref="pp">Problem</xref> will show that
+      <me>
+        \A \cap (\B \cup \C) = (\A \cap \B) \cup (\A \cap \C)
+      </me>.
+    </p>
+
+    <example xml:id="e1">
+      <statement>
+        <p>
+          For every choice of sets <m>\A, \B</m> and <m>\C</m>,
+          <m>\dsp \A \cap (\B \cup \C) \subseteq (\A \cap \B) \cup (\A \cap \C)</m>.
+          EXTRA<fn>After I illustrate the initial words (set, axiom,
+          universe, venn diagrams, etc.) with the
+          most basic of examples, I put this problem on the board and ask them to draw Venn diagrams that demonstrate this.
+          Then
+          I ask how we could prove it using the set equality axiom,
+          that is, how do we show that
+          <me>
+            \A \cap (\B \cup \C) \subseteq (\A \cap \B) \cup (\A \cap \C)?
+          </me>
+          The moment a student feels s/he has made progress,
+          I put the marker in his or her hand and have them show the class to start a discussion.
+          <image source="images/a3b3058ca00e86c7adc3297bda80ac06ad1dafc0.png"/>
+          <me>
+            \qquad \A \qquad\qquad\qquad \B \cup \C \qquad\qquad \A \cap (\B
+            \cup \C)
+          </me>
+          <image source="images/5134882e952e23ce8aa0c2ee38416a7a821cb4ea.png"/>
+          <me>
+            \qquad \A \cap \B \qquad\qquad\qquad \A \cap \C \qquad   (\A \cap \B) \cup (\A \cap \C)
+          </me>
+          To prove this via the <em>Set Equality Axiom</em>,
+          we must show that every element in the set on left side of the equal sign must be in the set on the right side of the equal sign and vice-versa.
+          We make progress on the first part in class,
+          hopefully completing it and leaving the second part for homework (Problem 1).
+          If we don't complete the first part, it becomes Problem 0.
+
+
+          <em>Proof.</em>
+
+          Let <m>\A</m>,<m>\B</m>, and <m>\C</m> be sets.
+
+          We wish to show that <m>\A \cap (\B \cup \C) \subseteq (\A \cap \B) \cup (\A \cap \C)</m>.
+
+          Let <m>x \in \A \cap (\B \cup \C)</m>. 
+
+          Then <m>x \in \A</m>, and <m>x \in \B \cup \C</m>.
+
+          So <m>x \in \A</m>, and either <m>x \in \B</m> or <m>x \in \C</m>.
+
+          <ul>
+            <li>
+              <p>
+                {Case 1.} <m>x \in \B</m>.
+                Then <m>x \in \A \cap \B</m> and therefore <m>x \in (\A \cap \B) \cup (\A\cap \C)</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                {Case 2.} <m>x \in \C</m>.
+                Then <m>x \in \A \cap \C</m> and therefore <m>x \in (\A \cap \B) \cup (\A \cap \C)</m>.
+              </p>
+            </li>
+          </ul>
+
+          In both cases we conclude that <m>x \in (\A \cap \B) \cup (\A  \cap \C)</m>.</fn></p>
+      </statement>
+    </example>
+
+    <p>
+      For Problems <m>1 - 19</m> we will assume that <m>\A, \B</m>,
+      and <m>\C</m> are sets of elements from some universe <m>\U</m>.
+    </p>
+
+    <problem xml:id="pp">
+      <statement>
+        <p>
+          Show that <m>(\A \cap \B) \cup (\A \cap \C) \subseteq \A \cap (\B \cup \C)</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      You are already familiar with operations on numbers such as addition,
+      subtraction, multiplication,
+      and division (<m>+</m>, <m>-</m>, <m>*</m>, <m>\div</m>).
+      We have introduced the operations on sets such as intersection, union,
+      and difference (<m>\cap</m>,
+      <m>\cup</m>, and <m>\sim</m>).
+      Soon, we will introduce more set operations,
+      including <times />, <m>\oplus</m> and <m>\circ</m>.
+      All of these number and set operations are referred to as
+      <em>binary operations</em>
+      because each operation takes two inputs.
+    </p>
+
+    <p>
+      For the next few problems,
+      illustrate each of the following identities with Venn Diagrams <em>and</em>
+      write down a proof using the Set Equality Axiom.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          The Commutative Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cap \B = \B \cap \A</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cup \B = \B \cup \A</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The Associative Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cap (\B \cap \C) = (\A \cap \B) \cap \C</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cup (\B \cup \C) = (\A \cup \B) \cup \C</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Ask one question that you have after reading the introduction.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The Distributive Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cup (\B \cap \C) = (\A \cup \B) \cap (\A \cup \C)</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cap (\B \cup \C) = (\A \cap \B) \cup (\A \cap \C)</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The Absorption Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cup (\A \cap \B) = \A</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cap (\A \cup \B) = \A</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      For the next problem,
+      it is helpful to make the observation about the empty set that <em>any</em>
+      statement starting with <q>If <m>x \in \emptyset</m>,
+      then <ellipsis /></q> is a true statement.
+      For example, the statement <q>If <m>x \in \emptyset</m>,
+      then <m>x</m> is a seven-headed dog.</q> is a true statement.
+      Why?
+      Because the only way that statement could be false would be to have some value of <m>x</m> such that
+      <m>x \in \emptyset</m> but <m>x</m> was not a seven-headed dog.
+      But there is no such <m>x</m> since there is nothing in the empty set.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          The Identity Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cup \emptyset = \A</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cap \U = \A</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The Inverse Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\A \cup \sim \A = \U</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\A \cap \sim \A = \emptyset</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          DeMorgan's Laws
+
+          <ol>
+            <li>
+              <p>
+                <m>\sim(\A \cap \B) = \sim\A \cup \sim \B</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\sim(\A \cup \B) = \sim\A \cap \sim \B</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          The <term>symmetric difference</term>
+          between sets <m>\A</m> and <m>\B</m> is defined by
+          <me>
+            \A \oplus \B = (\A \cup \B) \sim (\A \cap \B)
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      We illustrate <m>\A \oplus \B</m> via a Venn diagram.
+    </p>
+    <image source="images/1a8ebf5109cb4912d113e7e0a46e46adc91e7f3d.png"/>
+
+    <problem>
+      <statement>
+        <p>
+          <m>\A \oplus \B = (\A \sim \B) \cup (\B \sim \A)</m>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          <m>\A \oplus (\B \oplus \C) = (\A \oplus \B) \oplus \C</m>
+        </p>
+      </statement>
+    </problem>
+
+    <example>
+      <statement>
+        <p>
+          Does
+          <me>
+            \A \oplus (\B \cup \C) = (\A \oplus \B) \cup (\A \oplus \C) ?
+          </me>
+        </p>
+
+        <p>
+          Restated, does <m>\oplus</m> distribute over <m>\cup</m>?
+          EXTRA<fn>I don't always consider this example.
+          Sometimes, it is needed for clarification, but often it is not.
+          If there is dead time and it might help, I start discussing what they already know <mdash /> that intersection distributes over union and addition distributes over multiplication to make connections to other things they know.
+          Then we investigate the example in class using random sets.
+          For example, we might consider the sets
+          <me>
+            \A = \{0,1,2,3\} \qquad \B = \{2,3,4,5,6\} \qquad \C =  \{2,3,6,7,8\}
+          </me>.
+          If we compute both sides of our expression, we have:
+          <me>
+            \A \oplus (\B \cup \C) = \{0,1,4,5,6,7,8\} = (\A \oplus \B) \cup
+            (\A \oplus \C)
+          </me>
+          This does not mean that <m>\A \oplus (\B \cup \C) = (\A \oplus \B) \cup
+          (\A \oplus \C)</m> for all sets.
+          Trying
+          <me>
+            \A = \{1,2,3\} \qquad \B = \{1,4,5\} \qquad \C = \{3,5,6\}
+          </me>
+          we get
+          <me>
+            \A \oplus (\B \cup \C) = \{2,4,5,6\}
+          </me>
+          but
+          <me>
+            (\A \oplus \B) \cup (\A \oplus \C) = \{1,2,3,4,5,6\}
+          </me>.
+          This is what we call a <em>counterexample</em>, as it shows us that the statement is not always true.</fn></p>
+      </statement>
+    </example>
+
+    <p>
+      It is likely that you <q>know</q>
+      what an ordered pair is from previous courses,
+      but unlikely that you have ever seen a precise definition.
+      The next two problems make precise the notion of ordered pairs.
+      EXTRA<fn>The next two problems may be omitted if the instructor wishes to save a bit of time.
+      Students all have an intuition for ordered pairs from their experiences graphing points in previous courses.
+      Still, it is unlikely that they have ever seen a precise definition.
+      Furthermore,
+      it has been my experience that students in upper-division courses often do not know the difference between an ordered n-tuple and a set of n elements.
+      While it is not necessary
+      (or possible)
+      to define every notion, I find part of the beauty of mathematics to be the definitions.
+      Thus, I like to at least point out to my students that even though they know the difference between <m>\{a,b\}</m> and <m>(a,b)</m>
+      (which some of them don't, so I'm being positive and giving them the benefit of the doubt),
+      the notation <m>(a,b)</m> can be defined precisely in a way so that the properties we want it to have are in fact the properties that it will have due to the definition.
+      Sometimes challenging problems like these remain outstanding for a week and I'll ask about them.
+      If no student takes the challenge, we just work with ordered pairs and don't bother to work <xref ref="OrdPair">Problem</xref>.</fn></p>
+
+    <problem xml:id="fail">
+      <statement>
+        <p>
+          Suppose that each of a, b, c and d is an element.
+          For each statement, determine if it is true or false.
+
+          <ol>
+            <li>
+              <p>
+                If \{a, b\} = \{c, d\}, \text{ then } a = c \text{ and } b = d.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If a = c \text{ and } b = d, \text{ then } \{a, b\} = \{c, d\}.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <definition xml:id="orderedpair">
+      <statement>
+        <p>
+          If each of <m>a</m> and <m>b</m> is an element,
+          then by the <term>ordered pair</term>
+          <m>(a, b)</m> we mean the set <m>\{\{a\}, \{a, b\}\}</m>.
+          The elements <m>a</m> and <m>b</m> are known as the first and second coordinates of <m>(a,b)</m>,
+          respectively.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      <xref ref="fail">Problem</xref> hinted at the property that we want from our new definition for ordered pairs.
+      We want that <m>(a, b) = (c, d)</m> if and only if <m>a = c</m> and <m>b = d</m>.
+      The next problem allows you to show that our definition for ordered pairs,
+      <m>(a, b) = \{ \{a\}, \{a, b\}\}</m>,
+      satisfies this property and therefore is a valid definition.
+    </p>
+
+    <problem xml:id="OrdPair">
+      <statement>
+        <p>
+          Suppose each of <m>a</m>, <m>b</m>,
+          <m>c</m> and <m>d</m> is an element.
+          Use <xref ref="orderedpair">Definition</xref>
+          to prove the following two statements:
+
+          <ol>
+            <li>
+              <p>
+                If <m>(a, b) = (c, d)</m>,
+          then <m>a = c</m> and <m>b = d</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If <m>a = c</m> and <m>b = d</m>,
+                then <m>(a, b) = (c, d)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <definition xml:id="cartesian">
+      <statement>
+        <p>
+          If <m>\A</m> and <m>\B</m> are sets,
+          the <term>Cartesian product</term> of <m>\A</m> and <m>\B</m>,
+          denoted by <m>\A\times \B</m>,
+          consists of all ordered pairs <m>(x,y)</m> where <m>x\in \A</m> and <m>y\in \B</m>.
+          Restated,
+          <me>
+            \A\times \B = \{\,(x,y) \mid x\in \A \mbox{ and }  y\in \B\,\}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Prove or give a counter-example:
+          <me>
+            \A\cap (\B\times \C) = (\A\cap \B) \times (\A\cap \C)
+          </me>
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+</chapter>
+

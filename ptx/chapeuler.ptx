@@ -1,0 +1,647 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapeuler">
+  <title>Euler Paths and Circuits</title>
+  <introduction>
+    <p>
+      We begin this chapter with a practical problem.
+      You are offered a job delivering mail in the neighborhood shown below to the left where the lines represent the streets of the neighborhood.
+      The rules are simple:
+
+      <ol>
+        <li>
+          <p>
+            You must deliver mail on each block, so must walk each block.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            You may start and end anywhere because a friend drops you off and picks you up.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      You first note that there are 41 blocks in the neighborhood.
+      Your boss suggests that you use the route he used before he passed it on to you.
+      That route is shown below to the right and consists of 53 blocks.
+      The arrows represent the direction he walked each block and the solid circles represent the intersections.
+      Use the patterns on the next page to find at least one path with fewer blocks than the one your boss suggests.
+      Write out the best path you find in <xref ref="mail">Problem</xref>.
+      EXTRA<fn>Since our measure of the best path is the least number of blocks,
+      we are implicitly assuming that delivering the mail requires the same amount of time for each block.
+      Of course, this is not a realistic assumption and we discuss that in class with the students.
+      If we were to add a different time for each block, perhaps depending on the number of mailboxes on that block, then we would have a more realistic, but also more difficult problem.</fn></p>
+    <image source="images/dd58a23f321391a25b5e8d736ee6a5614d0582ff.png"/>
+    <image source="images/7703cdfa71add9f12f21d9119b310f7639470c50.png"/>
+
+    <problem xml:id="mail">
+      <statement>
+        <p>
+          Write down your best solution to the Mail Carrier Problem,
+          labeling where you start and end,
+          and numbering the blocks as you go.
+
+          <ol>
+            <li>
+              <p>
+                How many blocks are in the neighborhood?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How many blocks must you walk in your best solution?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/e901b3ca94a89c71e981938574013ff2740e167b.png"/>
+    <p>
+      Clearly it is difficult to determine the shortest path,
+      so let's examine some mini-neighborhoods illustrated on the next page.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          For each graph on the next page write down:
+
+          <ol>
+            <li>
+              <p>
+                the total number of blocks (edges) in the neighborhood, and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                the smallest number of blocks that you can walk to deliver mail along each block,
+                showing your path.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/d60133113b721ff74275612d91842908e0980cbf.png"/>
+    <p>
+      The mathematics behind the mail carrier problem dates to eighteenth century east Prussia.
+      The historic city of K\''onigsberg
+      (now Kaliningrad)
+      is broken into four regions by the forking Pregel River.
+      Seven bridges connect the parts of the city as shown in <xref ref="KB">Figure</xref>.
+      Strolling the city, the residents of K\''onigsberg found a challenge.
+      Is there a path that would take them over each bridge exactly once?
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Find a path connecting all four regions of K\''onigsberg <m>(</m><xref ref="KB">Figure</xref><m>)</m> that takes you over each bridge exactly once.
+          EXTRA<fn>I do warn my students that, like in life,
+          not all problems in the text are well-posed and some might even be wrong.
+          The next problem is one such example.
+          There is value in convincing yourself that something can't be done.</fn></p>
+      </statement>
+    </problem>
+
+    <figure xml:id="KB">
+      <caption>K\''onigsberg Bridges</caption>
+      <image source="images/b05f4c80e6841d9986e7c98223944b4aa71b8f06.png"/>
+    </figure>
+
+    <figure xml:id="KB2">
+      <caption>Mathematical Representation of K\''onigsberg Bridges</caption>
+      <image source="images/bd1f1661daa6b3862d86131970bfd72b42883618.png"/>
+    </figure>
+
+    <p>
+      Suppose we make each region of K\''onigsberg a dot and each bridge a curved line connecting the respective regions.
+      The result is shown in <xref ref="KB2">Figure</xref>.
+      Now this problem looks like the mail carrier problem,
+      except that we want to traverse each block <em>exactly once</em>.
+    </p>
+
+    <p>
+      The mathematical model <xref ref="KB2">Figure</xref>
+      of the K\''onigsberg Bridge Problem in <xref ref="KB">Figure</xref> is called a <em>graph</em>
+      and was invented (discovered?) by Leonard Euler,
+      an eighteenth century resident of K\''onigsberg,
+      in order to solve the K\''onigsberg Bridge Problem.
+    </p>
+
+    <p>
+      To solve the mail carrier problem and the K\''onigsberg Bridge Problem,
+      we will first try to decide when it is possible to find a path going over each block or each bridge <em>exactly once</em>.
+      These problems may be rephrased mathematically in the language of graphs and Euler paths.
+      Our goal is to determine when a given graph has an Euler path.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>graph</term> consists of a finite set of points,
+          called its <term>vertices</term>,
+          and a finite set of line segments connecting them,
+          called its <term>edges</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Mathematicians do allow for graphs with an infinite number of vertices or edges,
+      but for our class,
+      we will restrict ourselves to the study of graphs with a finite number of vertices and edges.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>loop</term> is an edge connecting a vertex to itself.
+          Two or more edges between the same two vertices are called
+          <term>multiple edges</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph which has six vertices,
+          four loops and two multiple edges?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          The <term>degree</term>
+          of a vertex in a graph is the number of edges coming into it. <m>(</m>A loop counts as two edges.<m>)</m> A vertex is <term>even</term>
+          if its degree is an even number,
+          and it is <term>odd</term>
+          if its degree is an odd number.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph with five vertices,
+          each of degree four, which has no loops or multiple edges?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph with three vertices of degree two and two vertices of degree three?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph with two vertices of degree two and three vertices of degree three?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph with one vertex of degree one,
+          two vertices of degree two,
+          three vertices of degree three and four vertices of degree four?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          Two vertices are <term>adjacent</term> if an edge connects them.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>path</term> is a sequence of adjacent vertices with a connecting edge between each pair of adjacent vertices.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>circuit</term>
+          is a path which starts and ends at the same vertex without repeating an edge.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          An <term>Euler path</term>
+          is a path that passes over every edge of the graph exactly once.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          An <term>Euler circuit</term>
+          is a circuit that passes over every edge of the entire graph.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a graph with eight vertices and six edges which contains no circuit at all?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <definition xml:id="connecteddfn">
+      <statement>
+        <p>
+          A graph is <term>connected</term>
+          if every pair of vertices is connected by some path.
+          A graph is <term>disconnected</term> if it is not connected.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>component</term>
+          of a graph is a maximal connected piece of the graph.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Can you draw a connected graph with exactly three edges that does not have an Euler path?
+          If so, do so.
+          If not, why not?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      The next theorems tell us which graphs have an Euler path or an Euler circuit and how,
+      if there is one, to find it.
+      EXTRA<fn>At some appropriate lull in the class when students have little to present,
+      we work out arguments together for the odd and even vertex theorems.
+      Once Fleury's algorithm has been presented,
+      we have a summary discussion explaining how as a group these theorems completely tell the story of which graphs have an Euler Path/Circuit.
+      Then I do the example of the Eulerization of a graph.</fn></p>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Odd Vertex Theorem.</em>
+          Suppose <m>A</m> is an odd vertex of a graph.
+
+          <ol>
+            <li>
+              <p>
+                An Euler path that starts at <m>A</m> cannot end at <m>A</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                An Euler path that does not start at <m>A</m> must end at <m>A</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Every Euler path either starts or ends at <m>A</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Even Vertex Theorem.</em>
+          Suppose B is an even vertex of a graph.
+          Then every Euler path that starts at B must also end at B <m>(</m>and is therefore an Euler circuit<m>)</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      From these two observations we can establish the following necessary conditions for a graph to have an Euler path or an Euler circuit.
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>First Euler Path Theorem.</em>
+          If a graph has an Euler path, then
+
+          <ol>
+            <li>
+              <p>
+                it must be connected and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                it must have either no odd vertices or exactly two odd vertices.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>First Euler Circuit Theorem.</em>
+          If a graph has an Euler circuit, then
+
+          <ol>
+            <li>
+              <p>
+                it must be connected and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                it must have no odd vertices.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The two theorems above tell us which graphs do <em>not</em>
+      have an Euler path or circuit.
+      We would like to know that all remaining graphs
+      (connected graphs with either zero or two odd vertices)
+      do have Euler paths.
+      To do so requires a few theorems.
+      Try to prove the next three problems,
+      but don't let them slow you down.
+      We can assume them and move on to the rest of the chapter and show them later when you get them.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Show that the sum of an odd number of odd numbers is odd.
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="even">
+      <statement>
+        <p>
+          Show that the sum of the degrees of the vertices of a graph is even.
+          EXTRA<fn>The sum of the degrees of the vertices of a graph is twice number of edges, which gives us another opportunity to stress proof by induction.</fn></p>
+      </statement>
+    </problem>
+
+    <problem xml:id="odd">
+      <statement>
+        <p>
+          Show that every graph has an even number of odd vertices.
+          EXTRA<fn>If there are K odd vertices and J even vertices and K is odd,
+          then the sum of the degrees contributed by the K odd vertices is a sum of odd numbers which is odd and the sum of the degrees contributed by the J even vertices is even.
+          An odd number + an even number is odd which contradicts <xref ref="even">Problem</xref>.</fn></p>
+      </statement>
+    </problem>
+
+    <definition xml:id="cutedge">
+      <statement>
+        <p>
+          An edge of a connected graph is called a <term>cut edge</term>
+          if removal of that edge causes the graph to become disconnected.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      <em>Fleury's Algorithm.</em>
+      <em></em>
+
+      <ol>
+        <li>
+          <p>
+            Make a copy of the graph in pencil.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Start at one of the odd vertices if there are any;
+            otherwise start at any vertex.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Follow a path in the copy,
+            erasing each edge after you traverse it and numbering the corresponding edge in the original graph.
+            The only rule is to traverse a cut edge only if you are at a degree one vertex of the remaining graph.
+            If you are, then erase that vertex,
+            traverse the cut edge,
+      and then erase the cut edge.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Stop when there is no edge you can traverse.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Fleury's Theorem.</em>
+          If a graph is connected and has either no odd vertices or exactly two odd vertices,
+          then Fleury's Algorithm will produce an Euler Path.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      See the Project section for a proof of Fleury's Theorem.
+      There we will show that, when we apply Step 4, we will have an Euler Path.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Illustrate Fleury's Algorithm in class using the graph in <xref ref="FA">Figure</xref>.
+          Applying Fleury's Algorithm and Fleury's Theorem,
+          we will see that the next two conclusions follow immediately.
+        </p>
+      </statement>
+    </example>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Second Euler Path Theorem.</em>
+          If a graph is connected and has exactly 2 odd vertices,
+          then it has an Euler path.
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Second Euler Circuit Theorem.</em>
+          If a graph is connected and has no odd vertices,
+          then it has an Euler circuit (which is also an Euler path).
+        </p>
+      </statement>
+    </theorem>
+
+    <problem xml:id="EP">
+      <statement>
+        <p>
+          Decide whether or not each of the three graphs in <xref ref="FEP">Figure</xref>
+          has an Euler path or an Euler circuit.
+          If it has an Euler path or Euler circuit,
+          trace it on the graph by marking the start and end, and numbering the edges.
+          If it does not, then write a <em>complete sentence</em>
+          explaining how you know it does not.
+        </p>
+      </statement>
+    </problem>
+
+    <figure xml:id="FEP">
+      <caption>Three Graphs for <xref ref="EP">Problem</xref></caption>
+      <image source="images/a25eed73232f9ff34cb2b5a2d3b60bbee4d21256.png"/>
+    </figure>
+
+    <figure xml:id="FA">
+      <caption>Fleury's Algorithm</caption>
+      <image source="images/bb9f982d411595cbb5553be430bb9a35ad6dcf98.png"/>
+    </figure>
+
+    <problem>
+      <statement>
+        <p>
+          Use Fleury's Algorithm to find an Euler path for the graph below.
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/39a86fc4cf17cd9455202cd80c3535b20a0128e7.png"/>
+
+    <figure xml:id="EM">
+      <caption>Eulerization of the Mail Carrier Problem</caption>
+      \hspace{1cm}
+      <image source="images/327cd7b31315329e64ec950bf802da155c5ddcac.png"/>
+    </figure>
+
+    <p>
+      Returning to our mail carrier problem,
+      consider the problem of delivering mail in the top neighborhood illustrated in <xref ref="EM">Figure</xref>.
+      Because it has six odd vertices,
+      we know that the graph has no Euler path and thus we can't find an Euler Circuit.
+      Therefore, we can't travel down each block exactly once.
+      What is the smallest number of blocks that we can walk and still deliver all the mail?
+      To answer this we apply a process called the
+      <em>Eulerization</em> of the graph.
+      In the bottom copy of the graph in <xref ref="EM">Figure</xref>,
+      we have inserted four new edges so that the resulting graph has exactly two odd vertices.
+      This is the minimum number of edges that will reduce the number of odd vertices to two.
+      Because we can't build new roads
+      (we are mail carriers, not city planners),
+      the added edges represent the streets we must walk over twice,
+      not new streets.
+      The new graph is connected with exactly two odd vertices,
+      so has an Euler Path of length <m>25 (original \ edges) + 4 (added \ edges) = 29 (total \ edges)</m> blocks.
+      This is the shortest possible path that will cover each block in the neighborhood.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Apply the Eulerization process to the original Mail Carrier Problem in <xref ref="mail">Problem</xref>
+          at the beginning of the chapter.
+          What is the minimum number of blocks that must be walked in order to deliver all the mail?
+          EXTRA<fn>Before assigning this problem,
+          ask student to give their answers to <xref ref="mail">Problem</xref> and list them on the board.
+          Then ask them to find the real answer and compare it with those.</fn></p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          You are transferred to a new neighborhood, shown below.
+          Apply the Eulerization process to this new neighborhood so that you add the minimum possible number of edges.
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/de57c28451e7991cbfe7d1747f1f7cd0e08aec22.png"/>
+
+    <problem xml:id="last">
+      <statement>
+        <p>
+          Using the dots below,
+          copy your Eulerized graph above lightly with a pencil.
+          Use Fleury's algorithm to find an Euler path for this graph.
+          Be sure to mark the start and the end.
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/65e46cba3024ce361191384861ccadbadb9d2ac0.png"/>
+  </introduction>
+  <xi:include  href="section7-1.ptx" />
+</chapter>
+

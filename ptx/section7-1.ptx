@@ -1,0 +1,184 @@
+
+
+<section>
+  <title>Project:  Proof of Fleury's Theorem</title>
+  <p>
+    As we will see in the next chapter,
+    optimization problems often do not have a known and efficient solution that always works.
+    Fleury's Theorem says that the Mail Carrier Problem is one of the exceptional ones that does.
+  </p>
+
+  <p>
+    Notice that Fleury's Algorithm can be applied to any graph whereas Fleury's Theorem applies only to special graphs.
+    Assume we apply Fleury's Algorithm to some graph starting at some vertex <m>A</m>.
+    Each time we traverse an edge we erase it,
+    thereby ensuring that we will not traverse it more than once.
+    Since the number of edges is finite,
+    we must eventually stop at Step 4 because there is no edge we can traverse.
+    Now, there are only three possible reasons why there would be no edge we could traverse.
+
+    <ol>
+      <li>
+        <title>R1.</title>
+        <p>
+          We are at a degree 0 vertex,
+          having erased all other vertices and all edges.
+          In that case we have traversed all edges
+          (exactly once)
+          and have therefore found an Euler Path!<nbsp /> :)
+        </p>
+      </li>
+
+      <li>
+        <title>R2.</title>
+        <p>
+          We are at a degree 0 vertex but there are remaining edges we have not traversed.
+          In that case we can not extend our path to an Euler Path. :(
+        </p>
+      </li>
+
+      <li>
+        <title>R3.</title>
+        <p>
+          We are at a vertex of degree greater than one,
+          but every edge connecting to it is a cut edge.
+          In that case Step 2 prevents us from traversing any of these edges to complete an Euler Path. :(
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    We will prove Fleury's Theorem by showing that,
+    under the conditions it imposes,
+    neither R2 nor R3 will happen.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A <term>subgraph</term> of a graph is a subset of the vertices of the graph along with the edges that connected them in the original graph.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Let <m>\G</m> be a connected graph and let <m>e</m> be a cut edge of <m>\G</m> connecting vertex <m>A</m> with vertex <m>B</m>.
+    Let <m>\X</m> be the subgraph of <m>\G</m> made up of all vertices <m>C</m> such that there is a path from <m>C</m> to <m>A</m> that does not go over <m>e</m>.
+    In particular, <m>A</m> is in<nbsp /><m>\X</m>.
+    Let <m>\Y</m> be the subgraph made up of all of the remaining vertices.
+  </p>
+
+  <problem xml:id="Y">
+    <statement>
+      <p>
+        Show that a vertex <m>D</m> of <m>\G</m> is in <m>\Y</m> if and only if there is a path from <m>D</m> to <m>B</m> that does not go over<nbsp /><m>e</m>.
+        In particular, <m>B</m> is in <m>\Y</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="connected">
+    <statement>
+      <p>
+        If <m>e</m> is a cut edge,
+        the subgraphs <m>\X</m> and <m>\Y</m> are both connected.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="odd_vertex">
+    <statement>
+      <p>
+        The subgraphs <m>\X</m> and <m>\Y</m> each contain an odd vertex.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="connectedgrph">
+    <statement>
+      <p>
+        Assume Fleury's algorithm is applied to a connected graph.
+        Then, for each non-negative integer <m>n</m>,
+        the graph formed by the vertices and edges remaining after traversing <m>n</m> edges is connected.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="not_R2">
+    <statement>
+      <p>
+        Show that, if Fleury's Algorithm is applied to a connected graph,
+        then { R2} can not happen.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Up to now we have not mentioned the conditions Fleury's Theorem imposes on the number of odd vertices:
+    there are either no odd vertices or exactly two odd vertices.
+    We will need this hypothesis to show R3 can not happen either.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Assume Fleury's Algorithm is applied to a connected graph with two odd vertices.
+        Let <m>P</m> be the odd vertex where the path begins and let <m>Q</m> be the other odd vertex.
+        Prove the following is true for each non-negative integer<nbsp /><m>n</m>.
+        If the path traverses <m>n</m> edges, then either
+
+        <ol>
+          <li>
+            <p>
+              we are at vertex <m>Q</m> and there are no odd vertices in the remaining graph or
+            </p>
+          </li>
+
+          <li>
+            <p>
+              we are not at vertex <m>Q</m> and there are exactly two odd vertices in the remaining graph:
+              <m>Q</m> and the vertex we are at.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Assume Fleury's Algorithm is applied to a connected graph with no odd vertices.
+        Let <m>Q</m> be the vertex where the path begins.
+        Prove the following is true for each non-negative integer<nbsp /><m>n</m>.
+        If the path traverses <m>n</m> edges, then either
+
+        <ol>
+          <li>
+            <p>
+              we are at vertex <m>Q</m> and there are no odd vertices in the remaining graph or
+            </p>
+          </li>
+
+          <li>
+            <p>
+              we are not at vertex <m>Q</m> and there are exactly two odd vertices in the remaining graph:
+              <m>Q</m> and the vertex we are at.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the facts you have established to explain why R3 can not happen when Fleury's Algorithm is applied to a connected graph with either no odd vertices or exactly two odd vertices.
+        It follows that the path must end at Step 4 for reason R1, and therefore must be an Euler Path.
+      </p>
+    </statement>
+  </problem>
+</section>
+

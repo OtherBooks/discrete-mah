@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<docinfo>
+<macros>
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\notesname}{}
+\newcommand{\authormasthead}{
+\begin{flushleft}
+\hspace{4.4mm}
+\rule{0.3\linewidth}{0.3mm}
+\lettrine[lines=2]{J}{ournal of Inquiry-Based Learning in Mathematics}
+\rule{0.3\linewidth}{0.3mm}
+\vspace{0.2in}
+\end{flushleft}
+}
+\renewcommand{\enotesize}{\normalsize}
+\newcommand{\timestamp}{{Edited: \texttt{\now , \today}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\InstructorVersion}{\includecomment{annotation}}
+\newcommand{\StudentVersion}{\excludecomment{annotation}}
+\newcommand{\nin}{}
+\newcommand{\msk}{}
+\newcommand{\bsk}{}
+\newcommand{\gsk}{\giantskip}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\el}{\mathcal L}
+\newcommand{\ps}{\mathcal P}
+\newcommand{\ba}{\mathbf a}
+\newcommand{\bb}{\mathbf b}
+\newcommand{\bc}{\mathbf c}
+\newcommand{\bd}{\mathbf d}
+\newcommand{\be}{\mathbf e}
+\newcommand{\A}{\mathbf A}
+\newcommand{\B}{\mathbf B}
+\newcommand{\C}{\mathbf C}
+\newcommand{\D}{\mathbf D}
+\newcommand{\G}{\mathbf G}
+\newcommand{\Q}{\mathbf P}
+\newcommand{\R}{\mathbb R}
+\newcommand{\U}{\mathbb U}
+\newcommand{\X}{\mathbf X}
+\newcommand{\Y}{\mathbf Y}
+\newcommand{\Z}{\mathbb Z^+}
+\newcommand{\nat}{\mathbb N}
+\newcommand{\FSA}{\mathbb{FSA}}
+\newcommand{\lda}{\pmb \lambda}
+\newcommand{\tr}{$\blacktriangleright$}
+\newcommand{\tl}{$\blacktriangleleft$}
+\newcommand{\tu}{$\blacktriangle$}
+\newcommand{\td}{$\blacktriangledown$}
+\def\dsp{\displaystyle}
+</macros>
+
+<latex-image-preamble>
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{through,intersections,decorations,shadows,fadings}
+
+\usepackage{pgfplots}
+
+</latex-image-preamble>
+
+</docinfo>
+
+
+<book>
+<title>Discrete Mathematics</title>
+<frontmatter>
+<titlepage>
+<author>
+<personname>David M. Clark\hspace{19mm}  \hspace{0mm}  W. Ted Mahavier</personname>
+</author>
+</titlepage>
+</frontmatter>
+
+
+<xi:include href="./chapter1.ptx" />
+
+<xi:include href="./chapter2.ptx" />
+
+<xi:include href="./chapter3.ptx" />
+
+<xi:include href="./chapter4.ptx" />
+
+<xi:include href="./chapter5.ptx" />
+
+<xi:include href="./chapter6.ptx" />
+
+<xi:include href="./chapeuler.ptx" />
+
+<xi:include href="./chapter8.ptx" />
+
+<xi:include href="./chapter9.ptx" />
+
+<xi:include href="./chapter10.ptx" />
+
+<xi:include href="./chapter11.ptx" />
+
+<xi:include href="./chapter12.ptx" />
+
+<xi:include href="./chapter13.ptx" />
+
+<backmatter>
+
+<xi:include href="./bibliography.ptx" />
+
+</backmatter>
+</book>
+</mathbook>

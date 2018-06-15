@@ -1,0 +1,471 @@
+
+
+<section>
+  <title>Project:  Edges with Equal Weights</title>
+  <p>
+    The weighted graphs presented in this chapter have all had the property that no two edges have the same weight.
+    If, in the application of the greedy algorithms,
+    there is more than one edge with minimal weight,
+    we simply pick one of them at random.
+    This means that we may get different outcomes depending on the choices we make.
+    See how much variation there is in the outcomes when your class does the following problem.
+  </p>
+
+  <problem xml:id="prob_friends">
+    <statement>
+      <p>
+        Suppose that you need to make a delivery to each of 11 friends and then return home.
+        What's more,
+        your car is in very bad shape and you don't want to drive it any further than absolutely necessary.
+        Call your house A and the houses of your friends B, C, D, E, F, G, H, I, J, K and L. <xref ref="table">Table</xref>
+        below indicates the distances between each pair of houses.
+        You need to find a Hamilton circuit through the complete graph on 12 vertices, A, B, C, D, E, F, G, H, I, J, K and L, which has as small a total distance as possible.
+        According to what you learned in <xref ref="prob__bf_time">Problem</xref>,
+        you are quite certain that you don't want to use the Brute Force Algorithm to find this circuit.
+      </p>
+    </statement>
+  </problem>
+
+  <table xml:id="table">
+    <caption>table of distances between 12 houses</caption>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell></cell>
+        <cell>A</cell>
+        <cell>B</cell>
+        <cell>C</cell>
+        <cell>D</cell>
+        <cell>E</cell>
+        <cell>F</cell>
+        <cell>G</cell>
+        <cell>H</cell>
+        <cell>I</cell>
+        <cell>J</cell>
+        <cell>K</cell>
+        <cell>L</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>A</cell>
+        <cell></cell>
+        <cell>8</cell>
+        <cell>15</cell>
+        <cell>7</cell>
+        <cell>6</cell>
+        <cell>9</cell>
+        <cell>10</cell>
+        <cell>16</cell>
+        <cell>11</cell>
+        <cell>7</cell>
+        <cell>9</cell>
+        <cell>10</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>B</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>9</cell>
+        <cell>12</cell>
+        <cell>6</cell>
+        <cell>9</cell>
+        <cell>11</cell>
+        <cell>15</cell>
+        <cell>12</cell>
+        <cell>8</cell>
+        <cell>9</cell>
+        <cell>6</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>C</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>7</cell>
+        <cell>10</cell>
+        <cell>11</cell>
+        <cell>9</cell>
+        <cell>5</cell>
+        <cell>6</cell>
+        <cell>9</cell>
+        <cell>10</cell>
+        <cell>12</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>D</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>8</cell>
+        <cell>6</cell>
+        <cell>13</cell>
+        <cell>10</cell>
+        <cell>9</cell>
+        <cell>5</cell>
+        <cell>11</cell>
+        <cell>7</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>E</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>10</cell>
+        <cell>7</cell>
+        <cell>6</cell>
+        <cell>9</cell>
+        <cell>10</cell>
+        <cell>8</cell>
+        <cell>9</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>F</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>9</cell>
+        <cell>8</cell>
+        <cell>10</cell>
+        <cell>6</cell>
+        <cell>5</cell>
+        <cell>16</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>G</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>7</cell>
+        <cell>15</cell>
+        <cell>7</cell>
+        <cell>6</cell>
+        <cell>8</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>H</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>5</cell>
+        <cell>9</cell>
+        <cell>14</cell>
+        <cell>10</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>I</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>8</cell>
+        <cell>19</cell>
+        <cell>7</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>J</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>12</cell>
+        <cell>5</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>K</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>6</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <ol>
+    <li>
+      <p>
+        Pick a random Hamilton circuit and compute its total length.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Apply the Nearest Neighbor Greedy Algorithm,
+        starting from A (only), to find a Hamilton circuit.
+        What is its total length?
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Apply the Nearest Neighbor Greedy Algorithm,
+        starting from D (only), to find a Hamilton circuit.
+        What is its total length?
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Apply the Cheapest Link Greedy Algorithm to find a Hamilton circuit.
+        What is the length of this circuit?
+      </p>
+    </li>
+  </ol>
+
+  <p>
+    The example in <xref ref="prob_friends">Problem</xref>
+    shows how the greedy algorithms are normally used.
+    They are the best methods currently available to efficiently compute low weight Hamilton circuits when the Brute Force Algorithm is not feasible to use,
+    as illustrated in <xref ref="prob__bf_time">Problem</xref>.
+    However, there are instances where they can fail completely.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Construct a weighted graph with 4 vertices and some edges of equal weight such that both greedy algorithms can be used to obtain either a minimum weight Hamilton circuit or a maximum weight Hamilton circuit,
+        depending on the choices made along the way.
+      </p>
+    </statement>
+  </problem>
+</section>
+

@@ -1,0 +1,546 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Machine Minimization</title>
+  <p>
+    When writing a computer program or mathematical proof,
+    the first goal is to create one that works.
+    The second goal is to make it as simple as possible.
+    The simpler a program or proof is,
+    the easier it is to be certain that it really does work.
+    The simpler it is, the easier it is to maintain and modify.
+  </p>
+
+  <p>
+    The finite state acceptor model for computing machines gives us a context in which this simplification can be fully realized.
+    In this chapter we will see how,
+    given a finite state acceptor,
+    we can construct a new finite state acceptor of minimal complexity that recognizes exactly the same language.
+    This work will lead to a very useful test to tell whether or not a given language is recognized by some FSA.
+  </p>
+
+  <p>
+    In general it is difficult to measure the complexity of a computer program or mathematical proof.
+    A short program or proof can utilize complex logic while a long program or proof can be straightforward and even repetitive.
+    In the case of a finite state acceptor <m>M = \langle \Sigma, Q,s,\delta,Y\rangle</m>,
+    the <em>number of internal states</em>, <m>|Q|</m>,
+    provides us with a useful measure of the complexity of<nbsp /><m>M</m>.
+    Our goal is to find a method to generate from an FSA <m>M</m> recognizing a language <m>L</m>,
+    a new FSA <m>M'</m> such that
+
+    <ol>
+      <li>
+        <p>
+          <m>M'</m> also recognizes <m>L</m> and
+        </p>
+      </li>
+
+      <li>
+        <p>
+          no other FSA <m>N</m> that recognizes <m>L</m> has fewer states than <m>M'</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Such an FSA <m>M'</m> is called a <em>minimal</em>
+    FSA. To see an example of a minimal FSA, let <m>L_0</m> be the language recognized by the FSA <m>M_0</m> in <xref ref="fsaM0">Figure</xref>.
+  </p>
+
+  <figure xml:id="fsaM0">
+    <caption>A Finite State Acceptor, <m>M_0</m>.</caption>
+    <image source="images/8cda5ea978e045d3ee9f4b7e9019d8d727b7280d.png"/>
+  </figure>
+
+  <problem xml:id="L0">
+    <statement>
+      <p>
+        Note that <m>M_0</m> has two accepting states, <m>s</m> and <m>v</m>.
+        Find a regular expression for the language <m>L_0</m>.
+        EXTRA<fn>The simplest solution is <m>(00\cup 11)^*</m>.</fn></p>
+    </statement>
+  </problem>
+
+  <problem xml:id="m0_">
+    <statement>
+      <p>
+        Construct an FSA <m>M_0'</m> that also recognizes <m>L_0</m> but has only 4 states,
+        one of which will be a dead state.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="x4states">
+    <statement>
+      <p>
+        Let <m>N_0</m> be any FSA that recognizes <m>L_0</m> and let <m>s'</m> be its start state.
+        Explain why <m>s'</m>, <m>\delta(s',0)</m>,
+        <m>\delta(s',1)</m> and <m>\delta^*(s',10)=\delta(\delta(s',1),0)</m> must all be distinct states.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    You have just shown that any FSA <m>N_0</m> that recognizes <m>L_0</m> has at least as many states as <m>M_0'</m> that you constructed in <xref ref="m0_">Problem</xref>.
+    Thus your FSA <m>M'_0</m> is a minimal FSA for <m>M_0</m> in <xref ref="fsaM0">Figure</xref>.
+    Our goal is to find a general procedure that will produce,
+    from any FSA <m>M</m>,
+    a minimal FSA <m>M'</m> that recognizes the same language as <m>M</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Given strings <m>u,v\in \Sigma^*</m>,
+        the <term>concatenation</term>
+        of <m>u</m> and <m>v</m> is the string <m>w = uv</m> formed by tacking <m>v</m> onto the end of <m>u</m>.
+        We say that <m>u</m> is a <term>prefix</term>
+        of <m>w</m> and that <m>v</m> is a
+        <term>suffix</term> of<nbsp /><m>w</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>L \subseteq \Sigma^*</m> be a language and <m>w \in \Sigma^*</m>.
+        We define the <term>right-set</term>
+        for <m>w</m> to be <m>R_w = \{z\in \Sigma^* \mid wz\in L\}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="right-sets">
+    <statement>
+      <p>
+        Using the regular expression you found in <xref ref="L0">Problem</xref> for <m>L_0</m>,
+        find a regular expression for each of these right-sets.
+        <me>
+          R_0 R_{001}  R_{00110}  R_{0011011}  R_{10}   R_{11}  R_{110000111}  R_{0011}
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>L \subseteq \Sigma^*</m> be a language.
+        If <m>x,y \in \Sigma^*</m>,
+        then we write <m>x\equiv_L y</m> if <m>R_x = R_y</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>L \subseteq \Sigma^*</m> is any language,
+        then <m>\equiv_L</m> is an equivalence relation on <m>\Sigma^*</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Note that <m>w</m> is not a prefix of any string in <m>L</m> if and only if <m>R_w = \emptyset</m>.
+    Thus the set of all strings that are not a prefix of any member of <m>L</m> is an <m>\equiv_L</m>-class.
+    We denote the <m>\equiv_L</m>-class by <m>Z(L)</m>,
+    the set of strings whose right-set is empty.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Referring to <xref ref="right-sets">Problem</xref>,
+        tell which of the strings 0, 001, 00110, 0011011, 10, 11, 110000111, 0011 are <m>\equiv_{L_0}</m>-equivalent.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="x4classes">
+    <statement>
+      <p>
+        Let <m>T = \{\lambda, 0,1,01\}</m>.
+
+        <ol>
+          <li>
+            <p>
+              Show that no two strings in <m>T</m> are <m>\equiv_{L_0}</m>-equivalent.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Explain why every string <m>w\in \{0,1\}^*</m> is
+              <m>\equiv_{L_0}</m>-equivalent to some string in<nbsp /><m>T</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <xref ref="x4classes">Problem</xref>
+    shows that there are exactly four different <m>\equiv_{L_0}</m><ndash />classes:
+    <me>
+      [\lambda] = L_0  [0] = L_00  [1] = L_01  [01] = \Sigma^*\sim(L_0\cup L_00\cup L_01) = Z(L_0)
+    </me>.
+  </p>
+
+  <p>
+    If any member of <m>L_00</m> is extended on the right by adding a 0, the result is always a string in <m>L_0</m>.
+    If any member of <m>L_00</m> is extended on the right with a 1 instead,
+    we get a string in <m>Z(L_0)</m>.
+    These facts are summarized in <xref ref="ffssaa2">Figure</xref>.
+  </p>
+
+  <figure xml:id="ffssaa2">
+    <caption>A Minimal Finite State Acceptor</caption>
+    <image source="images/af21da1968373dd5a04cce216626e7e6029472d0.png"/>
+  </figure>
+
+  <p>
+    Since <m>\lambda\in L_0</m>,
+    we can take any string <m>w\in \{0,1\}^*</m> and find which
+    <m>\equiv_{L_0}</m>-class <m>w</m> is in by tracing the diagram,
+    building <m>w</m> by starting with <m>\lambda</m> in <m>L_0</m> and successively adding 0s or 1s on the right until we have <m>w</m>.
+    Our ending point will be the
+    <m>\equiv_{L_0}</m><ndash />class of <m>w</m>.
+    If we land in <m>L_0</m>,
+    then <m>w\in L_0</m>; otherwise <m>w \notin L_0</m>.
+    What we have done is to find a systematic way to build an FSA for the language<nbsp /><m>L_0</m> using the
+    <m>\equiv_{L_0}</m>-classes as internal states.
+    In fact, according to <xref ref="x4states">Problem</xref>,
+    this is a minimal FSA to recognize <m>L_0</m>!
+  </p>
+
+  <p>
+    We would like to use the same procedure to construct from other languages <m>L</m> a minimal FSA
+    <m>M_L = \langle \Sigma, Q, s, Y, \delta \rangle</m> that recognizes<nbsp /><m>L</m>.
+    Since we are using the <m>\equiv_L</m>-classes of <m>\Sigma^*</m> as states,
+    this procedure could only be used for languages <m>L</m> with finitely many <m>\equiv_L</m> classes.
+    The FSA <m>M_L</m> is called the
+    <em>standard</em> <m>FSA</m> for <m>L</m>.
+    We summarize the construction of <m>M_L</m> from <m>L</m> as follows.
+
+    <ol>
+      <li>
+        <p>
+          Compute enough right-sets to determine the distinct <m>\equiv_L</m>-classes.
+          If there are only finitely many <m>\equiv_L</m>-classes,
+          we will take them to be the set <m>Q</m> of internal states for <m>M_L</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Let <m>s = [\lambda]</m>, the
+          <m>\equiv_L</m>-class of the empty string.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Let <m>Y = \{[x] \mid x\in L\}</m>,
+          the <m>\equiv_L</m>-classes of members of <m>L</m>. (This set is unambiguously defined since you can check that,
+          for all <m>x,y\in \Sigma^*</m>,
+          if <m>x\in L</m> and
+    <m>x\equiv_L y</m>, then <m>y\in L</m>).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Let <m>\delta([x],a) = [ax]</m>. (This
+          <m>\equiv_L</m>-class is unambiguously defined since you can check that,
+          for all <m>x,y\in \Sigma^*</m> and <m>a\in \Sigma</m>,
+          if <m>x\equiv_L y</m>,
+    then <m>xa \equiv_L ya</m>).
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Show that each of the following languages <m>L</m> has only finitely many
+    <m>\equiv_L</m>-classes and then construct its standard FSA.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = 0^*1^*2^*</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = 00(1^*\cup 2^*)</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = (1^*\cup 2^*)00</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = 111\cup(020)^*</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = (111)^*1</m>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Can we repeat this construction with any language <m>L</m>,
+    using the <m>\equiv_L</m><ndash />classes to find an FSA for <m>L</m>?
+    Obviously, we cannot use the
+    <m>\equiv_L</m><ndash />classes as states of a <em>finite</em>
+    state acceptor if there are infinitely many of them!
+    The following example shows that the set of
+    <m>\equiv_L</m>-classes is not always finite.
+  </p>
+
+  <problem xml:id="x5_3">
+    <statement>
+      <p>
+        Let <m>L_= =\{a^nb^n \mid n=1,2,3,\dots\}</m>.
+        Show that there are infinitely many
+        <m>\equiv_{L_=}</m><ndash />classes by making an infinite list of strings,
+        no two of which are equivalent by <m>\equiv_{L_=}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We will show that, if the set of
+    <m>\equiv_L</m><ndash />classes is finite,
+    then this construction will <em>always</em>
+    produce a minimal FSA for the language<nbsp /><m>L</m>.
+  </p>
+
+  <p>
+    <em>Standard FSA Theorem.</em>
+    Let <m>L\subseteq \Sigma^*</m> be a language such that
+    <m>\Sigma^*</m> has only finitely many different <m>\equiv_L</m><ndash />classes.
+    Then the standard FSA <m>M_L</m> recognizes<nbsp /><m>L</m>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        To prove this theorem we need to see which strings <m>w</m> are accepted by <m>M_L</m>,
+        that is, when <m>\delta^*(s,w)</m> is in<nbsp /><m>Y</m>.
+        Use Mathematical Induction to show that,
+        if <m>w</m> has length <m>m</m>,
+        then <m>\delta^*(s,w) = [w]</m>.
+        It will follow that <m>\delta^*(s,w)\in Y</m> if and only if <m>w\in L</m>,
+        so <m>M_L</m> recognizes <m>L</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Our goal was to start with an FSA <m>M</m> recognizing a language <m>L</m>,
+    and produce a minimal FSA <m>M'</m> that also recognizes<nbsp /><m>L</m>.
+    If it happens that there are only finitely many <m>\equiv_L</m>-classes,
+    then we could try using the standard FSA for <m>L</m>.
+    Conveniently,
+    it will turn out that this strategy works for every FSA <m>M</m>!
+    To see why, consider an arbitrary FSA
+    <m>N = \langle \Sigma, Q,s,\delta,Y \rangle</m> which recognizes <m>L</m>.
+    We now define a second equivalence relation on <m>\Sigma^*</m>,
+    this one <em>based on the machine</em> <m>N</m>.
+    For <m>x,y\in \Sigma^*</m>, we say that
+    <me>
+      x\equiv_{N} y \text{ if }  \delta^*(s,x)=\delta^*(s,y)
+    </me>.
+  </p>
+
+  <p>
+    Thus two strings are equivalent if <m>N</m> lands in the same state reading
+    one as reading the other.
+    A state <m>q</m> of <m>N</m> is said to be
+    <em>accessible</em> if there is
+    <em>some</em> string <m>x</m> such that
+    <m>\delta^*(s,x) = q</m>,
+    that is, <m>N</m> can reach <m>q</m> from the start state.
+    For
+    each accessible state <m>q</m> we have a distinct <m>\equiv_{N}</m><ndash />class
+    <me>
+      K_q = \{x\in \Sigma^* \mid \delta^*(s,x) = q\}
+    </me>.
+  </p>
+
+  <p>
+    <em>Minimal FSA Theorem. </em>
+    <em>If <m>L</m> is a language recognized by some FSA, then
+    <m>\Sigma^*</m> has only finitely many
+    <m>\equiv_L</m>-classes and the standard FSA <m>M_L</m> is a minimal FSA that recognizes<nbsp /><m>L</m>.</em>
+  </p>
+
+  <p>
+    <em>Proof.</em> Let <m>N</m> be any FSA that recognizes <m>L</m> and let
+    <m>q_1, q_2,\dots,q_n</m> be a list of the accessible states of <m>N</m>.
+    Then <m>K_{q_1}, K_{q_2},\dots, K_{q_n}</m> is a list of all of the <m>\equiv_{N}</m><ndash />classes.
+    We will show that the number of <m>\equiv_L</m>-classes in
+    <m>\Sigma^*</m> is no more than<nbsp /><m>n</m>.
+    We will do this by showing that each <m>\equiv_{L}</m><ndash />class is a union of <m>\equiv_N</m><ndash />classes. (This fact is sometimes stated by saying that the partition induced by
+    <m>\equiv_{N}</m> is a <em>refinement</em>
+    of the partition induced by <m>\equiv_L</m>.)
+  </p>
+
+  <p>
+    Let <m>x\equiv_N y</m>.
+    We must show that <m>x\equiv_L y</m>.
+    Since <m>x\equiv_N y</m>, we have,
+    for all <m>z\in \Sigma^*</m>,
+    that <m>\delta^*(s,x) =\delta^*(s,y)</m> and consequently
+    <me>
+      \delta^*(s,xz) = \delta^*(\delta^*(s,x),z) = \delta^*(\delta^*(s,y),z) = \delta^*(s,yz)
+    </me>.
+  </p>
+
+  <p>
+    Thus <m>\delta^*(s,xz)\in Y</m> if and only it <m>\delta^*(s,yz)\in Y</m>,
+    and therefore <m>xz\in L</m> if and only if <m>yz\in L</m>.
+    But this tells us that <m>x\equiv_L y</m>,
+    so <m>\Sigma^*</m> has at most <m>n</m> different <m>\equiv_L</m>-classes.
+  </p>
+
+  <p>
+    Recall that <m>N</m> was chosen as an arbitrary FSA recognizing <m>L</m>.
+    Since <m>N</m> has at least <m>n</m> states and the standard FSA <m>M_L</m> has at most <m>n</m> states
+    (the <m>\equiv_L</m>-classes),
+    we see that <m>M_L</m> is a minimal FSA that recognizes<nbsp /><m>L</m>.
+  </p>
+
+  <p>
+    Our original finite state acceptor <m>M_0</m> for <m>L_0</m>
+    (<xref ref="fsaM0">Figure</xref>),
+    for example, has six accessible states
+    <m>s,
+    u, v, w, z</m> and <m>x</m> which give us a partition of each of the
+    <m>\equiv_{L_0}</m><ndash />classes into <m>\equiv_{M_0}</m><ndash />classes:
+    <m>L_0 = K_s \cup K_v</m>,
+    <m>L_01= K_x \cup K_w</m>,
+    <m>L_00= K_u</m> and <m>Z(L_0)= K_z</m>.
+  </p>
+
+  <figure xml:id="figM1">
+    <caption>FSA <m>M_1</m> for <m>L_1 = (111)^*1</m></caption>
+    <image source="images/3c3978f3322dfbd92e9a7e76d0834d979995b381.png"/>
+  </figure>
+
+  <problem>
+    <statement>
+      <p>
+        <xref ref="figM1">Figure</xref> is an FSA <m>M_1</m> for the language <m>L_1 = (111)^*1</m>.
+        Find a regular expression for each <m>\equiv_{M_1}</m><ndash />class:
+        <m>K_r</m>, <m>K_s</m>, <m>K_t</m>, <m>K_u</m>, <m>K_v</m>,
+        <m>K_w</m>, <m>K_x</m>, <m>K_y</m> and<nbsp /><m>K_z</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Express each <m>\equiv_{L_1}</m><ndash />class as a union of <m>\equiv_{M_1}</m><ndash />classes,
+        thereby illustrating the proof that <m>M_1</m> must have at least as many states as there are <m>\equiv_{L_1}</m><ndash />classes.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Construct the minimal FSA <m>M_1</m> for <m>L_1</m> from the <m>\equiv_{L_1}</m>-classes.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    As a byproduct of our minimization work,
+    we can now extract a convenient test to tell whether or not a given language is recognized by some FSA. Relative to a fixed choice of <m>\Sigma</m>,
+    we denote by <m>\FSA</m> the set of all languages
+    <m>L \subseteq \Sigma^*</m> that are recognized by some FSA.
+  </p>
+
+  <p>
+    <em><m>\FSA</m> Theorem.</em>
+    <em>A language <m>L\subseteq \Sigma^*</m> is in <m>\FSA</m> if and only if the set of
+    <m>\equiv_L</m><ndash />classes in <m>\Sigma^*</m> is finite.</em>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Use the Standard FSA Theorem and the Minimal FSA theorem to prove the <m>\FSA</m> Theorem.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    For example,
+    this theorem tells us for certain that the language <m>L_=</m> in <xref ref="x5_3">Problem</xref> is <em>not</em>
+    recognized by any FSA because there are infinitely many <m>\equiv_{L_=}</m><ndash />classes.
+    For the next four problems,
+    demonstrate that the given language <m>L</m> is not in <m>\FSA</m>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = \{0^n10^n\mid n=1,2,3,\dots\}</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L = \{wcw\mid w\in \{a,b\}^*\}</m>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L_{re}</m> is the set of regular expressions over the alphabet <m>\{a,b,c\}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        <m>L\subseteq \{a,b\}^*</m> is the set of strings <m>w</m> containing the same number of <m>a</m>'s as <m>b</m>'s.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    EXTRA
+  </p>
+</chapter>
+

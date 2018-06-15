@@ -1,0 +1,168 @@
+
+
+<section xml:id="projeqclass">
+  <title>Project: More on Equivalence Classes</title>
+  <problem>
+    <statement>
+      <p>
+        Suppose <m>R</m> is an equivalence relation on the set <m>A</m>.
+        Prove that the set of all equivalence classes defined by <m>R</m> form a partition of <m>A</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        We might think of two compound sentences in propositional logic to be <q>equivalent</q>
+        if they have the same truth tables.
+        For example, the truth table below shows that every implication
+        <m>p\rightarrow q</m> is equivalent to its contrapositive <m>\lnot q \rightarrow \lnot p</m>.
+      </p>
+
+      <table>
+        <caption>1 is True; 0 is False</caption>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>p</m></cell>
+            <cell><m>q</m></cell>
+            <cell><m>p\rightarrow q</m></cell>
+            <cell><m>\lnot q \rightarrow \lnot p</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell>0</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell>0</cell>
+            <cell>0</cell>
+            <cell>0</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        Let <m>\A</m> be the (infinite) set of all compound sentences in propositional logic that can be constructed using the sentence variables <m>p</m> and <m>q</m> and the connectives <m>\lnot</m>,
+        <m>\land</m>,
+        <m>\lor</m> and <m>\rightarrow</m>.
+        For <m>a,b \in A</m> we say that
+        <m>a\equiv b</m> if <m>a</m> and <m>b</m> have the same truth table.
+
+        <ol>
+          <li>
+            <p>
+              Show that <m>\equiv</m> is an equivalence relation.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              List of as many non-equivalent compound sentences as you can.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              How many different equivalence classes are there?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\mathbf S = \{a,b,c,d,e,f,g,h\}</m>,
+        let <m>\mathbf T = \{a,b,c\}</m> and let <m>\A</m> be the set of all (<m>2^8</m>) subsets of <m>\mathbf S</m>.
+        For <m>X,Y \in \A</m>,
+        we define <m>X R Y</m> if <m>X</m> and <m>Y</m> have the same intersection with <m>\mathbf T</m>.
+        Determine if <m>R</m> is an equivalence relation and if so,
+        describe the equivalence classes.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\A = \{0,1\}^5</m> be the set of 32 different five-tuples of 0s and 1s, that is,
+        all sequences <m>(a,b,c,d,e)</m> where <m>a,b,c,d,e\in\{0,1\}</m>.
+        For <m>x,y \in \A</m>,
+        define <m>x R y</m> to mean that <m>x</m> and <m>y</m> have the same number of 1s.
+        Show that <m>R</m> is an equivalence relation and write down all the members of each of the different equivalence classes.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>n</m> is a positive integer and let
+        <m>\A = \{0,1\}^n</m> be the set of all <m>n</m><ndash />tuples of 0s and 1s.
+        For <m>x,y \in \A</m>,
+        again define <m>xR y</m> to mean that <m>x</m> and <m>y</m> have the same number of 1s.
+        How many different equivalence classes does <m>\A</m> have?
+      </p>
+    </statement>
+  </problem>
+</section>
+

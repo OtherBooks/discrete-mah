@@ -1,0 +1,437 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Traveling Salesman Problems</title>
+  <introduction>
+    <p>
+      Most phones and GPS units have the capability to allow you to input multiple locations and have the unit compute a path that visits all locations while minimizing your choice of time or distance.
+      Does yours always find the best path?
+      Ours don't.
+      The unit most likely uses one of the algorithms in this chapter.
+      The Traveling Salesman Problem (TSP) models a variety of different real world problems where we seek to minimize the time required to do something:
+
+      <ul>
+        <li>
+          <title>work orders,</title>
+          <p>
+            where vertices represent repair jobs and weights represent times required to re-tool for the next job;
+          </p>
+        </li>
+
+        <li>
+          <title>jobs on a machine,</title>
+          <p>
+            where vertices represent tasks and weights represent times to reconfigure the machine for the next task;
+          </p>
+        </li>
+
+        <li>
+          <title>circuit boards,</title>
+          <p>
+            where vertices represent holes to be drilled in the board and weights represent times to rotate the board into the new position.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Returning to your employment status... Having determined that the shortest mail route required nine-hour days,
+      you've decided to look for a job as a traveling salesman.
+      A health food supplier is looking for someone to make deliveries to five stores in the region.
+      <xref ref="HF">Figure</xref> shows the five stores and the distances between them in miles.
+      You will be paid for each trip that visits all five stores.
+    </p>
+
+    <figure xml:id="HF">
+      <caption>Health Food Stores</caption>
+      <image source="images/92f6c504f9639e95fd832ed35cce755ddd3f6a7c.png"/>
+    </figure>
+
+    <p>
+      This looks good since you can travel at your own pace and won't have to worry about graph theory!
+      Since you live near <m>A</m>, you decide on the loop,
+      <me>
+        A \to B \to C \to D \to E \to A
+      </me>
+      which is
+      <me>
+        60+70+65+100+90 =385 \textrm{ miles}
+      </me>.
+    </p>
+
+    <p>
+      On second thought, you observe that you
+      <em>could</em> travel the loop,
+      <me>
+        A \to B \to D \to E \to C \to A
+      </me>
+      which is only
+      <me>
+        60+40+110+55+100 = 365 \textrm{ miles}
+      </me>.
+    </p>
+
+    <p>
+      Your brain starts to hurt when you wonder,
+      <q>What is the shortest route?</q>
+      and <q>Just how many routes are there?</q>
+      Back to graph theory and counting...
+    </p>
+
+    <problem xml:id="BFA_Example">
+      <statement>
+        <p>
+          List all the possible routes starting and ending at <m>A</m>,
+          and hitting every other store exactly once.
+          List the total distance traveled for each route.
+          What is a <m>(</m>the?<m>)</m> shortest route?
+          What is a <m>(</m>the?<m>)</m> longest route?
+          Could there be a shorter route starting and ending somewhere else?
+          EXTRA<fn>The last question in this problem is placed here with the hope that students will recognize that they need only start and end at one vertex <m>A</m> because the path <m>BACDEB</m> has the same length as the path <m>ACDEBA</m>.
+          So considering all paths starting and ending at <m>A</m> is sufficient.</fn></p>
+      </statement>
+    </problem>
+
+    <p>
+      Let's rephrase this problem in the language of graph theory.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>weighted graph</term>
+          is a graph in which each edge has been assigned a positive number called its <term>weight</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          The <term>weight</term>
+          of a circuit is the sum of the weights of its edges.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A circuit which passes through every vertex exactly once is called a
+          <term>Hamilton circuit</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>minimum weight Hamilton circuit</term>
+          is a Hamilton circuit that has the smallest possible weight of all Hamilton circuits.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      In graph theory terms, the <em>TSP</em>
+      is the problem of finding a minimum weight Hamilton circuit.
+      Notice that there is an edge between every pair of stores in <xref ref="HF">Figure</xref>.
+      Such a graph is called <em>complete</em>.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>complete graph</term>
+          is a graph in which every pair of distinct vertices is connected by an edge.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          How many Hamilton circuits are there in a complete graph on three vertices?
+          On four vertices?
+          On twelve vertices?
+          On <m>N</m> vertices?
+          EXTRA<fn>We hope that a student discovers that given a complete graph and a vertex on that graph,
+          there are <m>(N-1)!</m> Hamilton circuits that start and end at this vertex if we consider two circuits the same when they follow the same edges in the same direction. (In fact,
+          there would be half this many if were also considered reversals to be the same.) When a student solves this problem, I typically demonstrate the following nice way to implement the brute force method by using a tree to see that we list every possible circuit.
+          Consider the complete graph on six vertices, <m>A</m>,
+          <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m> and <m>F</m>.
+          Starting with <m>A</m>, there are 5 places we can go:
+          <m>B</m>, <m>C</m>, <m>D</m>,
+          <m>E</m> or <m>F</m>. { <image source="images/0975d1b880239e4cd5985223ba9cc18946b2d384.png"/> } From any one of these,
+          say C, there are 4 places we can go: B, D, E, F. From D we can continue to any of 3 places: B, E or F. From F we have 2 choices: B or E, and from each of these there is only 1 choice.
+          The total number of inequivalent Hamilton circuits in this complete graph with six vertices is therefore <m>5\times 4\times 3\times 2\times 1 = 5! = 120</m>.</fn></p>
+      </statement>
+    </problem>
+
+    <p>
+      The TSP is more complex for non-complete graphs.
+      As we have seen, a complete graph has many Hamilton circuits.
+      In contrast, a non-complete graph may have no Hamilton circuit,
+      and the problem of determining if a non-complete graph has a Hamilton circuit at all is a difficult one.
+      Therefore we will consider complete graphs in this chapter except for the last problem of the chapter before the project section.
+    </p>
+
+    <p>
+      We will study three different algorithms for solving the TSP, each of which is not completely satisfactory for a different reason.
+      The first method we study is the one you applied above.
+    </p>
+
+    <p>
+      <em>Brute Force TSP Algorithm.</em> <em></em>
+
+      <ol>
+        <li>
+          <p>
+            List all Hamilton circuits.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Compute the total weight of each circuit in the list.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Pick out a minimum weight circuit.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      This algorithm finds all optimal solutions,
+      since we check every possible solution.
+      However, the time required to execute the algorithm grows rapidly as we add new vertices.
+      Suppose we have a weighted graph with 12 vertices.
+      To decide if this graph has an Euler path,
+      and then to use Fleury's Algorithm to find that Euler Path,
+      might take 10 minutes.
+      The time required to solve the TSP with the Brute Force Algorithm for a similar sized graph is somewhat longer.
+    </p>
+
+    <problem xml:id="prob__bf_time">
+      <statement>
+        <p>
+          Suppose you want to use the Brute Force Algorithm to solve the TSP for a graph with 12 vertices,
+          that you can compute the weight of one Hamilton circuit in 10 minutes and that the fate of the world rests on your results.
+          How long will it take you to check all of the different circuits?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      This problem suggests that we consider other more practical algorithms.
+      The next two algorithms are called
+      <em>greedy algorithms</em>
+      because at each step we do whatever is most advantageous to us at that moment,
+      without planning ahead.
+    </p>
+
+    <p>
+      <em>Nearest Neighbor Greedy Algorithm.</em>
+      <em></em>
+
+      <ol>
+        <li>
+          <p>
+            Choose any vertex as a starting point.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            At each step, go to any one of the closest remaining vertices.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Once every vertex has been visited, return home.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Now, repeat this process starting at another vertex.
+      Once you have created circuits using each vertex as a starting point,
+      compare the weights of all the circuits and choose a circuit of minimum weight. }
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Apply the Nearest Neighbor Greedy Algorithm to the Health Food Store problem in <xref ref="HF">Figure</xref>.
+          You need to start by drawing 5 copies of the vertices of the graph,
+          one for each starting place.
+          Circle the starting vertex of each one,
+          and then insert the edges that you use for your circuit numbering them as you add them.
+          Write under each one the weight of the path you get.
+          Finally, tell which path is the shortest.
+          That is your solution to the TSP.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      The Nearest Neighbor Greedy Algorithm is more time efficient than the Brute Force Algorithm.
+      Our next algorithm, The Cheapest Link Greedy Algorithm,
+      is even more time efficient.
+    </p>
+
+    <p>
+      <em>Cheapest Link Greedy Algorithm.</em> <em></em>
+    </p>
+
+    <ol>
+      <li>
+        <p>
+          Make a copy of the vertices of the original graph.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Repeat Step 3 until you have a Hamilton circuit.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Add a minimal weight edge from your original graph to your copy so that
+        </p>
+
+        <ol>
+          <li>
+            <p>
+              if added to your copy, it will not create a degree three vertex, and,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              if added to your copy,
+              it will not close a circuit unless that circuit is a Hamilton circuit.
+            </p>
+          </li>
+        </ol></li>
+    </ol>
+
+    <problem>
+      <statement>
+        <p>
+          Apply the Cheapest Link Greedy Algorithm to <xref ref="HF">Figure</xref>.
+          Draw the 5 vertices, then add the edges one at a time,
+          numbering them as you go, until you have a circuit.
+          What is the weight of this circuit?
+        </p>
+      </statement>
+    </problem>
+
+    <figure xml:id="HC">
+      <caption>Weighted Graph</caption>
+      <image source="images/9c7c6c7ee1db396bfe09f2101a0e85c47ddc3f2c.png"/>
+    </figure>
+
+    <problem xml:id="BF4HC">
+      <statement>
+        <p>
+          Use the Brute Force Algorithm to solve the TSP for <xref ref="HC">Figure</xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Use the Nearest Neighbor Greedy Algorithm to solve the TSP for <xref ref="HC">Figure</xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Use the Cheapest Link Greedy Algorithm to solve the TSP for <xref ref="HC">Figure</xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      We have seen the NNGA give us minimal weight Hamilton circuits while the time efficiency of the CLGA can come at the cost of a slightly less than minimal weight circuit.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          In the previous two problems,
+          the NNGA gives the minimal weight circuit found by the BFA and the CLGA gives the second to minimal weight circuit.
+          Can you find an example in which the CLGA gives a minimal weight circuit but the NNGA does not?
+          EXTRA<fn>At the time of publication, the author's have not.</fn></p>
+      </statement>
+    </problem>
+
+    <p>
+      Does the NNGA, like Fleury's Algorithm,
+      always give us an optimal solution?
+      The answer is <q>No</q>.
+    </p>
+
+    <problem xml:id="GAs_fail">
+      <statement>
+        <p>
+          Find an example of a weighted graph with four vertices in which neither of the Greedy Algorithms produce a correct answer to the TSP no matter which allowable choices are made. <m>(</m>This proves mathematically that greed does not always pay!<m>)</m>
+        </p>
+      </statement>
+    </problem>
+
+    <figure xml:id="fig_incomplete">
+      <caption>An Incomplete Weighted Graph</caption>
+      <image source="images/c8c7286dbc56e5d5ccb77b179b08239598d33e4d.png"/>
+    </figure>
+
+    <problem xml:id="prob_incomplete">
+      <statement>
+        <p>
+          The weighed graph in <xref ref="fig_incomplete">Figure</xref> is not complete.
+
+          <ol>
+            <li>
+              <p>
+                Without using any of our algorithms,
+                find a minimum weight Hamilton circuit.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Try to apply the greedy algorithms to this problem.
+                What happens?
+                EXTRA<fn>This problem is intended to drive home the point that the problem of incomplete graphs is a more difficult one by showing that for certain incomplete graphs,
+          the stated algorithms might fail.</fn></p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Since 1971, when it first gained public attention,
+      considerable effort has gone into finding a good solution to the Traveling Salesman Problem,
+      but no solution has been found that is quick, efficient,
+      easy to apply
+      (like Greedy algorithms)
+      and guaranteed to work (like the Brute Force Algorithm).
+      Considerable evidence suggests that no such solution exists at all.
+    </p>
+  </introduction>
+  <xi:include  href="section8-1.ptx" />
+</chapter>
+

@@ -1,0 +1,253 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>To the Instructor</title>
+  <p>
+    The first nine chapters of these notes constitute a three hour,
+    entry-level course in discrete mathematics.
+    The course targets a broad audience,
+    including computer engineering majors,
+    computer information science majors, computer science majors,
+    mathematics majors and mathematics education majors seeking certification for grades four through twelve.
+  </p>
+
+  <p>
+    The current version of the notes spring forth from an enjoyable and fruitful collaboration.
+    From four different courses taught by David Clark and course material from Kathleen Shannon by way of Lee May, I extracted and rewrote material,
+    leaving no line untouched.
+    To mold these materials to my needs, I replaced introductory material with leading problems while adding definitions and problems to expedite student successes.
+    From 2010 - 2015, I taught and refined these notes four times at Lamar University,
+    a regional university of perhaps 11,000 undergraduates,
+    while incorporating feedback from multiple faculty using the notes at other universities.
+    In 2014, David took a renewed interest and helped proof and update all of the notes,
+    catching errors and helping to further perfect and develop the mathematics into the polished result that you see here.
+  </p>
+
+  <p>
+    Aside from the counting material contributed by May and Shannon in Chapter 3, the problems I added,
+    and a few ideas borrowed from Charles A. Coppin and W. S. Mahavier,
+    the material was extracted and modified from the following courses that Clark taught at SUNY New Paltz no less than 32 times between 1973 and 2010.
+
+    <ol>
+      <li>
+        <p>
+          MTH 302 Foundations of Mathematics (Chapters 1, 2, 4, 8) [unpublished]
+        </p>
+      </li>
+
+      <li>
+        <p>
+          CPS 420 Languages and Machines (Chapters 9, 10) [unpublished]
+        </p>
+      </li>
+
+      <li>
+        <p>
+          MTH 320 Discrete Structures (Chapters 1, 4, 8) [unpublished]
+        </p>
+      </li>
+
+      <li>
+        <p>
+          MTH 182 Graphs and Optimization (Chapters 5, 6, 7) [No. 2 (March 2007), JIBLM]
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    The present version of these notes includes a <q>Projects</q>
+    section at the end of most chapters and a Chapter 10 at the end of the notes.
+    This is all extra material that I do not normally cover in my Discrete Mathematics course.
+    We have included it for the benefit of students who want to go beyond the standard course,
+    or for instructors wanting to go more deeply into some of these topics and perhaps leave out others.
+    In come cases the material in Chapters 1 and 2 will be sufficiently familiar to students that they could be skipped,
+    leaving time for some of these additional topics.
+  </p>
+
+  <p>
+    In my classes students work the problems and take a mid-term and a final,
+    the average of which constitutes half of their grade.
+    The remainder of their grade is determined by the problems they present and discuss in the classroom.
+    This portion of the grade is subjective since one student may present fewer problems than another and receive a higher presentation grade.
+    Perhaps this student regularly makes insightful comments during class that help clarify the mathematics for his or her peers.
+    Or perhaps this student has chosen to present particularly difficult problems that illustrate the theory behind the more computational problems.
+    At the end of the semester,
+    having observed each student every class period, I know just how much of their heart and soul each student has put into the course,
+    and how much each student has grown mathematically.
+    It has been a joy to teach this class.
+    In this class I seem always to have a high level of participation,
+    discussion and mathematical growth across the broad spectrum of majors.
+    The class is anything but homogenous.
+    Not only are the majors quite distinct,
+    but the students who take the course range from freshman to senior,
+    some taking it early in their discipline and others having already been exposed to some of the material.
+    As the instructor, I must take great care to assure that this unlevel playing field does not discourage any students who are seeing much of the material for the first time.
+  </p>
+
+  <p>
+    On the first day of the course, I engage the class by learning names and asking students questions about majors and what mathematics they have studied.
+    Without addressing the syllabus, how I will grade,
+    or how the course will be conducted, I turn to the mathematics.
+    I introduce a minimal set of definitions and axioms from set theory,
+    along with Venn diagrams,
+    giving the false illusion of an interactive lecture style.
+    Then I put an elementary problem or two on the board and ask for Venn diagrams,
+    which I encourage students to put on the board.
+    Finally, I write this problem (Example 2 in the notes),
+    <me>
+      \A \cap (\B \cup \C) = (\A \cap \B) \cup (\A \cap \C)
+    </me>
+    on the board and ask them to draw the venn diagrams that would demonstrate either the equality or inequality of these two sets.
+    Again, a student draws the diagram on the board and we discuss it as a class.
+    Then I ask how we could prove this equality using the set equality axiom,
+    that is, how do we show that
+    <me>
+      \A \cap (\B \cup \C) \subseteq (\A \cap \B) \cup (\A \cap \C)?
+    </me>
+  </p>
+
+  <p>
+    The moment a student feels s/he has made progress, I put the marker in their hand and have them show the class and start a discussion.
+    And thus the first day sets a relaxed tone of investigating mathematics as a class along with student presentations.
+    This would be an ideal first class.
+    Sometimes, we don't make it to this example.
+    Other times,
+    a student merely acts as a secretary while the class as a whole tries to hammer out an argument.
+    Wherever the class ends, I either pass out the first pages of notes or write a few problems on the board that the students are to try to work out during the next class period.
+    They leave knowing to expect the exact same style of class the next day,
+    students working at the board with the expectation that tomorrow we will have the solutions attempted and resolved before they come to class.
+    I emphasize that it is fine to go to the board with an attempt that might or might not be a solution.
+    Students always gain points by going to the board.
+  </p>
+
+  <p>
+    In subsequent classes, I address grading and why I conduct class as I do when questions arise or during <q>dead time.</q>
+    By the end of the second class day, I go over some rules for the presentations.
+    They are not allowed any external sources for help <mdash /> only me and the notes.
+    They are not allowed to present any problem they have seen elsewhere.
+    They are not allowed to work in teams to solve problems.
+    My goal is to see what they can do as individuals and what they can produce on their own.
+    I encourage them to just solve <em>one</em>
+    problem and I will be very pleased with them.
+    And I encourage them to drop by the office when they need help or,
+    if my office hours are not convenient, to email or Facebook me.
+    I create Facebook groups for all my classes where students upload pictures and videos of class presentations and we sometimes discuss mathematics or teaching questions on these groups.
+  </p>
+
+  <p>
+    With the exception of the very first day,
+    the day of the midterm, and the day of the final, every day is identical.
+    I come to class, determine which students have which problems,
+    and give preference to students who have presented the least.
+    It is not expected that each student resolves every problem,
+    but rather that each student digs deeply into some problems and has something ready to show,
+    even a failed attempt.
+    Once I've matched the students and the problems,
+    they write them on the board simultaneously while I circulate around the room answering questions about the work they have attempted.
+    The students at the board then explain their work,
+    and the class questions them over it.
+    Students seem to have a natural grace at helping one another out the <q>right</q> amount.
+    By this I mean that if a student is close to correct,
+    then classmates will gently point out errors and allow time for repairs.
+    If a student is way off base,
+    the class will gently point out why what is stated is incorrect.
+    When the work is correct,
+    or sufficiently close to correct that there is general agreement,
+    we accept the solution.
+    When problems are incorrect,
+    sometimes the student decides to work more and present it again at the next class.
+    In this case they are expected to put it up before class starts since they know they are assigned that one.
+    Occasionally, the solution is correct,
+    but the class can't see why.
+    This is common in Chapter 3, Counting.
+    This is a difficult decision for me and my response depends on the confidence of the student at the board,
+    the complexity of the problem and my perception of what choice will most benefit the student and the class.
+    I may go to the board and clarify.
+    Or, I may point out to the student that in industry,
+    whether the solution is right or wrong isn't relevant if the boss doesn't understand it.
+    And I joke that their bosses won't be as bright as they are and won't have thought as hard about the problem,
+    so the burden is on them to make it sufficiently elementary with examples or good writing so that even the slowest boss can understand and know that the solution is right.
+    And I'm very good at being very slow at catching on to a solution,
+    right or wrong.
+    Once problems have been presented, I will foreshadow upcoming definitions, axioms and concepts.
+    These are not lectures,
+    although I am at the front of the class, with marker in hand.
+    Rather they are Socratic-style question-and-response sessions.
+    <q>What is an inverse function....</q>
+    <q>Ok, now I'm confused.... What is a <em>function</em>.</q>
+    <q>Is there an inverse for every function?</q>
+    <q>What about this one?</q>
+    <q>I don't know what that means,
+    can you describe the vertical line test in terms of sets of ordered pairs?</q>
+    <q>The horizontal line test?</q>
+    Thus classes end foreshadowing precisely the ideas that are likely to generate success on the next problems,
+    but without working rote examples that illustrate
+    <em>how</em> to work upcoming problems.
+    If they understand the concepts,
+    and the problems and writing are at the right level,
+    they should be able to do the problems.
+  </p>
+
+  <p>
+    In an attempt to give a flavor of how I use examples to illustrate concepts,
+    there are a number of endnotes attached to examples and problems.
+    Together I hope that these endnotes give you a taste of how I conduct my class.
+    These very brief examples and explanations address the mini-lectures that I gave during the most recent iteration.
+    These vary from semester to semester based on student questions,
+    but are representative of what I emphasize via discussion and examples.
+    Many of these examples never get discussed if students are making good progress,
+    since student progress takes precedent over my daily plans.
+    Still, if they are stuck,
+    it's handy to have an example in front of me so that I don't make up an example off the top of my head,
+    only to discover that it is already a problem in the notes!
+  </p>
+
+  <p>
+    A few comments are in order to illustrate how I use these notes.
+    Students work almost all the problems except the projects.
+    Students are not required to prove the theorems,
+    although I do throw in the problem on proving the binomial theorem and I prove a few theorems in class myself.
+    I have not found it possible to make it through all the chapters in one semester.
+    Therefore, I omit all projects.
+    If one needs to make it to the last chapter,
+    omit the chapter on Set Theory which takes up the first two weeks.
+    There is one unusual aspect to how I teach the course because I do not proceed linearly through them,
+    as I don't like segregating material by chapters.
+    The best Moore Method courses I have ever taught
+    (or taken)
+    have simply been a list of problems.
+    The advantages of desegregating material is that one can intertwine multiple topics.
+    If two or more conceptual threads are intertwined,
+    each student has at least twice the odds for success because there are multiple concepts being addressed on any given day.
+    If one definition or concept is not understood,
+    perhaps the other will be.
+    In this course,
+    as soon as one chapter starts to gel, I announce that they may read ahead and tackle problems in the next chapter.
+    Sometimes we tackle two chapters simultaneously.
+    For example,
+    when we reached the induction chapter this past semester,
+    we worked through both induction and equivalence relations simultaneously.
+    Ultimately, I may intertwine these threads for my own use,
+    but I find that picking up someone else's notes that are written this way makes it challenging to see just what is covered and makes it less attractive to potential users.
+    Therefore, I have chosen to leave the chapters segregated for publication.
+  </p>
+
+  <p>
+    In closing, I am deeply indebted to the Moore Method instructors under whom I studied.
+    I am equally indebted to the authors who generously passed their notes to me for my use.
+    I owe thanks to the many students who boldly plowed through earlier,
+    less refined versions of the notes.
+    And finally, I thank Auston Barnes,
+    an undergraduate who worked through the last two chapters independently as an honors project in order to purge typos and improve several of the problems that gave him pause.
+  </p>
+
+  <p>
+    W. Ted Mahavier
+  </p>
+
+  <p>
+    January 2015
+  </p>
+</chapter>
+

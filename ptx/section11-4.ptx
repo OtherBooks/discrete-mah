@@ -1,0 +1,176 @@
+
+
+<section>
+  <title>Project:  Reversed Strings and Palindromes</title>
+  <definition xml:id="w_R">
+    <statement>
+      <p>
+        If <m>w\in \Sigma^*</m>,
+        we define <m>w^R\in \Sigma^*</m> recursively as follows.
+
+        <ol>
+          <li>
+            <p>
+              <m>\lambda^R = \lambda</m> and <m>a^R = a</m> for all <m>a\in \Sigma</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              If <m>w = av</m> where <m>a\in \Sigma</m> and
+              <m>v\in \Sigma^*</m>, then <m>w^R = v^Ra</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="w_R">Definition</xref>
+        to compute <m>w^R</m> if <m>w=pots</m>.
+        What is <m>w^R</m> if <m>w = scitamehtametercsid</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\Sigma =\{a,b\}</m>.
+        List all the strings in the finite language <m>L = \{w \in \Sigma^* \mid w = uu^Ru \mbox{ for some } u\in \Sigma \Sigma\}</m>,
+        remembering that <m>\Sigma \Sigma</m> is the concatenation of <m>\Sigma</m> with itself.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\Sigma =\{a,b\}</m>.
+        Describe a method to generate all of the strings in the language <m>L = \{w \in \Sigma^* \mid www = uu \mbox{ for some } u \in \Sigma^*\}</m>,
+        and explain why your method is correct.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\Sigma =\{a,b\}</m> and <m>L = \{w \in \Sigma^* \mid w^Rw = ww^R\}</m>.
+        Give examples of two strings in <m>L</m> and two strings not in <m>L</m>.
+        Describe the strings of <m>L</m> in English.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A string <m>w \in \Sigma^*</m> is a
+        <term>palindrome</term> if <m>w^R = w</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For example, A, EYE, NOON, CIVIC and MADAM are all palindromes.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Prove by induction on the length <m>|u|</m> of the string <m>u\in \Sigma^*</m> that,
+        for all <m>v\in \Sigma^*</m>,
+        we have <m>(uv)^R = v^Ru^R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>u\in \Sigma^*</m> and <m>b \in \Sigma</m>.
+        Show that <m>uu^R</m> and <m>ubu^R</m> are both palindromes.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    In fact, these are the only palindromes!
+  </p>
+
+  <problem xml:id="even_odd">
+    <statement>
+      <p>
+        Let <m>w\in \Sigma^*</m>.
+
+        <ol>
+          <li>
+            <title>{(i)}</title>
+            <p>
+              If <m>|w|</m> is even,
+              show that <m>w</m> is a palindrome if and only if there is a
+              <m>u\in \Sigma^*</m> such that <m>w = uu^R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>{(ii)}</title>
+            <p>
+              If <m>|w|</m> is odd,
+              show that <m>w</m> is a palindrome if and only if there are a <m>b\in \Sigma</m> and a
+              <m>u\in \Sigma^*</m> such that <m>w = ubu^R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Below is a list of palindromes.
+        Referring to <xref ref="even_odd">Problem</xref> tell,
+        for each one,
+        what <m>u</m> is if the palindrome has even length and what <m>u</m> and <m>b</m> are if it has odd length.
+      </p>
+
+      <p>
+        I PREFER PI
+      </p>
+
+      <p>
+        A TOYOTAS A TOYOTA
+      </p>
+
+      <p>
+        DO GEESE SEE GOD
+      </p>
+
+      <p>
+        WAS IT A CAR OR A CAT I SAW
+      </p>
+
+      <p>
+        AL LETS DELLA CALL ED STELLA
+      </p>
+
+      <p>
+        RATS LIVE ON NO EVIL STAR
+      </p>
+
+      <p>
+        DID HANNAH SEE BEES HANNAH DID
+      </p>
+
+      <p>
+        IN WORD SALAD ALAS DROWN I
+      </p>
+    </statement>
+  </problem>
+</section>
+

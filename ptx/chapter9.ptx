@@ -1,0 +1,349 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Spanning Trees</title>
+  <introduction>
+    <p>
+      The left diagram in <xref ref="ST">Figure</xref>
+      shows seventeen towns and the roads connecting them.
+      The town with the circle has a power plant.
+      Your job as a consultant to the power company is to decide which roads to install power lines on so that every town receives power and you install lines on as few roads as possible.
+      You don't need a power line constructed down every road since you only need to ensure that there is a path for power to travel from the power station to each town.
+    </p>
+
+    <problem xml:id="spt">
+      <statement>
+        <p>
+          Using the diagram at the right of <xref ref="ST">Figure</xref>,
+          sketch a possible way to connect all the towns to the power station.
+          Look for one that places power lines on the minimal number of roads.
+        </p>
+      </statement>
+    </problem>
+
+    <figure xml:id="ST">
+      <caption>Power Grid Spanning Tree</caption>
+      <image source="images/1931eff99d1013ff2d79c130927c9b1ffa26c8e7.png"/>
+    </figure>
+
+    <p>
+      Looking at our solutions, we probably believe they are correct.
+      Still, what would we need to do in order to verify one of them?
+      We would need to check that <em>no</em>
+      collection of roads connecting all the towns to the power station has
+      <em>less</em> roads than this solution.
+      Because <xref ref="spt">Problem</xref> has only 17 towns,
+      we might suspect that this would be easy.
+      Surprisingly, Cayley studied such problems and proved that there can be up to <m>n^{n-2}</m> different solutions for <m>n</m> towns.
+      If <m>n=17</m>, that is more than <m>10^{18}</m>,
+      or a billion billion, cases to check!
+      Would you be surprised that the language of graph theory might help?
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>tree</term> is a connected graph with the property that no graph with the same vertices and a smaller number of edges is connected.
+        </p>
+      </statement>
+    </definition>
+
+    <definition>
+      <statement>
+        <p>
+          A <term>spanning tree</term>
+          of a graph <m>G</m> is a tree whose vertices are the same as the vertices of <m>G</m> and whose edges are among the edges of <m>G</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Is the power grid you created in the last problem a spanning tree?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Here are several equivalent definitions for trees.
+      Interested in a proof?
+      See <xref ref="KruskalProject">Section</xref>.
+    </p>
+
+    <theorem xml:id="treetheorem">
+      <statement>
+        <p>
+          <em>Equivalent Tree Definitions.</em>
+          For a connected graph <m>G</m>,
+          the following are equivalent.
+
+          <ol>
+            <li>
+              <p>
+                <m>G</m> is a tree.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Every edge of <m>G</m> is a cut edge (<xref ref="cutedge">Definition</xref>).
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>G</m> has no cycles.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The number of edges in <m>G</m> is one less than the number of vertices.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <statement>
+        <p>
+          Use <xref ref="treetheorem">Theorem</xref>
+          to give three different ways to show why your answer to <xref ref="spt">Problem</xref> is correct.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Another real-world application for spanning trees might be to find the best possible collection of roads to plow when the city is snowed in.
+      If we plow out a spanning tree then people may travel from any intersection (vertex) to any other intersection in the entire city by traversing only plowed streets (edges in the spanning tree).
+      For a large city,
+      computing the spanning tree by hand would be impractical.
+      Here is an algorithm that a computer can implement.
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Spanning Tree Algorithm.</em>
+          To construct a spanning tree for a connected graph <m>G</m>,
+          make another copy of the vertices of <m>G</m>.
+          Then
+
+          <ol>
+            <li>
+              <p>
+                add edges from <m>G</m> between these vertices one at a time making sure to never close a circuit, and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                stop when no additional edge from <m>G</m> can be added without closing a circuit.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <statement>
+        <p>
+          Prove that for any connected graph <m>G</m>,
+          the Spanning Tree Algorithm always produces a spanning tree for <m>G</m>.
+          EXTRA<fn>The result of the Spanning Tree Algorithm is a graph with the same vertices as the original graph but with no circuits.
+          To see that it is a spanning tree,
+          we must convince ourselves that it is connected.
+          But if it were not connected, then it would be possible to add another edge between two components without creating a circuit.</fn></p>
+      </statement>
+    </problem>
+
+    <p>
+      Applying the Spanning Tree Algorithm to the power grid problem illustrated in <xref ref="ST">Figure</xref>,
+      you could find many different spanning trees to build your power lines.
+      Of course, in the real world,
+      some would cost more to construct depending on both the distance between towns and the terrain between towns.
+      Just as with the shortest path problems,
+      this problem may be modeled mathematically using a <em>weighted graph</em>
+      where the weights represent quantities like distances or costs.
+    </p>
+
+    <p>
+      <em>Minimum Weight Spanning Tree Problem</em>
+      <em>Given a weighted graph,
+      find a spanning tree whose total weight is less than or equal to that of any other spanning tree.</em>
+    </p>
+
+    <p>
+      In <xref ref="WG">Figure</xref>,
+      we have added weights to represent either distances
+      (in miles)
+      or road construction costs
+      (in millions of dollars)
+      between our 17 towns.
+    </p>
+
+    <figure xml:id="WG">
+      <caption>Weighted Graph</caption>
+      <image source="images/1f482f6522d7ac1b7cbf75e09647cfa581ea96f9.png"/>
+    </figure>
+
+    <problem xml:id="spt2">
+      <statement>
+        <p>
+          Consider the weighted graph in <xref ref="WG">Figure</xref>.
+
+          <ol>
+            <li>
+              <p>
+                Using this weighted graph,
+                calculate the total weight of the spanning tree in your solution to <xref ref="spt">Problem</xref>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Is your solution a minimum weight spanning tree?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Find a spanning tree for the weighted graph in <xref ref="WG">Figure</xref>
+                that has weight less than your solution to <xref ref="spt">Problem</xref>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                What is the least weighted spanning tree that you can find?
+                EXTRA<fn>Minimal spanning tree weight is <m>106</m>.</fn></p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      We can now ask if your solution to Part 4 of <xref ref="spt2">Problem</xref>
+      has minimal total weight among all possible spanning trees.
+      How might we do this without looking at all possible spanning trees?
+      The answer was discovered by Joseph Kruskal in 1956 and is simply the Spanning Tree Algorithm enhanced by the strategy used in the Cheapest Link Greedy Algorithm.
+      Instead of choosing an arbitrary edge that doesn't complete a circuit,
+      we choose the cheapest
+      (least weight)
+      one.
+      Since Kruskal's Algorithm is also a greedy algorithm,
+      it is practical and efficient to use.
+      But unlike our other greedy algorithms, it <em>always works</em>!
+    </p>
+
+    <figure xml:id="WG2">
+      <caption>A Connected Weighted Graph</caption>
+      <image source="images/e0651f8d310662c7fd4a7f46f53b220f74cc1b0f.png"/>
+    </figure>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Kruskal's Greedy Algorithm.</em>
+          To construct a minimum weight spanning tree for a connected weighted graph <m>G</m>,
+          make another copy of the vertices of G. Then
+
+          <ol>
+            <li>
+              <p>
+                add edges from G between these vertices one at a time,
+                each time choosing from among the edges that do not close a circuit one of minimal weight, and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                stop when no additional edge from <m>G</m> can be added without closing a circuit.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Kruskal's important contribution was to show that his algorithm always produces a spanning tree of minimal possible total weight.
+    </p>
+
+    <theorem>
+      <statement>
+        <p>
+          <em>Kruskal's Theorem.</em>
+          Kruskal's Greedy Algorithm always produces a minimum weight spanning tree <m>T</m> from a connected weighted graph<nbsp /><m>G</m>.
+        </p>
+
+        <p>
+          A proof is outlined in <xref ref="KruskalProject">Section</xref>.
+          EXTRA<fn>The project at the end of this chapter has two problems that lead the student to see why Kruskal's Algorithm really works and concludes by asking for a student-generated proof.
+          Here is a sketch. <em>Proof.</em>
+          (Outline)  Suppose  <m>S</m>  is any spanning tree for <m>G</m>.
+          We must convince ourselves that the total weight of  <m>S</m> is at least as big as that of the spanning tree  <m>T</m>  obtained from Kruskal's Algorithm.
+          Consider the first edge  <m>XY</m>  that we put in <m>T</m>  but is not in  <m>S</m>.
+          Since  <m>S</m>  is already connected,
+          adding <m>XY</m>  to <m>S</m>  must close a circuit (Why?).
+          Since  <m>T</m>  is a tree,
+          it contains no circuit so there is some edge <m>UV</m> in this circuit that is not in <m>T</m>.
+          Now Weight(<m>UV</m>) must be at least as big as Weight(<m>XY</m>);
+          otherwise Kruskal would have put <m>UV</m> into <m>T</m> instead of <m>XY</m>.
+          Notice that if we replace <m>UV</m> by <m>XY</m> in <m>S</m>, then
+
+          <ul>
+            <li>
+              <p>
+                the total weight of <m>S</m> does not increase;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>S</m> is still a spanning tree;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                we have increased the number of edges that <m>S</m> and <m>T</m> have in common.
+              </p>
+            </li>
+          </ul>
+
+          Repeating this process with the edges of  <m>T</m>  that are not in  <m>S</m>,
+          in the order they were added to  <m>T</m>,
+          we can slowly transform  <m>S</m> into  <m>T</m> without increasing its total weight.
+          Thus the total weight of  <m>S</m>  could not have been less than that of  <m>T</m> to begin with.</fn></p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <statement>
+        <p>
+          Apply the Spanning Tree Algorithm to the graph in <xref ref="WG2">Figure</xref>
+          without looking at the weights.
+          What is the total weight of the spanning tree you created?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Apply Kruskal's Greedy Algorithm to the graph in <xref ref="WG2">Figure</xref>
+          to find a minimum weight spanning tree.
+          What is the total weight of this spanning tree?
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+  <xi:include  href="KruskalProject.ptx" />
+</chapter>
+

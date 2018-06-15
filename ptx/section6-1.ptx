@@ -1,0 +1,325 @@
+
+
+<section>
+  <title>Project: More Induction</title>
+  <p>
+    In this chapter we developed and used a method for proving that a given statement is true for all positive integers.
+    This technique is called <em>strong induction</em>.
+    Many books treat two techniques of induction,
+    <em>induction</em> and <em>strong induction</em>, separately.
+    For both induction and strong induction,
+    you first show that the statement is true for <m>n=1</m>.
+    With induction,
+    you assume only that the statement is true for <m>n</m> in order to prove that it is true for <m>n+1</m>.
+    With strong induction, you assume that the statement is true for every number from <m>1</m> to <m>n</m> and use this to prove that it is true for <m>n+1</m>.
+    Since both are valid methods,
+    we should state and prove theorems justifying both.
+    In this section we will state an axiom on which these theorems depend,
+    provide guidance on how you might prove them,
+    state the theorems for you to prove,
+    and then provide additional problems using these theorems.
+    EXTRA<fn>I typically take the time to discuss the notation and differences between induction and strong induction as a lecture as we work through the main chapter,
+    if only to familiarize them with the statements.
+    This is done after they have already mastered the technique.
+    The beauty of this approach,
+    which I borrowed from my father and I believe he borrowed from R.L. Moore,
+    is that it introduces the techniques without burdensome notation.
+    Observe how the first example in this chapter uses minimal notation,
+    yet presents the example in a way that can immediately be generalized to prove the Principle of Mathematical Induction.
+    Therefore the proofs given by the students who have not seen induction previously tend to be conceptual and not formulaic.
+    More importantly, the technique that they come to understand is the technique that is used to prove the Principle of Induction.</fn></p>
+
+  <axiom>
+    <statement>
+      <p>
+        <term>Well Ordering.</term>
+        Every non-empty set of positive integers contains a least element.
+      </p>
+    </statement>
+  </axiom>
+
+  <problem>
+    <statement>
+      <p>
+        Prove the following two theorems and note where you use the Well Ordering Axiom.
+        The proofs amount to simply repeating again the argument you have used in each of the previous problems that you have done.
+        If you prove this theorem, you will never need to repeat that argument again.
+        You will just quote one of these two theorems!
+      </p>
+    </statement>
+  </problem>
+
+  <theorem xml:id="thm_PSI">
+    <statement>
+      <p>
+        <em>Principle of Strong Induction.</em>
+        Let <m>S(n)</m> be a statement about an arbitrary positive integer <m>n</m>.
+        If
+
+        <ol>
+          <li>
+            <p>
+              <m>S(1)</m> is true and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>S(k+1)</m> is true whenever <m>S(m)</m> is true for <m>m = 1,2,3,\dots,k</m>,
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        then <m>S(n)</m> is true for all positive integers <m>n</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    The previous principle is called
+    <q>strong induction</q>
+    in order to contrast it with the next principle which is called <q>induction</q>.
+    You might prove <xref ref="induction">Theorem</xref>
+    directly or you might use <xref ref="thm_PSI">Theorem</xref>
+    to prove <xref ref="induction">Theorem</xref>.
+  </p>
+
+  <theorem xml:id="thm_PMI">
+    <statement>
+      <p>
+        <em>Principle of Mathematical Induction.</em>
+        Let <m>S(n)</m> be a statement about an arbitrary positive integer <m>n</m>.
+        If
+
+        <ol>
+          <li>
+            <p>
+              <m>S(1)</m> is true and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>S(k+1)</m> is true whenever <m>S(k)</m> is true,
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        then <m>S(n)</m> is true for all positive integers <m>n</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    In each of the induction problems you worked in the main section,
+    you assumed the statement was true for integers
+    <m>1, 2, 3, \dots,
+    n</m> and showed that it must then be true for <m>n+1</m>.
+    If you review your arguments,
+    you will see that, for most of them,
+    you only used the fact that the statement was true for <m>n</m> in order to prove that it was true for <m>n+1</m>.
+    In those cases,
+    you could have used either induction or strong induction.
+    The exceptions were <xref ref="prb_postage">Problems</xref>
+    and <xref ref="prb_factoring"></xref>
+    where your argument most likely used strong induction even though you can work both using induction.
+    You might also note that there is nothing special about starting with <m>n=1</m> and for many of the problems,
+    we started with a value for <m>n</m> greater than 1.
+    For each positive integer <m>b</m> we could prove a variant of <xref ref="thm_PSI">Theorem</xref> ending with
+    <em></em>
+
+    <ol>
+      <li>
+        <p>
+          <m>S(b)</m> is true and
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>S(k+1)</m> is true whenever <m>S(m)</m> is true for <m>b \leq m \leq k</m>,
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    then <m>S(n)</m> is true for all positive integers <m>n\geq b</m>. }
+  </p>
+
+  <p>
+    Similarly <xref ref="thm_PMI">Theorem</xref>
+    could be modified to start with<nbsp /><m>b</m>.
+  </p>
+
+  <p>
+    Enough theory, let's do some problems.
+    To solve the next problem, we need a recursive definition for factorial.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>n</m> is a non-negative integer then <term>n factorial</term>
+        is denoted by <m>n!</m> and defined by
+        <me>
+          n! =  \left\{
+          \begin{array}{ll}
+          1 \amp  \mbox{if}  \;\;\;\; n=0 \; \; \mbox{or}  \; \; n=1 \\
+          (n+1)! = (n+1)\cdot n!  \amp  \mbox{if}   \;\;\;\; n > 1
+          \end{array} 
+          \right
+        </me>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that if <m>n \ge 5</m>,
+        then <m>n!</m> is a multiple of <m>5</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Define a function <m>g</m> recursively by
+
+        <ol>
+          <li>
+            <p>
+              <m>g(1) = 2</m> and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>g(k+1) = 4g(k) - 5</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Compute <m>g(7)</m>.
+        Prove that <m>g(n) > 2^n</m> for all <m>n \ge 4</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Recursively defined functions can grow surprisingly fast.
+    As a result,
+    one must be cautious about asking a computer to do recursions since both time and memory are limited.
+    When we were students, if you divided by zero or asked a computer to compute a number that was too large for its memory,
+    it exploded,
+    immediately killing the student.
+    That is why everyone over the age of 30 is smart. <m>;></m>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Define a sequence of functions <m>A_1, A_2, A_3,\dots</m> as follows:
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Let <m>A_1(n) = 2n</m> for all <m>n</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            For <m>k=1,2,3,\dots</m> let
+          </p>
+
+          <ol>
+            <li>
+              <p>
+                <m>A_{k+1}(0) = 1</m> and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>A_{k+1}(m+1) = A_k(A_{k+1}(m))</m>.
+              </p>
+            </li>
+          </ol></li>
+
+        SQUASHEDLIST
+
+        <li>
+          <p>
+            Use induction to show that <m>A_2(n) = 2^n</m> for all <m>n</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Use induction to show that <m>A_n(1) = 2</m> for all <m>n</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Write down <m>A_3(5)</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Describe <m>A_3(n)</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            The number <m>A_4(4)</m> is so large that I will give an <q>A</q>
+            in the course to anyone who can bring me a printout of its value
+            (in normal decimal notation)
+            by the end of the term.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        In one of our recent wars,
+        an army captain received orders to deploy his soldiers over a designated enemy area and to instruct them to shoot any resident who came into view.
+      </p>
+
+      <p>
+        Now the captain talked with other captains and heard that among the new recruits there were soldiers who for some strange reason didn't buy into this mission.
+        They were even known, in the heat of battle,
+        to shoot their own captains and go AWOL. This worried him,
+        so he devised the following plan.
+      </p>
+
+      <p>
+        He would deploy his soldiers, as ordered,
+        but instruct them to situate themselves so that each one was nearest to exactly one other soldier.
+        Each soldier was ordered to watch that nearest soldier to him,
+        and report any suspicious behavior to the captain.
+      </p>
+
+      <p>
+        Assuming the number of soldiers was odd,
+        prove that there was at least one soldier who wasn't being watched.
+      </p>
+    </statement>
+  </problem>
+</section>
+

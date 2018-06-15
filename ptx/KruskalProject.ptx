@@ -1,0 +1,168 @@
+
+
+<section xml:id="KruskalProject">
+  <title>Projects: Tree Equivalence and Kruskal's Theorem</title>
+  <p>
+    <em>Equivalent Tree Definitions.</em> In the next few problems,
+    we investigate how one might discover and prove <xref ref="treetheorem">Theorem</xref>.
+  </p>
+
+  <problem xml:id="x5_trees">
+    <statement>
+      <p>
+        Draw five different connected graphs in which every edge is a cut edge.
+        Count the number of edges and the number of vertices.
+        Make a conjecture for the relationship between the number of vertices and the number of edges in such a graph.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Our goal is to find some easily verifiable conditions for a graph to be a tree.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if an edge of a connected graph is part of a cycle,
+        then that edge is not a cut edge.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if a connected graph with more than one vertex has no cycles,
+        then every path either ends in a degree <m>1</m> vertex or can be extended to a path that ends in a degree <m>1</m> vertex.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>G</m> be a connected graph with <m>n</m> vertices and no cycles.
+        Prove by induction on <m>n</m> that <m>G</m> has exactly <m>n-1</m> edges.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if the number of edges in a connected graph is one less than the number of vertices,
+        then it is a tree.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the facts you have established to prove the following theorem by showing that line 1 implies line 2, which implies line 3, which implies line 4, which implies line 1.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <em>Theorem.
+    Equivalent Tree Definitions.</em>
+    For a connected graph <m>G</m>,
+    the following are equivalent.
+
+    <ol>
+      <li>
+        <p>
+          <m>G</m> is a tree.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Every edge of <m>G</m> is a cut edge.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>G</m> has no cycles.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The number of edges in <m>G</m> is one less than the number of vertices.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <figure xml:id="STS">
+    <caption>Spanning Tree <m>S</m></caption>
+    <image source="images/d28938ba359117bc6fa83b7fadc182e5ab885e04.png"/>
+  </figure>
+
+  <p>
+    <em>Kruskal's Theorem.</em>
+    In the next two problems we will look at Kruskal's Theorem to see why the spanning tree obtained from Kruskal's Algorithm always has the smallest total weight of any spanning tree.
+    In the figure below is an arbitrary spanning tree <m>S</m> for the graph in <xref ref="ST">Figure</xref>.
+    We would like to see why its total weight must be no less that that of the spanning tree obtained from Kruskal's Algorithm.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Apply Kruskal's Algorithm to the graph in <xref ref="WG">Figure</xref>
+        to obtain a minimum weight spanning tree <m>T</m>.
+        As you do it, number the edges in the order you add them.
+        Find the total weight of <m>T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="krusk">
+    <statement>
+      <p>
+        What is the total weight of the spanning tree <m>S</m> in <xref ref="STS">Figure</xref>?
+        Make a copy of <m>S</m> <em>in pencil</em>.
+        Transform the spanning tree <m>S</m> into <m>T</m> by adding the edges of <m>T</m> to it,
+        in the order you numbered them,
+        each time removing an edge not in <m>T</m> that closes a circuit.
+        As you do so, fill out a table like this:
+      </p>
+    </statement>
+  </problem>
+
+  <tabular>
+    xxx\=xxxxxxxxxxxxxxxxx\=xxxxxxxxxxxxxxxxxxx\=\kill
+
+    \>Weight of        \>Weight of          \>Amount the
+
+    \>edge added       \>edge not in <m>T</m>    \>weight of <m>S</m>
+
+    \>to <m>S</m> from <m>T</m>  \>removed from <m>S</m>   \>is reduced 
+
+    \>  ...            \>  ...              \> ...       
+
+    \>  ...            \>  ...              \> ...
+  </tabular>
+  <p>
+    When you have finished transforming <m>S</m> into <m>T</m>,
+    add up the reductions you made in the weight of <m>S</m>.
+    Now subtract this amount from the original weight of <m>S</m> to see if you get the weight of <m>T</m>.
+    Write this out <em>neatly</em>
+    so that it is clear what you have done. <m>(</m>If you can reduce the weight of <m>S</m> to get the weight of <m>T</m>,
+    then you know that <m>T</m> must have smaller weight than <m>S</m>!<m>)</m>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Using <xref ref="krusk">Problem</xref> as a guide,
+        prove that Kruskal's Algorithm always produces a minimal spanning tree.
+      </p>
+    </statement>
+  </problem>
+</section>
+

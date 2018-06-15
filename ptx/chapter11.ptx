@@ -1,0 +1,73 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Finite State Machines</title>
+  <introduction>
+    <p>
+      Imagine a simple radio with three buttons,
+      an ON/OFF button, a CHANNEL button and a VOLUME button.
+    </p>
+
+    <figure>
+      <image source="images/10b04949801e54787f0c7462f8d25b1eb8858316.png"/>
+    </figure>
+
+    <p>
+      The radio has ten channels and five volume levels:
+      <me>
+        \mbox{C0, C1, C2, C3, C4, C5, C6,C7, C8, C9, \qquad V0, V1, V2, V3, V4.}
+      </me>
+    </p>
+
+    <p>
+      Pressing button <m>o</m> turns it from OFF to ON or ON to OFF. Regardless of whether the radio is ON or OFF, pressing <m>c</m> advances the channel by one or takes if from C9 back to C0.
+      Regardless of whether the radio is ON or OFF, pressing <m>v</m> increases the volume by one level or takes if from V4 back down to V0.
+    </p>
+
+    <p>
+      The radio can be thought of as having
+      <m>2\times 10\times 5 = 100</m> different internal states.
+      In state (OFF,C3,V4), pressing <m>o</m> will change it to state (ON,C3,V4).
+      Then pressing the sequence <m>ccvvv</m> will change it from there to channel C5 at volume V2, that is,
+      to state (ON,C5,V2).
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          If the radio is in state {(OFF,C8,V1)} and you press the input sequence
+          <m>ocvvcovo</m>, what state will it be in?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          List three different input sequences that will bring it from state {(ON,C7,V3)} to state {(OFF,C2,V0)}.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      A radio like this is an example of a Finite State Machine (FSM).
+      In this chapter we will study somewhat more elaborate Finite State Machines: Finite State Transducers and Finite State Acceptors.
+      FSMs are the simplest class of computing machines.
+      They model the logic of machines which require logic circuitry,
+      but are not usually thought of as computers,
+      such as vending machines, washing machines and toasters.
+    </p>
+
+    <p>
+      FSMs are characterized by the fact that their action,
+      at any point in their operation,
+      is completely determined by their current state and their current input.
+      They have no long term memory and are therefore unable to carry out any logical process of reviewing the past or anticipating the future.
+    </p>
+  </introduction>
+  <xi:include  href="section11-1.ptx" />
+  <xi:include  href="section11-2.ptx" />
+  <xi:include  href="section11-3.ptx" />
+  <xi:include  href="section11-4.ptx" />
+</chapter>
+

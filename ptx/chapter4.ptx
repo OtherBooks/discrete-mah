@@ -1,0 +1,744 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Functions</title>
+  <introduction>
+    <p>
+      Every mathematics, science,
+      and engineering course makes heavy use of functions.
+      Having developed a deep understanding of sets and ordered pairs,
+      we are now in a position to define function in terms of set of ordered pairs.
+    </p>
+
+    <p>
+      First, recall from <xref ref="cartesian">Definition</xref>
+      that the Cartesian product of <m>\X</m> and <m>\Y</m> is <m>\X \times \Y = \{(x,y) \mid x \in X \mbox{ and } y\in Y\}</m>.
+    </p>
+
+    <definition xml:id="function">
+      <statement>
+        <p>
+          Let <m>\X</m> and <m>\Y</m> be sets.
+          A <term>relation</term>
+          on <m>\X \times \Y</m> is any subset of <m>\X \times \Y</m>.
+          A <term>function</term>
+          on <m>\X \times \Y</m> is a relation on
+          <m>\X \times \Y</m> where no two elements have the same first coordinates.
+          The set of all first coordinates of a relation is called the <term>domain</term>
+          and the set of all second coordinates of a relation is called the <term>range</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Let <m>\A = \{ x \in \R \mid - 3 \leq x \leq 3 \}</m>.
+          The set <m>\C = \{ (x,y) \in \R \times \R \mid x^2 + y^2 = 9 \}</m> is a relation on
+          <m>\A \times \A</m> but not a function on <m>\A \times \A</m>.
+          EXTRA<fn>If needed, I use these examples to introduce functions.
+          If I do, then for each example, I discuss multiple ways to write the function
+          (function notation vs. set notation vs. graphical representation)
+          and I discuss one-to-one and onto.
+          In <xref ref="fnproof">Example</xref> I show that if <m>(x,y)</m> and <m>(x,z)</m> are both elements of the function, then <m>y=z</m> which foreshadows how to move from the definitions to the process of validating the definitions.</fn></p>
+      </statement>
+    </example>
+
+    <example xml:id="fnproof">
+      <statement>
+        <p>
+          The set <m>f = \{ (x,y) \mid x \in \R \ \mbox{ and } \ y = 2x-3 \}</m> is a function on <m>\R \times \R</m>.
+          How do we prove this?
+        </p>
+      </statement>
+    </example>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>\A = \{ 1, 2, 3 \}</m> and <m>\B = \{ \Box, \Diamond, \triangle \}</m>.
+          Which of the following are relations on <m>\A \times \B</m>?
+          Which are functions
+
+          <ol>
+            <li>
+              <p>
+                <m>\{ (1, \Box) , (1, \triangle), (2, \Diamond) \}</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\{ (3, \Box) , (1, \triangle), (2, \triangle) \}</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\{ \big( (1,1) , \Box \big) , \big( (1,2) , \triangle), \big( (2,1) , \Diamond \big), \big( (2,2) , \Diamond \big) \}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Consider the function <m>f</m> defined by
+          <me>
+            f = \{ (x,y)  \mid  x \in \R \sim \{1\} \ \mbox{ and }  \ y = \frac{2x}{x-1} \}
+          </me>.
+        </p>
+
+        <p>
+          State the domain and the range of this function.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Consider
+        </p>
+
+        <p>
+          <m>f = \{ (x,y) \in \R \times \R \mid x \in \R \ \mbox{ and } \ y = \sin(2x) + \sin^2(x) + \cos^2(x) \}</m> and
+        </p>
+
+        <p>
+          <m>g = \{ (x,y) \mid x \in \R \ \mbox{ and } \ y = 2\sin(x)\cos(x) + 1 \}</m>.
+        </p>
+
+        <p>
+          Are these the same function?
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Since we often think of a function <m>f</m> on
+      <m>\X \times \Y</m> as a rule assigning elements of <m>\X</m> to elements of <m>\Y</m>,
+      we often write <m>f : \X \to \Y</m>.
+      When <m>(x,y)</m> is an element of <m>f</m> we write,
+      <m>f(x)=y</m> and say that <m>f</m>
+      <em>maps</em> <m>x</m> to <m>y</m>.
+      When we use this notation,
+      it means that <m>\X</m> is the domain of <m>f</m> and <m>\Y</m> contains the range of <m>f</m>.
+      In such cases, we call <m>\Y</m> the
+      <em>codomain</em> of <m>f</m>.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>f: \X \to \Y</m> is a function,
+          then <m>f</m> is <term>one-to-one</term>
+          if no two elements of <m>f</m> have the same second coordinate and different first coordinates.
+          Restated, no two elements of <m>\X</m> can map to the same element of <m>\Y</m>.
+          We say that <m>f</m> is <term>onto the set <m>Y</m></term>
+          if for each element <m>y \in \Y</m> there is some element
+          <m>x \in \X</m> such that <m>f(x) = y</m>.
+          A function <m>f:X \to Y</m> that is both one-to-one and onto is a <term>bijection</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Let <m>f = \{(x,y) \mid x\in \R \mbox{ and } y = x^2 + 3\}</m>.
+          We might write the same function as
+          <m>f: \R \to \R</m> where <m>f(x) = x^2+3</m>.
+          Is <m>f</m> onto <m>\R</m>?
+          Is <m>f</m> onto <m>\{ y \mid y \geq 3 \}</m>?
+          We would call <m>\R</m> a codomain of <m>f</m>.
+        </p>
+      </statement>
+    </example>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose <m>\dsp f(x) = \frac{x^2-5x+6}{x-3} \mbox{ and } g(x) = x-2</m>.
+          What is the largest subset of <m>\R</m> that is an allowable domain for <m>f</m>?
+          For <m>g</m>?
+          Does <m>f=g</m>?
+          EXTRA<fn>Many problems are poorly phrased to generate discussion.
+          This problem is an example.
+          Many teachers would consider the definitions for <m>f</m> and <m>g</m> to be adequate,
+          but they are not.
+          Without explicitly stating the domain,
+          which is why one should define functions as sets,
+          we cannot determine whether <m>f</m> = <m>g</m>.
+          They are equal if the domain is all numbers except three, but if we allow the maximum possible domain, they are not equal.</fn></p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>\ps</m> denote the set of all subsets of a set <m>\U</m>,
+          and choose two particular sets <m>\A, \B \in \ps</m>.
+          Let <m>f: \ps \to \ps</m> and
+          <m>g: \ps \to \ps</m> be the functions defined by:
+          <m>f(\X) = \X \cap (\A \sim \B)</m> for every <m>X \in \ps</m> and
+          <m>g(\X) = (\X \cap \A) \sim (\X \cap \B)</m> for every <m>X \in \ps</m>.
+          What is the domain of <m>f</m>?
+          Of <m>g</m>?
+          Does <m>f=g</m>?
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          For real valued functions <m>f:\mathbb R \to \mathbb R</m> and
+          <m>g:\mathbb R \to \mathbb R</m> define a new function <m>f+g:\mathbb R \to \mathbb R</m>,
+          called the <term>sum</term> of <m>f</m> and <m>g</m>,
+          by the rule <m>(f+g)(x) = f(x) + g(x)</m> for <m>x\in \mathbb R</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          Suppose each of <m>f: \R \to \R</m> and
+          <m>g: \R \to \R</m> are functions and prove that <m>f+g = g+f</m> by showing that
+          <m>(f+g)(x) = (g+f)(x)</m> for all <m>x \in \R</m>.
+          This shows that addition of functions is commutative.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>\A = \{1,2,3,4,5,6,7,8,9\}</m>.
+          <xref ref="t1">Table</xref> defines a function <m>f:\A \to \A</m>.
+          For each <m>x \in \A</m>,
+          the value of <m>f(x)</m> is written below <m>x</m>.
+          Is <m>f</m> one-to-one?
+          Is <m>f</m> onto <m>\A</m>?
+          Is <m>f</m> a bijection?
+        </p>
+      </statement>
+    </problem>
+
+    <table xml:id="t1">
+      <caption>A function, <m>f</m></caption>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>x</cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+          <cell>6</cell>
+          <cell>7</cell>
+          <cell>8</cell>
+          <cell>9</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>f(x)</cell>
+          <cell>5</cell>
+          <cell>7</cell>
+          <cell>9</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>6</cell>
+          <cell>4</cell>
+          <cell>8</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>\dsp f = \{ (x,y)  \mid  x \in \R \sim \{2\} \ \mbox{ and }  \ y = \frac{x}{x-2} \}</m>.
+
+          <ol>
+            <li>
+              <p>
+                Is <m>f</m> a one-to-one function?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Is <m>f</m> onto the set <m>\R</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Define <m>f : \R \to \R</m> by <m>f(x) = \sqrt[3]{x-1}</m>.
+
+          <ol>
+            <li>
+              <p>
+                Is <m>f</m> a one-to-one function?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Is <m>f</m> onto <m>\R</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      By <xref ref="function">Definition</xref>,
+      every function <m>f: \X \to \Y</m> is onto its range since the range of <m>f</m> is the set of all <m>y</m> such that
+      <m>(x,y) \in f</m> for some <m>x \in \X</m>.
+      Restated, the range of <m>f</m> is <m>\{ y \mid (x,y) \in f \} = \{ f(x) \mid x \in \X \}</m>
+    </p>
+
+    <p>
+      Should you ever board an airplane (a function) that
+      <q>maps</q> you from Houston to Chicago,
+      at some point in the future you will definitely want to board another airplane
+      (the inverse function)
+      that <q>maps</q> you back home!
+      Countless people have been lost because they built a time travel machine but forgot to build the inverse time machine!
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          <xref ref="FC">Figure</xref> shows the relationship between the Fahrenheit and Celsius temperature scales.
+          Write a formula (equation) for a function <m>f</m> that converts Celsius to Fahrenheit,
+          and a function <m>c</m> that converts Fahrenheit back to Celsius.
+          Verify that <m>f(c(F)) = F</m> for every <m>F \in \R</m> and that
+          <m>c(f(C)) = C</m> for every <m>C \in \R</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <definition xml:id="invrelation">
+      <statement>
+        <p>
+          Given a function <m>f: X \to Y</m>,
+          the relation <m>f^{-1}</m> is defined by <m>f^{-1} = \{ (y,x) \mid (x,y) \in f \}</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      The set <m>f^{-1}</m> might not be a function.
+      The next two problems tell us exactly when <m>f^{-1}</m> is a function.
+    </p>
+
+    <problem xml:id="inv1">
+      <statement>
+        <p>
+          Let <m>f</m> be a function from <m>X</m> onto <m>Y</m>.
+          Show that if <m>f</m> is one-to-one,
+          then <m>f^{-1}</m> is a function.
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="inv2">
+      <statement>
+        <p>
+          Let <m>f</m> be a function from <m>X</m> onto <m>Y</m>.
+          Show that if <m>f^{-1}</m> is a function,
+          then <m>f</m> is one-to-one.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Together <xref ref="inv1">Problems</xref> and <xref ref="inv2"></xref>
+      show that a function <m>f</m> is one-to-one if and only if <m>f^{-1}</m> is a function.
+      Many mathematicians do not define the inverse of a relation and don't define the inverse of a function unless that function is one-to-one.
+      In this case they would say <q>if <m>f</m> is a function that is one-to-one,
+      then there is a function <m>f^{-1}</m> so that <m>f(f^{-1}(x))=x=f^{-1}(f(x))</m></q>.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          For each function <m>f</m> determine if <m>f^{-1}</m> is a function.
+
+          <ol>
+            <li>
+              <p>
+                <m>f = \{ (x,y) \mid x \in \R \ \mbox{ and } \ y = x(x-1) \}</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>f : \R \to \R</m> defined by <m>f(x) = \sqrt[3]{x-1}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <figure xml:id="FC">
+      <caption>Thermometer showing both Fahrenheit and
+      Celsius temperature scales</caption>
+      <image source="images/a1cd98a3aa96fa002e170b3d2947450a96344af3.png"/>
+    </figure>
+
+    <problem>
+      <statement>
+        <p>
+          Let <m>f:\mathbb R \to \mathbb R</m> with <m>f(x) = 3x - 7</m>.
+
+          <ol>
+            <li>
+              <p>
+                Prove that <m>f</m> is onto <m>\mathbb R</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Prove that <m>f</m> is one-to-one.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Find a formula for <m>f^{-1}(y)</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Verify that for all <m>x \in \R</m> we have,
+                <m>f^{-1}(f(x)) = x</m> and <m>f(f^{-1}(x))=x</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that every non-constant linear function <m>l(x) = mx+b</m>,
+          with <m>m\neq 0</m>, is a bijection <m>l:\mathbb R \to \mathbb R</m>.
+          Find a formula for <m>l^{-1}(y)</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      The binary operations of addition and multiplication can be used to combine any two numbers in order to get a new number.
+      The binary operations of intersection, union,
+      difference and symmetric difference can be used to combine two sets in order to form a new set.
+      Addition, subtraction,
+      multiplication and division of real-valued functions are also binary operations.
+      Another binary operation on functions is called composition.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          Suppose that <m>g:\A \to \B</m> and <m>f:\B \to \C</m>.
+          We define the <term>composition</term> of <m>f</m> and <m>g</m>
+          (denoted by <m>f \circ g</m>)
+          to be the function from <m>\A</m> to <m>\C</m> satisfying
+          <me>
+            (f \circ g)(x) = f(g(x))
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      In the <xref ref="bijection">Table</xref> below,
+      we have four bijections from
+      <m>\{1,2,3,4\}</m> onto <m>\{1,2,3,4\}</m>.
+      The first bijection, <m>i</m>,
+      is the <em>identity map</em>
+      since it maps <m>1 \to 1</m>, <m>2 \to 2</m>,
+      <m>3 \to 3</m> and <m>4 \to 4</m>.
+    </p>
+
+    <table xml:id="bijection">
+      <caption>Bijections</caption>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>i</cell>
+          <cell>p</cell>
+          <cell>q</cell>
+          <cell>r</cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  >1234</cell>
+          <cell>1234</cell>
+          <cell>1234</cell>
+          <cell>1234</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>1234</cell>
+          <cell>2134</cell>
+          <cell>1243</cell>
+          <cell>2143</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>
+      Let's compute <m>q \circ r</m>.
+
+      <ol>
+        <li>
+          <p>
+            <m>(q\circ r)(1)=q(r(1))=q(2)=2=p(1)</m>,
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>(q\circ r)(2)=q(r(2))=q(1)=1=p(2)</m>,
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>(q\circ r)(3)=q(r(3))=q(4)=3=p(3)</m>, and
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>(q\circ r)(4)=q(r(4))=q(3)=4=p(4)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Therefore, <m>q \circ r = p</m>.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Use the example and <xref ref="bijection">Table</xref>
+          to fill in the rest of <xref ref="composition">Table</xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <table xml:id="composition">
+      <caption>Composition</caption>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>\circ</m></cell>
+          <cell><nbsp /><nbsp /> i<nbsp /><nbsp /></cell>
+          <cell><nbsp /><nbsp /> p<nbsp /><nbsp /></cell>
+          <cell><nbsp /><nbsp /> q<nbsp /><nbsp /></cell>
+          <cell><nbsp /><nbsp /> r<nbsp /><nbsp /></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  >i<nbsp /><nbsp /></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>p<nbsp /><nbsp /></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>q<nbsp /><nbsp /></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><nbsp /><nbsp /> p<nbsp /><nbsp /></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>r<nbsp /><nbsp /></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <problem>
+      <statement>
+        <p>
+          What is this inverse of each of these bijections?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Addition of numbers is <em>commutative</em>
+          because for any two numbers <m>a</m> and <m>b</m> we have <m>a+b = b+a</m>.
+          If for every set <m>\A</m>,
+          every <m>f:\A \to \A</m> and every <m>g:\A \to \A</m> it is true that
+          <me>
+            f \circ g = g \circ f
+          </me>,
+          then we would say that composition of functions is also <em>commutative</em>.
+          Either show that composition is commutative or give a counter example by finding two functions for which the statement is not true.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Intersection of sets is <em>associative</em> since for any sets <m>A</m>,
+          <m>B</m>,and <m>C</m> we have <m>\A \cap (\B \cap \C) = (\A \cap \B) \cap \C</m>.
+          Is composition of functions associative?
+          Restated, is it true that if each of <m>f</m>,
+          <m>g</m> and <m>h</m> is a function,
+          then <m>(f \circ g) \circ h = f \circ (g \circ h)</m>?
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+  <xi:include  href="section4-1.ptx" />
+</chapter>
+

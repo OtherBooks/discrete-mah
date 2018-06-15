@@ -1,0 +1,212 @@
+
+
+<section>
+  <title>Project: More on Inverses, Composition and Relations</title>
+  <problem>
+    <statement>
+      <ol>
+        <li>
+          <p>
+            Is <xref ref="OrdPair">Problem</xref>
+            valid if we define <m>(a, b) = \{\{a, 1\}, \{2, b\}\}</m>?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            How would one formally define an ordered triple?
+            An ordered quadruple?
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </problem>
+
+  <problem xml:id="inj_fn">
+    <statement>
+      <p>
+        Show that the composition of one-to-one functions is one-to-one by letting <m>g:\B \to \C</m> and
+        <m>h:\A \to \B</m> be one-to-one functions and showing that <m>g\circ h:\A \to \C</m> is one-to-one.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="surj_fn">
+    <statement>
+      <p>
+        Show that the composition of onto functions is onto.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The word <em>identity</em>
+    is used in a number of different contexts in mathematics.
+    The function <m>f: \R \to \R</m> defined by
+    <m>f(x) = x</m> is called the <em>identity</em>
+    function because it identifies every number with itself.
+    Similarly, <m>0</m> is called an
+    <em>additive identity</em>
+    because adding <m>0</m> to a number does not change the number,
+    so <m>0+x</m> is identified with <m>x</m>.
+    By the same reasoning, <m>1</m> is called the multiplicative identity.
+  </p>
+
+  <problem xml:id="id_fn">
+    <statement>
+      <p>
+        Let <m>\mathbf S</m> denote the set of all bijections from <m>\A</m> to itself.
+        According to <xref ref="inj_fn">Problems</xref>
+        and <xref ref="surj_fn"></xref>,
+        <m>\circ</m> is a binary operation on <m>\mathbf S</m>, that is,
+        <m>f\circ g \in \mathbf S</m> whenever <m>f</m> and <m>g</m> are in <m>\mathbf S</m>.
+        We define a special bijection <m>i:\A \to \A</m> called the
+        <em>identity function</em> on <m>\A</m> as
+        <me>
+          i(x) = x \mbox{ for all }  x\in \A
+        </me>.
+      </p>
+
+      <p>
+        Show that <m>i</m> is an identity for <m>\mathbf S</m>, that is,
+
+        <ol>
+          <li>
+            <p>
+              <m>f\circ i = f = i\circ f</m> and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>f\circ f^{-1} = i = f^{-1}\circ f</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        for all <m>f \in \mathbf S</m>.
+        This shows that <m>i</m> serves as an identity for composition in the same way that 0, 1,
+        <m>\emptyset</m> work as identities for <m>+</m>,
+        <times /> and <m>\oplus</m>, respectively.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Consider the list below of all 6 different bijections from <m>\{0,1,2\}</m> onto itself.
+        For example <m>p</m> maps <m>0 \to 1</m>,
+        <m>1 \to 2</m> and <m>2 \to 0</m>.
+      </p>
+
+      <table>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>i</cell>
+            <cell>p</cell>
+            <cell>q</cell>
+            <cell>f</cell>
+            <cell>g</cell>
+            <cell>h</cell>
+          </row>
+          <row bottom="medium">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell  >012</cell>
+            <cell>012</cell>
+            <cell>012</cell>
+            <cell>012</cell>
+            <cell>012</cell>
+            <cell>012</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>012</cell>
+            <cell>120</cell>
+            <cell>201</cell>
+            <cell>021</cell>
+            <cell>210</cell>
+            <cell>102</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        Make a composition table for these 6 bijections,
+        illustrating <xref ref="inj_fn">Problems</xref>,
+        <xref ref="surj_fn"></xref> and <xref ref="id_fn"></xref> above.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        A function <m>f:\B \to \C</m> is said to be
+        <em>left cancelative</em> if,
+        for all sets <m>\A</m> and all functions <m>g,h:\A \to \B</m>,
+        <me>
+          f \circ g = f \circ h \ \mbox{ implies }  \ \  g = h
+        </me>.
+      </p>
+
+      <p>
+        Show that <m>f</m> is left cancelative if and only if <m>f</m> is one-to-one.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        A function <m>f:\B \to \C</m> is said to be
+        <em>right cancelative</em> if,
+        for all sets <m>\D</m> and all functions <m>g,h:\C \to \D</m>,
+        <me>
+          g \circ f = h \circ f, \ \ \mbox{ implies }  \ \ g = h
+        </me>.
+      </p>
+
+      <p>
+        Show that <m>f</m> is right cancelative if and only if <m>f</m> is onto <m>\C</m>.
+      </p>
+    </statement>
+  </problem>
+</section>
+

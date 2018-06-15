@@ -1,0 +1,455 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Induction and Recursion</title>
+  <introduction>
+    <p>
+      Induction is a technique that may be used to prove that a given statement is true for every positive integer.
+      EXTRA<fn>You will note that we do not formally state the Principle of Mathematical Induction in the body of this chapter.
+      Rather we introduce the concept conceptually first and formalize it in the project following this chapter.</fn></p>
+
+    <example>
+      <statement>
+        <p>
+          We begin with two statements that we might try to prove are true for every positive integer.
+          Are both of these statements true for every positive integer?
+          EXTRA<fn>Sometimes the best way to understand a proof technique is to understand when it will not solve the problem at hand.
+          I simply ask,
+          <q>is this statement true for every positive integer?</q>
+          Of course, they realize it is not,
+          so we discuss why until a student makes the observation that just because the car starts on a given day,
+          does not mean that we may correctly assume that it will start on the following day.
+          Then I point out that every set of positive integers has a minimum element,
+          so we may assume that there must be a <em>first</em>
+          day on which the car will not start.
+          Since it started this morning,
+          there is a positive integer <m>n</m> such that the statement is true for
+          <m>1, 2, \dots,
+          n</m> but not for <m>n+1</m>.
+          During our discussion of this example and our proof of the next, I might mention to the class that this is actually an application of the well-ordering principle.</fn><ol>
+            <li>
+              <p>
+                My car will start on the <m>n^{th}</m> day after yesterday.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sum of the first <m>n</m> positive integers is <m>n(n+1)/2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+    <p>
+      Suppose I wish to prove that the second statement above is true for every positive integer.
+      Let's check the first few.
+      If <m>n=1</m> then this says <m>1 =  \frac{1(1+1)}{2}</m> which is true.
+      If <m>n=2</m> then this says that <m>1 + 2 = \frac{2(2+1)}{2}</m> which is true.
+      If <m>n=3</m> then this says that <m>1 + 2 + 3 = \frac{3(3+1)}{2}</m> which is true.
+      Now, even if we proved this was true for the first <m>1,000,000</m> positive integers,
+      we would not know if it was true for <m>n=1,000,001</m>.
+      How do we <em>prove</em>
+      that it is true for all positive integers?
+      Let's proceed by contradiction and suppose that it is <em>not</em>
+      true for every positive integer.
+      Since it is not true for every positive integer,
+      then there must be a <em>first</em>
+      positive integer <m>m</m> for which it is not true.
+      Since it is true for <m>1</m>,
+      there is a positive integer <m>n</m> such that <m>m=n+1</m>.
+      Since <m>n \lt  m</m>, it is true for <m>n</m>, that is,
+      <me>
+        1 + 2 + \dots + (n-1) + n = \frac{n(n+1)}{2}
+      </me>.
+    </p>
+
+    <p>
+      Adding <m>n+1</m> to both sides we have
+      <me>
+        1 + 2 + \dots + n + (n+1) = \frac{n(n+1)}{2} + (n+1)
+      </me>.
+    </p>
+
+    <p>
+      Using common denominators to combine the terms on the right yields
+      <me>
+        1 + 2 + \dots + n + (n+1) = \frac{n(n+1)+2(n+1)}{2}
+      </me>.
+    </p>
+
+    <p>
+      Simplifying the right hand side leaves us with
+      <me>
+        1 + 2 + \dots + n + (n+1) = \frac{(n+1)(n+2)}{2}
+      </me>.
+    </p>
+
+    <p>
+      We assumed that <m>n+1</m> was the first positive integer for which the statement was false,
+      yet we have just shown that it is true for <m>n+1</m>.
+      We have a contradiction.
+      This means that our assumption that it was not true for all positive integers is false and we may conclude that the statement is true for all positive integers.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Show that each statement is true.
+
+          <ol>
+            <li>
+              <p>
+                The sum of the squares of the first <m>2</m> positive integers is <m>\frac{2(2+1)(2(2)+1)}{6}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sum of the squares of the first <m>3</m> positive integers is <m>\frac{3(3+1)(2(3)+1)}{6}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sum of the squares of the first <m>n</m> positive integers is
+                <m>\frac{n(n+1)(2n+1)}{6}</m> for all <m>n \geq 2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that each statement is true.
+
+          <ol>
+            <li>
+              <p>
+                The sum of the first <m>2</m> cubes is <m>\frac{2^2 (2+1)^2}{4}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sum of the first <m>3</m> cubes is <m>\frac{3^2 (3+1)^2}{4}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sum of the first <m>n</m> cubes is
+                <m>\frac{n^2 (n+1)^2}{4}</m> for all <m>n \geq 2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          A set of numbers is <em>bounded</em>
+          if there are two numbers <m>m</m> and <m>M</m> so that for each number <m>x</m> in the set,
+          <m>m \leq x \leq M</m>.
+
+          <ol>
+            <li>
+              <p>
+                Show that a set with one element is bounded.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Show that a set with two elements is bounded.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Show that a set with three elements is bounded.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Show that for each positive integer <m>n</m>,
+                a set with <m>n</m> elements is bounded.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="prb_postage">
+      <statement>
+        <p>
+          Show that a postage of 12, 13, 14 or 15 cents may be formed using only 4-cent and 5-cent stamps.
+          Then show that every amount of postage of 12 cents or more can be formed using just 4-cent and 5-cent stamps.
+          EXTRA<fn>By the time this problem is solved,
+          students have a good grasp of the concept of induction.
+          At this point, I typically formally state the theorems associated with induction and strong induction.
+          Then I use this problem to illustrate the similarities and differences between induction and strong induction because solving this one with strong induction is,
+          to me at least, a bit more elegant.
+          The similarity is that both are used to prove that a given statement is true of every positive integer.
+          The difference is the hypothesis,
+          yet once stated and proved,
+          why would one ever use induction rather than strong induction?
+          This also foreshadows the project section where the interested student can tackle proving one or both of these theorems.</fn></p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that the sum of the first <m>n</m> odd positive integers is <m>n^2</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Assume <xref ref="MP">Theorem</xref>
+          (The Multiplication Principle for Counting) is true and prove that <xref ref="GMP">Theorem</xref>
+          (The Generalized Multiplication Principle for Counting) is true for every positive integer<nbsp /><m>n</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          From your Calculus I course,
+          you know that if each of <m>f</m> and <m>g</m> is a differentiable functions,
+          then <m>(fg)' = f'g + fg'</m>.
+          Use induction to show that for every positive integer <m>n</m>,
+          if each of <m>f_1, f_2, f_3, \dots f_n</m> is a differentiable function then
+          <me>
+            \left( f_1 f_2 f_3 \cdot\cdot f_n \right)' = f_1' f_2 f_3 \cdot\cdot f_n + f_1 f_2' f_3 \cdot\cdot f_n + f_1 f_2 f_3' \cdot\cdot f_n + \dots + f_1 f_2 f_3 \cdot\cdot f_n'
+          </me>.
+        </p>
+      </statement>
+    </problem>
+
+    <image source="images/06dc680f445962d57deb3a90b0c259fb1745e88a.png"/>
+    <p>
+      <em>Towers of Hanoi</em>
+      The Towers of Hanoi is a mathematical puzzle with a history worth Googling.
+      As illustrated above,
+      the puzzle consists of three rods with <m>n</m> disks of different radii which can slide onto any rod.
+      Start with the disks stacked all on one rod,
+      the largest on the bottom, the smallest on the top and in order of size.
+      The object of the puzzle is to move the stack to another rod,
+      obeying the following rules:
+
+      <ol>
+        <li>
+          <p>
+            Only one disk may be moved at a time.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Each move consists of taking the upper disk from one of the rods and moving it onto another rod,
+            on top of any other disks that may already be present on that rod.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            No disk may be placed on top of a smaller disk.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Show that it is possible to solve the Tower of Hanoi puzzle with <m>n</m> discs in <m>2^n - 1</m> moves.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that to solve the Tower of Hanoi puzzle on <m>n</m> discs,
+          at least <m>2^n-1</m> moves must be made.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that <m>1/2 + 1/4 + 1/8 + 1/16 + .... + 1/2^n = 1 - 1/2^n</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that <m>3^0 + 3^1 + 3^2 + \dots + 3^n = (3^{n+1} - 1)/2</m> is valid for all non-negative integers,
+          <m>n=0,1,2,\dots</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <definition>
+      <statement>
+        <p>
+          A positive integer is a <term>prime</term>
+          if it has exactly two positive factors, 1 and itself.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+      <statement>
+        <p>
+          You have an interview with the NSA and they ask you if
+          <m>p(n) = n^2 - n + 41</m> is prime for every positive integer<nbsp /><m>n</m>.
+          Is it?
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Show that
+          <me>
+            1\cdot 2 + 2\cdot 3 + 3\cdot 4 + 4\cdot 5 + .... + n\cdot (n+1) =  n(n+1)(n+2)/3
+          </me>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="prb_factoring">
+      <statement>
+        <p>
+          Prove that every positive integer is either <m>1</m>,
+          a prime, or the product of primes.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          There are many commonly used functions <m>f</m> with domain <m>\Z</m> that are not easily defined explicitly.
+          Instead, we tell how to compute <m>f</m> by what we call a
+          <em>recursive</em> process.
+          To do this, we
+
+          <ol>
+            <li>
+              <p>
+                choose a positive integer <m>b</m> (often <m>b = 1</m>),
+              </p>
+            </li>
+
+            <li>
+              <p>
+                give the values of <m>f(1),
+          f(2),...,f(b)</m> explicitly, and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                tell how to compute, for any <m>k > b</m>,
+                the value of <m>f(k)</m> using the previous values <m>f(1), f(2), f(3), ..., f(k-1)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          Prove that steps 1-3 can be used to compute <m>f(n)</m> for every positive integer<nbsp /><m>n</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      This is exactly what happens when you ask a program to do a recursive call.
+      An advantage of recursively defined functions is that their properties can often be verified by using induction.
+      Your use of quotes in the program and your use of the quotes in the last sentence are incongruous,
+      so I deleted them from the last sentence.
+    </p>
+
+    <problem>
+      <statement>
+        <p>
+          Consider the following computer program:
+          <md>
+            <mrow>\amp    n = 1;   a = 2</mrow>
+            <mrow>\amp   \mbox{WHILE}    n > 0   \mbox{DO:}</mrow>
+            <mrow>\amp   \qquad   \mbox{PRINT}   ``f('' \; \; n  \; \;``) ='' \; a</mrow>
+            <mrow>\amp   \qquad   n=n+1</mrow>
+            <mrow>\amp   \qquad   a=2a-1</mrow>
+            <mrow>\amp   \mbox{END LOOP}</mrow>
+          </md>
+        </p>
+
+        <p>
+          Use induction to prove that for each positive integer <m>n</m> the computer will eventually print <m>f(n) = 2^{n-1} + 1</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          The <em>Fibonacci Sequence</em>
+          is obtained by taking <m>b=2</m> and defining
+
+          <ol>
+            <li>
+              <p>
+                <m>F(1) = 1, \enspace F(2) = 1</m> and
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>F(k) = F(k-2) + F(k-1)</m> for <m>k \ge 3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          Compute <m>F(3)</m> through <m>F(12)</m>.
+          Use induction to prove that for all <m>n \ge 1</m>,
+          <me>
+            F(1) + F(2) + F(3) + ... + F(n) + 1= F(n+2)
+          </me>
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <statement>
+        <p>
+          Check that <m>F(3), F(6), F(9)</m> and <m>F(12)</m> are even.
+          Then use induction to prove that <m>F(3n)</m> is even for all <m>n \ge 1</m>.
+        </p>
+      </statement>
+    </problem>
+  </introduction>
+  <xi:include  href="section6-1.ptx" />
+</chapter>
+

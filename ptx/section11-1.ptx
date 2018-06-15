@@ -1,0 +1,204 @@
+
+
+<section>
+  <title>Finite State Transducers</title>
+  <p>
+    Suppose the directions on a vending machine ask the user to:
+
+    <ol>
+      <li>
+        <p>
+          Choose either
+
+          <ul>
+            <li>
+              <p>
+                {(W)} Pure Spring Water (65<m>c\hspace{-1.5mm}|</m>) or {(C)} Coca-Cola (45<m>c\hspace{-1.5mm}|</m>).
+              </p>
+            </li>
+          </ul>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Insert either quarters (q) or half dollars (h).
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press <q>RETURN</q>
+          (R) for your drink and change.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    In order to execute instructions,
+    the machine must remember, at any time,
+    the user's selection and the amount of money it has received.
+    Memory will take the form of <em>internal states</em>,
+    one for each possible data set.
+    The machine logic is represented by the directed labeled graph in <xref ref="fig_vending">Figure</xref>.
+    The internal states form the vertices of the graph.
+    For each input, the arrows tell
+
+    <ol>
+      <li>
+        <p>
+          what the output should be and
+        </p>
+      </li>
+
+      <li>
+        <p>
+          to what new internal state the machine should go.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <image source="images/9497143ef70bfcfd84a82d35b20219d6ea3d3060.png"/>
+  <p>
+    The start state is <q><m>s</m></q>,
+    and each other state has a name that indicates what it is to remember.
+    The symbol <q><ndash /></q> means no output.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose our vending machine in <xref ref="vending1">Figure</xref> is in state <q><m>s</m>.</q>
+        Describe what happens when a user inputs the sequence,<q>WqqhR</q>.
+        What should happen if the user inputs <q>Chqqq</q>?
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A <term>finite state transducer</term> is a quintuple
+        <m>\dsp M = \langle \Sigma_1, \Sigma_2, Q, s, \delta\rangle</m>
+        where
+
+        <ol>
+          <li>
+            <p>
+              <m>\Sigma_1</m> is a finite set of symbols,
+              called the <em>input alphabet</em>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\Sigma_2</m> is a finite set of symbols,
+              called the <em>output alphabet</em>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>Q</m> is a finite set,
+        the <em>internal states</em> of <m>M</m>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>s\in Q</m> is called the
+        <em>initial state</em> of <m>M</m>, and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\delta: Q\times\Sigma_1 \to Q\times\Sigma_2</m> is called the
+              <em>state transition function</em>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    A finite state transducer is illustrated with a
+    <em>transition diagram</em>
+    such as the one in <xref ref="vending1">Figure</xref>.
+    A transition diagram is a labeled directed graph whose vertices are the states of <m>Q</m>,
+    and we label the arrow
+  </p>
+  <image source="images/b22e1a1b6db9bea2f37ce8a19ee0e856ac377edf.png"/>
+  <p>
+    from state <m>q</m> to state <m>q'</m> with <m>a/d</m> if <m>\delta(q,a) = (q',d)</m>, that is,
+    in state <m>q\in Q</m> reading input symbol
+    <m>a\in \Sigma_1</m> the machine is to go to state <m>q'\in Q</m> and output symbol <m>d\in \Sigma_2</m>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Construct a transition diagram for a stamp vending machine that asks the user to
+
+        <ol>
+          <li>
+            <p>
+              choose either a 10 stamp book <m>(</m><dollar />3.40<m>)</m> or a 20 stamp book <m>(</m><dollar />6.80<m>)</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              insert either <dollar />1,
+        <dollar />5 or <dollar />10 bills;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              press <q>RETURN</q> for stamps and change.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        You may assume that the user never inserts a bill larger than the last bill inserted.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Construct a transition diagram for a finite state transducer that will read a string of letters from the set
+        <m>\{a,b,c\}</m> starting from the left <m>(</m>for example
+        <q>caabbacccbacb</q><m>)</m>.
+        As output, it will change each letter to an <q>e</q>
+        until it has read three <q>a</q>s.
+        After that, it will change each <q>a</q> to <q>b</q>,
+        each <q>b</q> to <q>c</q>
+        and each <q>c</q> to <q>a</q>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Construct a transition diagram for a finite state transducer which will take as input a finite string of letters from <m>\{a,b,c,x\}</m> <m>(</m>for example,
+        <q>abacaaccabxbxacxxc</q><m>)</m>.
+        It will output the letter <q>q</q> for each input of
+        <m>a,
+        b</m> or <m>c</m> until it reads an <q>x</q>.
+        It will then divide the number of
+        <q>a</q>s it has read by 3,return the remainder as its last output,
+        and go back to the start state. <m>(</m>In the above example,
+        the output would be <q>qqqqqqqqqq2</q>.<m>)</m>
+      </p>
+    </statement>
+  </problem>
+</section>
+

@@ -1,0 +1,164 @@
+
+
+<section>
+  <title>Regular Expressions</title>
+  <p>
+    There is a compact and convenient notation to describe languages recognized by an FSA which tells,
+    in a simple way,
+    exactly what strings of <m>\Sigma^*</m> the FSA accepts.
+    This notation is build recursively.
+
+    <ul>
+      <li>
+        <p>
+          <m>\pmb \varnothing</m> is the empty language with no strings.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>\lda</m> is the one string language <m>\{\lambda\}</m>, and
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>\mathbf{a}</m> is the one string language <m>\{a\}</m> for each <m>a\in \Sigma</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    If <m>K</m> and <m>L</m> are each a language, then
+
+    <ul>
+      <li>
+        <p>
+          <m>KL = \{uv \mid u\in K \mbox{ and } v\in L\}</m>,
+          the <em>concatenation</em> of <m>K</m> and <m>L</m>,
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>K\cup L = \{w \in \Sigma^* \mid w\in K \mbox{ or } w \in L\}</m>,
+          the <em>union</em> of <m>K</m> and <m>L</m>,
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>K^* = \{\lambda\} \cup\{w\in \Sigma^* \mid w=u_1u_2\dots u_n \mbox{ for some } u_1, u_2, \dots u_n \in L\}</m>,
+          the <em>Kleene star</em> of<nbsp /><m>L</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    For example,
+    the language described in <xref ref="ex_L3">Example</xref> is
+    <me>
+      L_3 = \ba\bb(\ba\cup \bb\cup \bc)^*\bc
+    </me>.
+  </p>
+
+  <p>
+    Expressions like this are called
+    <em>regular expressions</em>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_4</m> described in <xref ref="prob_L4">Problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_5</m>,
+        where <m>M_5</m> is the FSA drawn in <xref ref="fig_M5">Figure</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_6</m> described in <xref ref="prob_L6">Problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_7</m> described in <xref ref="prob_L7">Problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_8</m> described in <xref ref="prob_L8">Problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a regular expression for the language <m>L_{10}</m> described in <xref ref="prob_L10">Problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_REG2FSA">
+    <statement>
+      <p>
+        Draw a transition diagram for an FSA that recognizes the language <m>(\ba\bb\ba)^*(\bd\bd\bd)(\bb\cup \be)^*</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_union">
+    <statement>
+      <p>
+        Consider FSAs <m>M_1 = \langle \Sigma,Q_1,s_1,Y_1,\delta_1\rangle</m> recognizing language <m>L_1</m> and
+        <m>M_2 = \langle \Sigma,Q_2,s_2,Y_2,\delta_2\rangle</m> recognizing language <m>L_2</m>.
+        Tell how to use <m>M_1</m> and <m>M_2</m> to design an FSA <m>M</m> that will recognize <m>L_1\cup L_2</m>. <m>(</m><em>HINT</em>: Try using
+        <m>Q=Q_1\times Q_2</m> for the states of <m>M</m>.<m>)</m>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The direct product construction
+    <m>Q = Q_1\times Q_2</m> tends to produce an FSA with an excessively large number of states.
+    In practice most of these states are unusable and superfluous since they can not be reached from the start state.
+    A practical way to construct the transition diagram for the FSA <m>M</m> in <xref ref="prob_union">Problem</xref>
+    is to begin with the start state and add in only those states than can be reached by successive transitions from the start state.
+    Try this in the following extension of <xref ref="prob_REG2FSA">Problem</xref>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Draw a transition diagram for an FSA that recognizes the language
+        <me>
+          (\ba\bb\ba)^*(\bd\bd\bd)(\bb\cup \be)^* \cup \ba^*(\bd^*\cup \bc^*)
+        </me>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    These problems suggest an important theorem about languages which says that a language is recognized by some finite state acceptor if and only if it can be represented by a regular expression.
+  </p>
+</section>
+

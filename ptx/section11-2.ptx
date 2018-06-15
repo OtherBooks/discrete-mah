@@ -1,0 +1,372 @@
+
+
+<section>
+  <title>Finite State Acceptors</title>
+  <p>
+    Consider a vending machine that only accepts dollar bills and has six snacks,
+    each costing one dollar.
+    This machine has only six buttons:
+    <m>A</m>, <m>B</m>, 1, 2, 3 and <m>D</m>.
+    The button <m>D</m> is internal to the machine and is automatically triggered when a dollar bill is inserted.
+    The machine has two rows labeled <m>A</m> and <m>B</m> and three columns labeled 1, 2 and 3.
+    Each combination <m>A1, B1, A2, B2, A3, B3</m> identifies a snack such as M<ampersand />Ms, Cheetos or Doritoes.
+    The instructions read:
+
+    <ol>
+      <li>
+        <p>
+          Insert <dollar />1 (which automatically triggers button <m>D</m>)
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press <m>A</m> or <m>B</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press <m>1, 2</m> or <m>3</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Press <q>RETURN</q>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Figure 9.2 shows a transition diagram for an FST <m>M_1</m> to control this machine.
+  </p>
+
+  <figure xml:id="fig_6treats">
+    <caption>Transition diagram for <m>M_1</m>.</caption>
+    <image source="images/b7cd5dfa14ad4360238da9ed7b3e1c72534b4c96.png"/>
+  </figure>
+
+  <p>
+    Unfortunately many customers could not follow instructions.
+    They would request the treat before inserting the dollar,
+    or get the column before the row.
+    Not knowing what to do, the machine would stop and do nothing.
+    It would get a hard kick, and would do nothing from then on.
+    The Tater-Head-Ted's Snack Company that designed the machine was facing bankruptcy.
+  </p>
+
+  <problem xml:id="vending">
+    <statement>
+      <p>
+        Seeing the growing evidence of expertise in graph theory on your resum&eacute;, the Company has hired you to help.
+        What the Company needs is a separate finite state machine <m>M_2</m> that will answer the question,
+        <q>Is the user's sequence of button pushes a valid input?</q> It will have no outputs,
+        but will have a start state <m>s</m> and will halt in one of two states,
+        <m>y</m> or <m>n</m>,
+        depending on whether the answer is <m>Yes</m> or <m>No</m>.
+        Draw a transition diagram for this finite state machine.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The company can now build the required vending machine by combining <m>M_1</m> and<nbsp /><m>M_2</m>.
+    The machine will save the input sequence in memory.
+    When the user presses <q>RETURN</q>,
+    it will feed a copy of the input sequence to<nbsp /><m>M_2</m>.
+    If <m>M_2</m> halts in state <m>y</m>,
+    it will then feed a copy of the input sequence to<nbsp /><m>M_1</m>.
+    If <m>M_2</m> halts in state <m>n</m>,
+    it will display the message, <q>Invalid input.
+    Please try again!</q>.
+  </p>
+
+  <p>
+    The finite state machine <m>M_2</m> you constructed in <xref ref="vending">Problem</xref>
+    is not an FST. Rather than exchanging input for output,
+    as an FST does, its purpose is to answer the question:
+    <q>Did the user give one of the valid inputs specified by the instructions?</q> Alternately,
+    the question could be phrased as, ``Did the user input one of the strings in the set
+    <me>
+      L_2 = \{\dollarDA1, \dollarDA2, \dollarDA3, \dollarDB1, \dollarDB2, \dollarDB3\}?''
+    </me>
+  </p>
+
+  <p>
+    Thus <m>M_2</m> is an example of a different kind of finite state machine and <m>L_2</m> is the language recognized by <m>M_2</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A <term>finite state acceptor</term>
+        <m>(</m>FSA<m>)</m> is a quintuple <m>\dsp M = \big( \Sigma, Q, s, Y, \delta \big)</m> where
+
+        <ul>
+          <li>
+            <p>
+              <m>\Sigma</m> is a finite set of symbols,
+              called the <em>input alphabet</em> of <m>M</m>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>Q</m> is a finite set,
+        the <em>internal states</em> of <m>M</m>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>s\in Q</m> is called the
+        <em>initial state</em> of <m>M</m>,
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>Y</m> is a subset of <m>Q</m> called the
+              <em>accepting states</em> of <m>M</m>, and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\delta: Q\times\Sigma \to Q</m> is called the
+              <em>state transition function</em> of <m>M</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Like FSTs, FSAs are illustrated by labeled directed graphs.
+    The vertices of the graph are the states of <m>Q</m>,
+    and there is a labeled arrow for each state <m>q\in Q</m> and each symbol <m>a\in \Sigma</m>.
+    Knowing that <m>\delta(q,a) = r</m> tells us that when our FSA <m>M</m> is already in state <m>q</m> and reads the input symbol <m>a</m>,
+    it will go into state <m>r\in Q</m>.
+    We illustrate this using this diagram.
+  </p>
+  <image source="images/90fb03ece207f86502238fb50ee38be8ca9c6ce8.png"/>
+  <p>
+    Because an input to <m>M</m> will be a string of symbols,
+    we define <m>\Sigma^*</m> as the set of all finite strings of symbols from <m>\Sigma</m>.
+    This includes the <em>empty string</em>,
+    which is denoted by<nbsp /><m>\lambda</m>.
+    Since the transition function <m>\delta</m> can only handle one input from our alphabet at a time,
+    we extend
+    <m>\delta</m> recursively to a function
+    <me>
+      \delta^*:Q\times\Sigma^* \to Q
+    </me>
+    by defining
+
+    <ol>
+      <li>
+        <p>
+          <m>\delta^*(q,\lambda)=q</m> and
+          <m>\delta^*(q,a)= \delta(q,a)</m> for <m>a\in \Sigma</m>,
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>\delta^*(q,au) =\delta^*(\delta(q,a),u)</m> for
+          <m>a\in \Sigma</m>, <m>u\in \Sigma^*</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    For example,
+    if <m>q\in Q</m> and <m>a,b,c\in \Sigma</m>, then we have
+    <me>
+      \delta^*(q,abc)=\delta^*(\delta(q,a),bc) =
+      \delta^*(\delta(\delta(q,a),b),c) = \delta(\delta(\delta(q,a),b),c)
+    </me>.
+  </p>
+  <image source="images/ac119bfdd2977d2ff2e625bce614752685c2ace5.png"/>
+  <p>
+    When the machine <m>M</m> is started by the user,
+    its job will be to read a string <m>w</m> of symbols from <m>\Sigma</m> and either accept or reject it.
+    If <m>M</m> begins in its initial state <m>s</m> and reads the string <m>w\in \Sigma^*</m>,
+    then <m>\delta^*(s,w)</m> is the state it will be in when it reaches the end of <m>w</m> and halts.
+    We say that <m>M</m> <em>accepts</em>
+    the string <m>w</m> if <m>\delta^*(s,w)\in Y</m> (the set of accepting or <q>Yes</q> states);
+    otherwise we say that <m>M</m>
+    <em>rejects</em> <m>w</m>.
+    These ideas lead to the following definitions.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        For a finite alphabet <m>\Sigma</m>,
+        a <term>language</term> over <m>\Sigma</m> is a subset of <m>\Sigma^*</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>M</m> is an FSA, then the set
+        <me>
+          L = \{w\in \Sigma^* \mid \delta^*(s,w)\in Y\}
+        </me>
+        consisting of all strings accepted by <m>M</m> is called
+        <term>the language recognized by</term> <m>M</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In practice we often find that,
+    after reading only part of a string,
+    we can be certain that it will be rejected regardless of what follows.
+    In these cases it is useful to specify a <em>dead state</em>
+    which is non-accepting and cannot be exited.
+    We will use the letter <q><m>z</m></q> to denote a dead state.
+    Since there may be many arrows going to <m>z</m>,
+    we follow the convention that undrawn arrows are intended to go to<nbsp /><m>z</m>.
+  </p>
+
+  <example xml:id="ex_L3">
+    <statement>
+      <p>
+        Draw an FSA <m>M_3</m> that recognizes the language <m>L_3</m> consisting of exactly those words that contain only the letters from the input alphabet <m>\Sigma = \{a,b,c\}</m>,
+        begin with <m>a</m> and end with <m>c</m>.
+        EXTRA<fn>I use this example as a classroom exercise and have them draw an FSA at their desk while I circulate.
+        After a few minutes, I draw one of the attempts on the board, talk about the difference between FSTs and FSAs, point out that FSA's have only one alphabet (no output alphabet), at least one accepting state, and a dead state <m>z</m> if it is needed.</fn></p>
+    </statement>
+  </example>
+
+  <problem xml:id="prob_L4">
+    <statement>
+      <p>
+        Draw an FSA <m>M_4</m> that recognizes the language <m>L_4</m> consisting of exactly those words that contain the letters from the input alphabet <m>\Sigma = \{a,b,c,d\}</m>,
+        begin with <m>ab</m>, and end with <nbsp /><m>b</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <figure xml:id="fig_M5">
+    <caption>A finite state acceptor <m>M_5</m>.</caption>
+    <image source="images/cd36868e03b4bf2461efd11377e678dba74e31a8.png"/>
+  </figure>
+
+  <problem>
+    <statement>
+      <p>
+        Consider the FSA <m>M_5</m> illustrated in <xref ref="fig_M5">Figure</xref>.
+        Here <m>s</m> is the start state,
+        <m>x</m> <m>(</m>indicated with a double circle<m>)</m> is the only accepting state,
+        and all undrawn arrows go the the
+        <q>dead</q> state <m>z</m>.
+        Let <m>\Sigma = \{0,1,2\}</m> and list three strings in
+        <m>\Sigma^*</m> that are accepted by <m>M_5</m> and three strings that are not accepted by <m>M_5</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_L6">
+    <statement>
+      <p>
+        Draw an FSA <m>M_6</m> that recognizes the language <m>L_6</m> consisting of exactly those words that contain only the letters from the input alphabet
+        <m>\Sigma = \{a,b,c\}</m>, begin with <m>a</m>,
+        contain exactly one <m>b</m> and end with <m>c</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_L7">
+    <statement>
+      <p>
+        Draw an FSA <m>M_7</m> that recognizes the language <m>L_7</m> consisting of exactly those words that contain only the letters from the input alphabet
+        <m>\Sigma = \{a,b,c,d\}</m>, begin with <m>a</m>,
+        contain at least one <m>b</m> and end with <m>cd</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_L8">
+    <statement>
+      <p>
+        Let <m>\Sigma = \{1,2,3,4\}</m>.
+        Construct an FSA <m>M_8</m> that will answer the question,
+        <q>Does <m>w \in \Sigma^*</m> begin with <m>12</m>,
+        contain exactly four <m>3</m>'s, and end with<nbsp /><m>4</m>?</q>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>a</m> is a character in our input alphabet and <m>n</m> is a positive integer,
+        then <m>a^n</m> is the string consisting of <m>a</m> repeated <m>n</m> times.
+        I.e. <m>a^3=aaa</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\Sigma = \{a,b\}</m>.
+        Draw an FSA <m>M_{9}</m> that recognizes the language <m>L_{9} = \{a^nb^n \mid n = 1, 2, 3 \}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Are the commas in <xref ref="prob_L10">Problem</xref> necessary?
+        EXTRA<fn>This always leads to an interesting discussion about the importance of the careful use of grammar.
+        At some point,
+        should not all students be convinced of the necessity of the commas, I reduce the issue to a single question.
+        Is there a difference between <q>Let's eat, Grandma.</q> and <q>Let's eat Grandma.</q>?</fn></p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_L10">
+    <statement>
+      <p>
+        Construct an FSA <m>M_{10}</m> that recognizes the language consisting of all strings that are either
+
+        <ol>
+          <li>
+            <p>
+              a positive multiple of three Cs, followed by either an empty string or a string of As and Bs or
+            </p>
+          </li>
+
+          <li>
+            <p>
+              a positive multiple of two Ds, followed by either an empty string or a string of Bs and Cs.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="L__">
+    <statement>
+      <p>
+        Let <m>\Sigma = \{a,b\}</m>.
+        Is there an FSA that will recognize the language <m>L = \{a^nb^n \mid n = 1,2,3,\dots\}</m>?
+        If so, draw it.
+        If not, why not?
+      </p>
+    </statement>
+  </problem>
+</section>
+
