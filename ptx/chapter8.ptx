@@ -43,6 +43,7 @@
     </p>
 
     <figure>
+      <caption>Health Food Stores</caption>
       <image>
       <latex-image>
         \begin{xxpicture}(50,50)(-20,0)
@@ -80,7 +81,6 @@
         \end{xxpicture}
       </latex-image>
       <image>
-      XXcaptionXXHealth Food StoresYY
     </figure>
 
     <p>
@@ -372,6 +372,7 @@
     </problem>
 
     <figure>
+      <caption>Weighted Graph</caption>
       <image>
       <latex-image>
         \begin{xxpicture}(55,45)(-20,0)
@@ -411,7 +412,6 @@
         \end{xxpicture}
       </latex-image>
       <image>
-      XXcaptionXXWeighted GraphYY
     </figure>
 
     <problem xml:id="BF4HC">
@@ -467,6 +467,7 @@
     </problem>
 
     <figure>
+      <caption>An Incomplete Weighted Graph</caption>
       <image>
       <latex-image>
         \begin{xxpicture}(45,40)(0,0)
@@ -494,7 +495,6 @@
         \end{xxpicture}
       </latex-image>
       <image>
-      XXcaptionXXAn Incomplete Weighted GraphYY
     </figure>
 
     <problem xml:id="prob_incomplete">

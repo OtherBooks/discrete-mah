@@ -230,6 +230,7 @@
     </problem>
 
     <table>
+      <caption>A function, <m>f</m></caption>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -295,7 +296,6 @@
           <cell></cell>
         </row>
       </tabular>
-      XXcaptionXXA function, <m>f</m>YY
     </table>
 
     <problem>
@@ -531,6 +531,7 @@
     </p>
 
     <table>
+      <caption>Bijections</caption>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -579,7 +580,6 @@
           <cell></cell>
         </row>
       </tabular>
-      XXcaptionXXBijectionsYY
     </table>
 
     <p>
@@ -626,6 +626,7 @@
     </problem>
 
     <table>
+      <caption>Composition</caption>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -711,7 +712,6 @@
           <cell></cell>
         </row>
       </tabular>
-      XXcaptionXXCompositionYY
     </table>
 
     <problem>

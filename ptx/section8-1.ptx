@@ -26,7 +26,8 @@
     </statement>
   </problem>
 
-  <table>
+  <table xml:id="table">
+      <caption>table of distances between 12 houses</caption>
     <tabular>
       <row bottom="minor">
         <cell></cell>
@@ -417,7 +418,6 @@
         <cell></cell>
       </row>
     </tabular>
-    XXcaptionXXtable of distances between 12 housesYY
   </table>
 
   <ol>

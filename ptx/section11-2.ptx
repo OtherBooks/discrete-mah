@@ -335,7 +335,7 @@
     </statement>
   </problem>
 
-  <figure xml:id="fig:M5">
+  <figure xml:id="fig_M5">
     <caption>A finite state acceptor <m>M_5</m>.</caption>
     <image>
     <latex-image>
