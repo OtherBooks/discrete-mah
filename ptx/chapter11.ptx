@@ -8,9 +8,32 @@
       an ON/OFF button, a CHANNEL button and a VOLUME button.
     </p>
 
-    <figure>
-      <image source="images/10b04949801e54787f0c7462f8d25b1eb8858316.png"/>
-    </figure>
+    <figure xml:id="fig:6treats">
+    <caption>Transition diagram for <m>M_1</m>.</caption>
+    <image>
+    <latex-image>
+      \begin{picture}(50,21)
+
+      \put(-1,-1){
+      \put(25,0){\line(1,0){80}}  \put(25,15){\line(1,0){80}}
+      \put(25,0){\line(0,1){15}}  \put(105,0){\line(0,1){15}}
+      \put(26,1){\line(1,0){78}}  \put(26,14){\line(1,0){78}}
+      \put(26,1){\line(0,1){13}}  \put(104,1){\line(0,1){13}}
+
+      \multiput(38,5)(27,0){3}{\circle{4}}
+      \put(37.2,4.2){\(o\)}  \put(64.2,4.2){\(c\)}  \put(91.2,4.2){\(v\)}
+      \qbezier(28,0)(30,-3)(32,0)   \qbezier(98,0)(100,-3)(102,0)
+      \qbezier(60,15)(65,20)(70,15)  \put(62,17){\line(-1,1){4}}   \put(68,17){\line(1,1){4}}
+      \put(58,21){\circle*{1}}  \put(72,21){\circle*{1}}
+
+      \put(31,10){ON/OFF}   \put(56.5,10){CHANNEL}  \put(84,10){VOLUME}
+      }
+      \end{picture}
+    </latex-image>
+    <image>
+    <p>
+      \end{figure}
+    </p>
 
     <p>
       The radio has ten channels and five volume levels:

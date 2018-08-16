@@ -21,7 +21,6 @@
       </p>
 
       <table>
-        <caption>1 is True; 0 is False</caption>
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -96,6 +95,7 @@
             <cell></cell>
           </row>
         </tabular>
+        XXcaptionXX1 is True; 0 is FalseYY
       </table>
 
       <p>

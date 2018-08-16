@@ -229,8 +229,7 @@
       </statement>
     </problem>
 
-    <table xml:id="t1">
-      <caption>A function, <m>f</m></caption>
+    <table>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -296,6 +295,7 @@
           <cell></cell>
         </row>
       </tabular>
+      XXcaptionXXA function, <m>f</m>YY
     </table>
 
     <problem>
@@ -434,10 +434,22 @@
       </statement>
     </problem>
 
-    <figure xml:id="FC">
-      <caption>Thermometer showing both Fahrenheit and
-      Celsius temperature scales</caption>
-      <image source="images/a1cd98a3aa96fa002e170b3d2947450a96344af3.png"/>
+    <p>
+ <figure xml:id="FC"> <caption>Thermometer showing both Fahrenheit and Celsius temperature scales</caption></p>
+      <image>
+      <latex-image>
+        \begin{picture}(125,20)
+        \put(30,10){\line(1,0){90}} \multiput(45,10)(20,0){4}{\circle*{1}}
+        \put(30,10){\circle*{2}} \put(77,10){\circle*{1}}
+        \multiput(115,5)(2.5,0){3}{\circle*{.5}}
+        \multiput(115,15)(2.5,0){3}{\circle*{.5}}
+        \put(18,4)C \put(18,13)F \put(26,4){-273} \put(26,13){-460}
+        \put(41,4){-200} \put(41,13){-328} \put(61,4){-100}
+        \put(61,13){-148} \put(75,4){-40} \put(75,13){-40} \put(84,4){0} \put(83,13){32}
+        \put(101,4){100} \put(101,13){212}
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <problem>
@@ -518,8 +530,7 @@
       <m>3 \to 3</m> and <m>4 \to 4</m>.
     </p>
 
-    <table xml:id="bijection">
-      <caption>Bijections</caption>
+    <table>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -568,6 +579,7 @@
           <cell></cell>
         </row>
       </tabular>
+      XXcaptionXXBijectionsYY
     </table>
 
     <p>
@@ -613,8 +625,7 @@
       </statement>
     </problem>
 
-    <table xml:id="composition">
-      <caption>Composition</caption>
+    <table>
       <tabular>
         <row bottom="minor">
           <cell></cell>
@@ -700,6 +711,7 @@
           <cell></cell>
         </row>
       </tabular>
+      XXcaptionXXCompositionYY
     </table>
 
     <problem>

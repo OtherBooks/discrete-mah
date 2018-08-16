@@ -34,8 +34,147 @@
       we are implicitly assuming that delivering the mail requires the same amount of time for each block.
       Of course, this is not a realistic assumption and we discuss that in class with the students.
       If we were to add a different time for each block, perhaps depending on the number of mailboxes on that block, then we would have a more realistic, but also more difficult problem.</fn></p>
-    <image source="images/dd58a23f321391a25b5e8d736ee6a5614d0582ff.png"/>
-    <image source="images/7703cdfa71add9f12f21d9119b310f7639470c50.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(160,60)
+      \multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}
+
+      \thicklines
+
+      \multiput(-1,-1)(0,.3){8}{
+      \put(10,0){\line(1,0){60}} \put(10,15){\line(1,0){60}}
+      \put(16,30){\line(1,0){45}} \put(10,45){\line(1,0){45}}
+      \put(10,60){\line(1,0){45}}
+      \multiput(10,0)(15,0){5}{\line(0,1){15}}
+      \multiput(10,45)(15,0){3}{\line(0,1){15}}
+      \qbezier(55,45)(45,52.5)(55,60) \qbezier(55,45)(65,52.5)(55,60)
+      \qbezier(25,0)(25,0)(40,15) \qbezier(10,15)(10,15)(16,30)
+      \qbezier(25,15)(25,15)(31,30) \qbezier(40,15)(40,15)(46,30)
+      \qbezier(46,30)(46,30)(55,15) \qbezier(55,15)(55,15)(61,30)
+      \qbezier(61,30)(61,30)(70,15) \qbezier(16,30)(16,30)(10,45)
+      \qbezier(31,30)(31,30)(25,45) \qbezier(31,30)(31,30)(40,45)
+      \qbezier(40,45)(40,45)(46,30) \qbezier(46,30)(46,30)(55,45)
+      \qbezier(10,60)(10,60)(25,45) \qbezier(25,45)(25,45)(40,60)
+      }
+
+      \multiput(-1,-1)(.3,0){3}{
+      \put(10,0){\line(1,0){60}} \put(10,15){\line(1,0){60}}
+      \put(16,30){\line(1,0){45}} \put(10,45){\line(1,0){45}}
+      \put(10,60){\line(1,0){45}}
+      \multiput(10,0)(15,0){5}{\line(0,1){15}}
+      \multiput(10,45)(15,0){3}{\line(0,1){15}}
+      \qbezier(55,45)(45,52.5)(55,60) \qbezier(55,45)(65,52.5)(55,60)
+      \qbezier(25,0)(25,0)(40,15) \qbezier(10,15)(10,15)(16,30)
+      \qbezier(25,15)(25,15)(31,30) \qbezier(40,15)(40,15)(46,30)
+      \qbezier(46,30)(46,30)(55,15) \qbezier(55,15)(55,15)(61,30)
+      \qbezier(61,30)(61,30)(70,15) \qbezier(16,30)(16,30)(10,45)
+      \qbezier(31,30)(31,30)(25,45) \qbezier(31,30)(31,30)(40,45)
+      \qbezier(40,45)(40,45)(46,30) \qbezier(46,30)(46,30)(55,45)
+      \qbezier(10,60)(10,60)(25,45) \qbezier(25,45)(25,45)(40,60)
+      }
+
+
+      \put(75,0){
+
+      \multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}
+
+      \put(3,-5){START} \put(0.5,15){END}
+
+      \put(12,.5){\vector(1,0){11}} \put(12,-1){\vector(1,0){11}}
+      \put(27,0){\vector(1,0){11}} \put(42,-1){\vector(1,0){11}}
+      \put(53,.5){\vector(-1,0){11}} \put(57,0){\vector(1,0){11}}
+      \put(10,13){\vector(0,-1){11}} \put(24,2){\vector(0,1){11}}
+      \put(25.5,2){\vector(0,1){11}} \put(38,13){\vector(-1,-1){11}}
+      \put(40,2){\vector(0,1){11}} \put(55,13){\vector(0,-1){11}}
+      \put(70,2){\vector(0,1){11}} \put(23,15){\vector(-1,0){11}}
+      \put(27,14.5){\vector(1,0){11}} \put(38,16){\vector(-1,0){11}}
+      \put(42,15){\vector(1,0){11}} \put(68,14.5){\vector(-1,0){11}}
+      \put(57,16){\vector(1,0){11}} \qbezier(15,28)(15,28)(10.5,17)
+      \put(10.5,17){\vector(-1,-3){0}} \qbezier(30,28)(30,28)(25.5,17)
+      \put(30.25,28.5){\vector(1,3){0}} \qbezier(45,28)(45,28)(40.5,17)
+      \put(40.5,17){\vector(-1,-3){0}} \qbezier(47,28)(47,28)(54,17)
+      \put(47,28.5){\vector(-1,3){0}} \qbezier(60,28)(60,28)(55.5,17)
+      \put(55.5,17){\vector(-1,-3){0}} \qbezier(62,28)(62,28)(69,17)
+      \put(62,28.5){\vector(-1,3){0}} \put(18,30.5){\vector(1,0){11}}
+      \put(29,29){\vector(-1,0){11}} \put(33,30.5){\vector(1,0){11}}
+      \put(33,29){\vector(1,0){11}} \put(59,30.5){\vector(-1,0){11}}
+      \put(48,29){\vector(1,0){11}} \qbezier(11,43)(11,43)(15,32)
+      \put(15.25,31.5){\vector(1,-3){0}} \qbezier(26,43)(26,43)(30,32)
+      \put(26,43.5){\vector(-1,3){0}} \qbezier(38,44)(38,44)(31.5,32)
+      \put(31.5,31.5){\vector(-1,-3){0}} \qbezier(39,43)(39,43)(33,32)
+      \put(33,31.5){\vector(-1,-3){0}} \qbezier(41,43)(41,43)(45,32)
+      \put(41,43.5){\vector(-1,3){0}} \qbezier(53.5,43)(53.5,43)(46.5,32)
+      \put(53.75,43.75){\vector(1,3){0}} \put(23,45){\vector(-1,0){11}}
+      \put(27,45){\vector(1,0){11}} \put(53,45){\vector(-1,0){11}}
+      \put(9,58){\vector(0,-1){11}} \put(10.5,47){\vector(0,1){11}}
+      \put(23,47){\vector(-1,1){11}} \put(25,58){\vector(0,-1){11}}
+      \put(38,58){\vector(-1,-1){11}} \put(40,47){\vector(0,1){11}}
+      \qbezier(53,47)(47,52.5)(53,58) \put(53,47){\vector(1,-1){0}}
+      \qbezier(57,47)(63,52.5)(57,58) \put(57,58){\vector(-1,1){0}}
+      \put(12,60){\vector(1,0){11}} \put(38,60.5){\vector(-1,0){11}}
+      \put(27,59){\vector(1,0){11}} \put(53,60.5){\vector(-1,0){11}}
+      \put(42,59){\vector(1,0){11}}
+
+      \put(16,1){1} \put(18,-3.5){5} \put(31,-2.5){6}
+      \put(46,-3.5){7} \put(46,1){12} \put(61,-2.5){8} \put(8,7){4}
+      \put(22,7){2} \put(26,7){15} \put(33,6){14} \put(40.5,7){13}
+      \put(55.5,7){11} \put(70.5,7){9} \put(16,12.5){3} \put(31,12){16}
+      \put(31,16.5){25} \put(46,12.5){17} \put(61,12){10}
+      \put(61,16.5){18} \put(9,23){53} \put(24,22){26} \put(39,22){24}
+      \put(52,22){21} \put(59,22){20} \put(67,22){19} \put(22,31){28}
+      \put(22,26.5){27} \put(37,31){33} \put(37,26.5){29} \put(52,31){23}
+      \put(52,26.5){22} \put(9,36){52} \put(29.25,36){36}
+      \put(32.5,40){35} \put(37,36){32} \put(44,37){34} \put(51.5,37){30}
+      \put(16,42.5){49} \put(31,45.5){37} \put(46,42.5){31} \put(6,51){51}
+      \put(11,51){50} \put(16,49){44} \put(22,52){48} \put(32,50){43}
+      \put(40.5,51){38} \put(51,51){40} \put(61,51){41} \put(16,60.5){45}
+      \put(31,61){47} \put(31,57){46} \put(46,61){42} \put(46,57){39} }
+
+      \end{picture}
+    </latex-image>
+    <image>
+    <image>
+    <latex-image>
+      \begin{picture}(75,80)(-55,20)
+
+      \put(-75,-80)
+      {\multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}}
+
+      \put(-75,10)
+      {\multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}}
+
+      \put(5,-80)
+      {\multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}}
+
+      \put(5,10)
+      {\multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}}
+      \end{picture}
+    </latex-image>
+    <image>
 
     <problem xml:id="mail">
       <statement>
@@ -61,7 +200,21 @@
       </statement>
     </problem>
 
-    <image source="images/e901b3ca94a89c71e981938574013ff2740e167b.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(50,50)(10,-60)
+
+
+      \put(5,-80){\multiput(10,0)(15,0){5}{\circle*{2}}
+      \multiput(10,15)(15,0){5}{\circle*{2}}
+      \multiput(16,30)(15,0){4}{\circle*{2}}
+      \multiput(10,45)(15,0){4}{\circle*{2}}
+      \multiput(10,60)(15,0){4}{\circle*{2}}}
+
+
+      \end{picture}
+    </latex-image>
+    <image>
     <p>
       Clearly it is difficult to determine the shortest path,
       so let's examine some mini-neighborhoods illustrated on the next page.
@@ -90,7 +243,55 @@
       </statement>
     </problem>
 
-    <image source="images/d60133113b721ff74275612d91842908e0980cbf.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(180,190)
+
+      \put(-5,44){(v)}
+      \multiput(10,0)(15,0){6}{\circle*{2}}
+      \multiput(10,15)(15,0){6}{\circle*{2}}
+      \multiput(10,30)(15,0){6}{\circle*{2}}
+      \multiput(10,45)(15,0){6}{\circle*{2}}
+      \multiput(10,0)(15,0){6}{\line(0,1){15}}
+      \multiput(25,15)(15,0){4}{\line(0,1){15}}
+      \multiput(10,30)(15,0){6}{\line(0,1){15}}
+      \multiput(10,0)(30,0){3}{\line(1,0){15}}
+      \multiput(10,45)(30,0){3}{\line(1,0){15}}
+      \put(10,15){\line(1,0){75}} \put(10,30){\line(1,0){75}}
+
+      \put(-5,95){(iv)}
+      \multiput(10,65)(15,0){4}{\circle*{2}}
+      \multiput(10,80)(15,0){4}{\circle*{2}}
+      \multiput(10,95)(15,0){4}{\circle*{2}}
+      \multiput(10,65)(15,0){3}{\line(0,1){30}}
+      \multiput(10,65)(30,0){2}{\line(1,0){15}}
+      \multiput(10,80)(0,15){2}{\line(1,0){45}}
+      \put(55,65){\line(0,1){15}}
+
+      \put(-5,145){(iii)}
+      \multiput(10,115)(15,0){3}{\circle*{2}}
+      \multiput(10,130)(15,0){3}{\circle*{2}}
+      \multiput(10,145)(15,0){3}{\circle*{2}}
+      \multiput(10,115)(15,0){3}{\line(0,1){30}}
+      \multiput(10,115)(0,15){3}{\line(1,0){30}}
+
+      \put(-5,180){(i)}
+      \put(10,165){\circle*{2}} \put(10,180){\circle*{2}}
+      \put(25,165){\circle*{2}} \put(25,180){\circle*{2}}
+      \put(10,165){\line(0,1){15}} \put(10,165){\line(1,0){15}}
+      \put(10,180){\line(1,0){15}} \put(25,165){\line(0,1){15}}
+
+      \put(55,180){(ii)}
+      \put(75,0){\put(10,165){\circle*{2}} \put(10,180){\circle*{2}}
+      \put(25,165){\circle*{2}} \put(25,180){\circle*{2}}
+      \put(10,165){\line(0,1){15}} \put(10,165){\line(1,0){15}}
+      \put(10,180){\line(1,0){15}} \put(25,165){\line(0,1){15}}}
+      \put(85,180){\line(-1,0){15}} \put(100,165){\line(1,0){15}}
+      \put(70,180){\circle*{2}} \put(115,165){\circle*{2}}
+
+      \end{picture}
+    </latex-image>
+    <image>
     <p>
       The mathematics behind the mail carrier problem dates to eighteenth century east Prussia.
       The historic city of K\''onigsberg
@@ -114,12 +315,47 @@
 
     <figure xml:id="KB">
       <caption>K\''onigsberg Bridges</caption>
-      <image source="images/b05f4c80e6841d9986e7c98223944b4aa71b8f06.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(150,50)(-15,5)
+        \put(40,10){\circle*{2}} \put(40,30){\circle*{2}}
+        \put(40,50){\circle*{2}} \put(70,30){\circle*{2}}
+        \qbezier(62,30)(62,34)(70,34) \qbezier(62,30)(62,26)(70,26)
+        \qbezier(70,38)(63,38)(60,42) \qbezier(60,42)(57,46)(40,46)
+        \qbezier(40,46)(18,46)(18,38) \qbezier(18,38)(17,34)(14,34)
+        \qbezier(14,26)(17,26)(18,22) \qbezier(18,22)(18,14)(40,14)
+        \qbezier(40,14)(57,14)(60,18) \qbezier(60,18)(63,22)(70,22)
+        \qbezier(40,24)(54,24)(54,30) \qbezier(54,30)(54,36)(40,36)
+        \qbezier(40,36)(26,36)(26,30) \qbezier(26,30)(26,24)(40,24)
+        \put(14,34){\line(-1,0){6}} \put(14,26){\line(-1,0){6}}
+        \put(70,22){\line(1,0){10}} \put(70,26){\line(1,0){10}}
+        \put(70,34){\line(1,0){10}} \put(70,38){\line(1,0){10}}
+        \multiput(32,27)(.1,0){10}{\line(-1,-3){5}}
+        \multiput(48,27)(-.1,0){10}{\line(1,-3){5}}
+        \multiput(32,33)(.1,0){10}{\line(-1,3){5}}
+        \multiput(48,33)(-.1,0){10}{\line(1,3){5}}
+        \multiput(52,29.5)(0,.1){10}{\line(1,0){12}}
+        \multiput(75,32)(.1,0){10}{\line(-1,3){3}}
+        \multiput(75,28)(.1,0){10}{\line(-1,-3){3}}
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <figure xml:id="KB2">
       <caption>Mathematical Representation of K\''onigsberg Bridges</caption>
-      <image source="images/bd1f1661daa6b3862d86131970bfd72b42883618.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(150,50)(50,5)
+        \put(-20,0){\put(120,10){\circle*{2}} \put(120,30){\circle*{2}}
+        \put(120,50){\circle*{2}} \put(150,30){\circle*{2}}
+        \put(120,30){\line(1,0){30}} \qbezier(120,10)(106,20)(120,30)
+        \qbezier(120,30)(106,40)(120,50) \qbezier(120,10)(134,20)(120,30)
+        \qbezier(120,30)(134,40)(120,50) \qbezier(120,10)(142,10)(150,30)
+        \qbezier(150,30)(142,50)(120,50)}
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <p>
@@ -561,12 +797,128 @@
 
     <figure xml:id="FEP">
       <caption>Three Graphs for <xref ref="EP">Problem</xref></caption>
-      <image source="images/a25eed73232f9ff34cb2b5a2d3b60bbee4d21256.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(140,205)(-40,0)
+
+        \put(-35,185){Graph 1}
+        \put(0,-30){\multiput(30,190)(0,14){5}{\circle*{2}}
+        \multiput(44,204)(0,14){3}{\circle*{2}}
+        \multiput(58,197)(0,21){3}{\circle*{2}}
+        \multiput(74,208)(14,0){2}{\circle*{2}}
+        \multiput(74,228)(14,0){2}{\circle*{2}} \put(8,218){\circle*{2}}
+        \put(18,211){\circle*{2}} \put(18,225){\circle*{2}}
+        \put(100,218){\circle*{2}}
+        \put(30,190){\line(0,1){56}} \put(18,211){\line(0,1){14}}
+        \put(44,204){\line(0,1){28}} \put(58,197){\line(0,1){42}}
+        \put(88,208){\line(0,1){20}} \put(30,218){\line(1,0){28}}
+        \put(30,204){\line(1,0){14}} \put(30,232){\line(1,0){14}}
+        \put(74,208){\line(1,0){14}} \put(74,228){\line(1,0){14}}
+        \qbezier(8,218)(8,218)(30,232) \qbezier(8,218)(8,218)(30,204)
+        \qbezier(18,211)(18,211)(30,218) \qbezier(18,225)(18,225)(30,218)
+        \qbezier(30,190)(30,190)(58,218) \qbezier(30,246)(30,246)(58,218)
+        \qbezier(58,197)(58,197)(74,208) \qbezier(58,239)(58,239)(74,228)
+        \qbezier(58,218)(58,218)(74,208) \qbezier(58,218)(58,218)(74,228)
+        \qbezier(88,208)(88,208)(100,218)
+        \qbezier(88,228)(88,228)(100,218)
+        \qbezier(74,208)(74,201)(81,201)\qbezier(81,201)(88,201)(88,208)
+        \qbezier(74,228)(74,235)(81,235) \qbezier(81,235)(88,235)(88,228)}
+
+        \put(-35,110){Graph 2}
+        \put(0,-25){\multiput(35,110)(22.5,0){3}{\circle*{2}}
+        \multiput(20,125)(15,0){6}{\circle*{2}}
+        \multiput(20,140)(15,0){6}{\circle*{2}}
+        \multiput(20,155)(15,0){2}{\circle*{2}}
+        \multiput(80,155)(15,0){2}{\circle*{2}}
+        \put(35,110){\line(1,0){45}} \put(20,125){\line(1,0){75}}
+        \put(16,140){\line(1,0){83}} \put(16,155){\line(1,0){19}}
+        \put(80,155){\line(1,0){19}} \put(20,125){\line(0,1){30}}
+        \put(35,110){\line(0,1){45}} \put(50,125){\line(0,1){15}}
+        \put(65,125){\line(0,1){15}} \put(80,110){\line(0,1){45}}
+        \put(95,125){\line(0,1){30}} \qbezier(20,155)(20,155)(50,125)
+        \qbezier(20,140)(20,140)(35,125) \qbezier(35,155)(35,155)(50,140)
+        \qbezier(35,125)(35,125)(57.5,110)
+        \qbezier(80,125)(80,125)(57.5,110)
+        \qbezier(80,125)(80,125)(95,140) \qbezier(65,125)(65,125)(95,155)
+        \qbezier(65,140)(65,140)(80,155)
+        \qbezier(16,140)(7,140)(7,147.5) \qbezier(7,147.5)(7,155)(16,155)
+        \qbezier(99,140)(108,140)(108,147.5)
+        \qbezier(108,147.5)(108,155)(99,155)}
+
+        \put(-35,20){Graph 3}
+        \put(0,-10){\put(40,8){\circle*{2}} \put(68,50){\circle*{2}}
+        \put(12,50){\circle*{2}} \put(40,18){\circle*{2}}
+        \put(46,30){\circle*{2}} \put(34,30){\circle*{2}}
+        \put(54,44){\circle*{2}} \put(40,44){\circle*{2}}
+        \put(26,44){\circle*{2}} \put(40,50){\circle*{2}}
+        \put(46,58){\circle*{2}} \put(34,58){\circle*{2}}
+        \put(40,70){\circle*{2}} \put(54,28){\circle*{2}}
+        \put(64,28){\circle*{2}} \put(70,17){\circle*{2}}
+        \put(58,20){\circle*{2}} \put(26,28){\circle*{2}}
+        \put(16,28){\circle*{2}} \put(10,17){\circle*{2}}
+        \put(22,20){\circle*{2}}
+        \qbezier(40,8)(40,8)(68,50) \qbezier(40,8)(40,8)(12,50)
+        \qbezier(40,8)(40,8)(70,17) \qbezier(40,8)(40,8)(10,17)
+        \qbezier(68,50)(68,50)(70,17) \qbezier(68,50)(68,50)(12,50)
+        \qbezier(68,50)(68,50)(40,70) \qbezier(12,50)(12,50)(40,70)
+        \qbezier(12,50)(12,50)(10,17) \qbezier(40,18)(40,18)(54,44)
+        \qbezier(40,18)(40,18)(26,44) \qbezier(54,44)(40,44)(26,44)
+        \qbezier(34,30)(34,30)(40,44) \qbezier(46,30)(46,30)(40,44)
+        \qbezier(40,50)(40,50)(46,58) \qbezier(40,50)(40,50)(34,58)
+        \qbezier(40,70)(40,70)(46,58) \qbezier(40,70)(40,70)(34,58)
+        \qbezier(10,17)(10,17)(16,28) \qbezier(10,17)(10,17)(22,20)
+        \qbezier(26,28)(26,28)(16,28) \qbezier(26,28)(26,28)(22,20)
+        \qbezier(54,28)(54,28)(58,20) \qbezier(54,28)(54,28)(64,28)
+        \qbezier(70,17)(70,17)(58,20) \qbezier(70,17)(70,17)(64,28)
+        \put(34,30){\line(1,0){12}}}
+
+
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <figure xml:id="FA">
       <caption>Fleury's Algorithm</caption>
-      <image source="images/bb9f982d411595cbb5553be430bb9a35ad6dcf98.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(140,208)
+
+        \multiput(40,5)(30,0){3}{\circle*{2}}
+        \multiput(50,20)(20,0){3}{\circle*{2}}
+        \multiput(40,35)(20,0){4}{\circle*{2}}
+        \multiput(10,50)(20,0){7}{\circle*{2}}
+        \multiput(40,65)(20,0){4}{\circle*{2}}
+        \multiput(50,80)(20,0){3}{\circle*{2}}
+        \multiput(40,95)(30,0){3}{\circle*{2}} \put(26,27){\circle*{2}}
+        \put(26,73){\circle*{2}} \put(114,27){\circle*{2}}
+        \put(114,73){\circle*{2}}
+        \qbezier(40,5)(40,5)(100,95) \qbezier(100,5)(100,5)(40,95)
+        \qbezier(10,50)(10,50)(130,50) \qbezier(40,5)(40,5)(10,50)
+        \qbezier(100,5)(100,5)(130,50) \qbezier(40,35)(40,35)(70,80)
+        \qbezier(70,80)(70,80)(100,35) \qbezier(40,65)(40,65)(70,20)
+        \qbezier(70,20)(70,20)(100,65) \qbezier(50,80)(50,80)(70,95)
+        \qbezier(70,95)(70,95)(90,80) \qbezier(30,50)(30,50)(50,20)
+        \qbezier(50,20)(50,20)(26,27) \qbezier(26,27)(26,27)(30,50)
+        \qbezier(90,20)(90,20)(110,50) \qbezier(110,50)(110,50)(114,27)
+        \qbezier(114,27)(114,27)(90,20) \put(10,50){\line(1,0){120}}
+        \put(40,95){\line(1,0){60}} \put(40,35){\line(1,0){60}}
+        \put(40,65){\line(1,0){60}} \put(50,80){\line(1,0){40}}
+        \qbezier(70,20)(80,12.5)(70,5) \qbezier(70,20)(60,12.5)(70,5)
+        \qbezier(100,65)(113,60)(114,73) \qbezier(100,65)(101,78)(114,73)
+        \qbezier(40,65)(28,60)(26,73) \qbezier(40,65)(39,78)(26,73)
+        \put(0,115){\multiput(40,5)(30,0){3}{\circle*{2}}
+        \multiput(50,20)(20,0){3}{\circle*{2}}
+        \multiput(40,35)(20,0){4}{\circle*{2}}
+        \multiput(10,50)(20,0){7}{\circle*{2}}
+        \multiput(40,65)(20,0){4}{\circle*{2}}
+        \multiput(50,80)(20,0){3}{\circle*{2}}
+        \multiput(40,95)(30,0){3}{\circle*{2}} \put(26,27){\circle*{2}}
+        \put(26,73){\circle*{2}} \put(114,27){\circle*{2}}
+        \put(114,73){\circle*{2}}}
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <problem>
@@ -577,12 +929,120 @@
       </statement>
     </problem>
 
-    <image source="images/39a86fc4cf17cd9455202cd80c3535b20a0128e7.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(60,120)(20,-40)
+      \put(0,-85){\multiput(70,10)(0,15){5}{\circle*{2}}
+      \multiput(45,10)(0,15){4}{\circle*{2}}
+      \multiput(95,10)(0,15){4}{\circle*{2}}
+      \multiput(57.5,17.5)(0,15){2}{\circle*{2}}
+      \multiput(82.5,17.5)(0,15){2}{\circle*{2}}
+      \multiput(32.5,55)(12.5,0){7}{\circle*{2}}
+      \multiput(32.5,64.5)(12.5,0){3}{\circle*{2}}
+      \multiput(82.5,64.5)(12.5,0){3}{\circle*{2}}
+      \put(45,74){\circle*{2}} \put(95,74){\circle*{2}}
+      \put(34,20){\circle*{2}} \put(19,10){\circle*{2}}
+      \put(19,20){\circle*{2}} \put(19,40){\circle*{2}}
+      \put(106,20){\circle*{2}} \put(121,10){\circle*{2}}
+      \put(121,20){\circle*{2}} \put(121,40){\circle*{2}}
+      \put(60,4){\circle*{2}} \put(80,4){\circle*{2}}}
+
+      \multiput(70,10)(0,15){5}{\circle*{2}}
+      \multiput(45,10)(0,15){4}{\circle*{2}}
+      \multiput(95,10)(0,15){4}{\circle*{2}}
+      \multiput(57.5,17.5)(0,15){2}{\circle*{2}}
+      \multiput(82.5,17.5)(0,15){2}{\circle*{2}}
+      \multiput(32.5,55)(12.5,0){7}{\circle*{2}}
+      \multiput(32.5,64.5)(12.5,0){3}{\circle*{2}}
+      \multiput(82.5,64.5)(12.5,0){3}{\circle*{2}}
+      \put(45,74){\circle*{2}} \put(95,74){\circle*{2}}
+      \put(34,20){\circle*{2}} \put(19,10){\circle*{2}}
+      \put(19,20){\circle*{2}} \put(19,40){\circle*{2}}
+      \put(106,20){\circle*{2}} \put(121,10){\circle*{2}}
+      \put(121,20){\circle*{2}} \put(121,40){\circle*{2}}
+      \put(60,4){\circle*{2}} \put(80,4){\circle*{2}}
+      \put(45,10){\line(0,1){64}} \put(70,10){\line(0,1){60}}
+      \put(95,10){\line(0,1){64}} \put(32.5,55){\line(0,1){9.5}}
+      \put(107.5,55){\line(0,1){9.5}} \put(57.5,55){\line(0,1){9.5}}
+      \put(82.5,55){\line(0,1){9.5}} \put(19,20){\line(0,1){20}}
+      \put(121,20){\line(0,1){20}} \put(45,10){\line(1,0){50}}
+      \put(45,25){\line(1,0){50}} \put(45,40){\line(1,0){50}}
+      \put(32.5,55){\line(1,0){75}} \put(32.5,64.5){\line(1,0){25}}
+      \put(82.5,64.5){\line(1,0){25}} \put(19,20){\line(1,0){15}}
+      \put(106,20){\line(1,0){15}} \put(60,4){\line(1,0){20}}
+      \qbezier(45,10)(45,10)(95,40) \qbezier(45,25)(45,25)(70,40)
+      \qbezier(70,10)(70,10)(95,25) \qbezier(70,10)(70,10)(60,4)
+      \qbezier(70,10)(70,10)(80,4) \qbezier(70,10)(70,10)(45,25)
+      \qbezier(95,10)(95,10)(45,40) \qbezier(95,25)(95,25)(70,40)
+      \qbezier(70,40)(70,40)(82.5,55) \qbezier(70,40)(70,40)(57.5,55)
+      \qbezier(70,55)(70,55)(82.5,64.5)
+      \qbezier(70,55)(70,55)(57.5,64.5)
+      \qbezier(70,70)(70,70)(82.5,64.5)
+      \qbezier(70,70)(70,70)(57.5,64.5) \qbezier(70,70)(70,70)(95,74)
+      \qbezier(70,70)(70,70)(45,74) \qbezier(34,20)(34,20)(19,40)
+      \qbezier(34,20)(34,20)(19,40) \qbezier(34,20)(34,20)(45,25)
+      \qbezier(34,20)(34,20)(45,10) \qbezier(106,20)(106,20)(121,40)
+      \qbezier(106,20)(106,20)(95,10) \qbezier(106,20)(106,20)(95,25)
+      \put(45,69.25){\circle{9.5}} \put(95,69.25){\circle{9.5}}
+      \put(32.5,59.75){\circle{9.5}} \put(107.5,59.75){\circle{9.5}}
+      \put(121,15){\circle{10}} \put(19,15){\circle{10}}
+      \qbezier(45,40)(35,47.5)(45,55) \qbezier(45,55)(55,47.5)(45,40)
+      \qbezier(95,40)(85,47.5)(95,55) \qbezier(95,55)(105,47.5)(95,40)
+      \qbezier(19,10)(34,10)(34,20) \qbezier(34,20)(35,40)(19,40)
+      \qbezier(19,40)(4,40)(5,21) \qbezier(5,21)(6,10)(19,10)
+      \qbezier(121,10)(134,10)(135,21) \qbezier(135,21)(136,40)(121,40)
+      \qbezier(121,40)(105,40)(106,20) \qbezier(106,20)(106,10)(121,10)
+      \end{picture}
+    </latex-image>
+    <image>
 
     <figure xml:id="EM">
       <caption>Eulerization of the Mail Carrier Problem</caption>
-      \hspace{1cm}
-      <image source="images/327cd7b31315329e64ec950bf802da155c5ddcac.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(180,95)(0,-50)
+
+        \put(10,0)
+        {
+        \multiput(10,10)(12,0){6}{\circle*{2}}
+        \multiput(10,25)(12,0){6}{\circle*{2}}
+        \multiput(10,40)(12,0){6}{\circle*{2}} \put(10,25){\circle{5}}
+        \put(22,40){\circle{5}} \put(58,10){\circle{5}}
+        \put(58,40){\circle{5}} \put(22,10){\circle{5}}
+        \put(70,25){\circle{5}}
+        \multiput(10,10)(12,0){6}{\line(0,1){30}}
+        \multiput(10,10)(0,15){3}{\line(1,0){24}}
+        \multiput(46,10)(0,15){3}{\line(1,0){24}}
+        \put(34,25){\line(1,0){12}}
+        }
+        \put(-70,-50){
+        \multiput(90,10)(12,0){6}{\circle*{2}}
+        \multiput(90,25)(12,0){6}{\circle*{2}}
+        \multiput(90,40)(12,0){6}{\circle*{2}} \put(90,25){\circle{5}}
+        \put(150,25){\circle{5}}
+        \multiput(90,10)(12,0){6}{\line(0,1){30}}
+        \multiput(90,10)(0,15){3}{\line(1,0){24}}
+        \multiput(126,10)(0,15){3}{\line(1,0){24}}
+        \put(114,25){\line(1,0){12}} \qbezier(102,40)(95,32.5)(102,25)
+        \qbezier(102,25)(109,17.5)(102,10)
+        \qbezier(138,40)(145,32.5)(138,25)
+        \qbezier(138,25)(131,17.5)(138,10)
+        \put(81,32)S\put(81,28)T
+        \put(81,24)A\put(81,20)R\put(81,16)T
+        \put(88,31){1} \put(95,41){2}
+        \put(96.5,34){3} \put(95,26){4} \put(88,16){5} \put(95,6){6}
+        \put(99.5,16){7} \put(103,31){8} \put(107,41){9} \put(110,31){10}
+        \put(110,16){11} \put(106,6){12} \put(105.5,12){13}
+        \put(106,26){14} \put(119,26){15} \put(131,26){16}
+        \put(131,12){17} \put(131,6){18} \put(126.5,16){19}
+        \put(126.5,31){20} \put(131,41){21} \put(134,31){22}
+        \put(139,16){23} \put(143,6){24} \put(151,16){25} \put(143,26){26}
+        \put(142,34){27} \put(143,41){28} \put(151,31){29}
+        \put(159,28)E\put(159,24)N\put(159,20)D
+        }
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <p>
@@ -627,7 +1087,39 @@
       </statement>
     </problem>
 
-    <image source="images/de57c28451e7991cbfe7d1747f1f7cd0e08aec22.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(120,50)(5,0)
+
+      \multiput(30,10)(30,0){4}{\circle*{2}}
+      \multiput(30,60)(30,0){4}{\circle*{2}}
+      \multiput(15,25)(15,0){4}{\circle*{2}}
+      \multiput(15,35)(15,0){4}{\circle*{2}}
+      \multiput(15,45)(15,0){4}{\circle*{2}}
+      \multiput(90,25)(15,0){4}{\circle*{2}}
+      \multiput(90,35)(15,0){4}{\circle*{2}}
+      \multiput(90,45)(15,0){4}{\circle*{2}}
+      \put(30,10){\line(1,0){90}} \put(15,25){\line(1,0){45}}
+      \put(15,35){\line(1,0){120}} \put(15,45){\line(1,0){45}}
+      \put(90,25){\line(1,0){45}} \put(90,45){\line(1,0){45}}
+      \put(30,60){\line(1,0){90}} \put(15,25){\line(0,1){20}}
+      \put(45,25){\line(0,1){20}} \put(105,25){\line(0,1){20}}
+      \put(135,25){\line(0,1){20}} \put(30,10){\line(0,1){50}}
+      \put(60,10){\line(0,1){50}} \put(90,10){\line(0,1){50}}
+      \put(120,10){\line(0,1){50}} \put(30,10){\line(1,1){15}}
+      \put(45,45){\line(1,1){15}} \put(90,10){\line(1,1){15}}
+      \put(105,45){\line(1,1){15}} \put(15,45){\line(1,1){15}}
+      \put(120,10){\line(1,1){15}} \put(30,10){\line(-1,1){15}}
+      \put(45,45){\line(-1,1){15}} \put(60,10){\line(-1,1){15}}
+      \put(120,10){\line(-1,1){15}} \put(105,45){\line(-1,1){15}}
+      \put(135,45){\line(-1,1){15}} \qbezier(15,25)(3,35)(15,45)
+      \qbezier(135,25)(147,35)(135,45)
+      \qbezier(75,14)(83,14)(83,22) \qbezier(83,22)(83,30)(75,30)
+      \qbezier(75,30)(67,30)(67,22) \qbezier(67,22)(67,14)(75,14)
+      \put(70,21){POND} \put(70,44){PARK}
+      \end{picture}
+    </latex-image>
+    <image>
 
     <problem xml:id="last">
       <statement>
@@ -640,7 +1132,23 @@
       </statement>
     </problem>
 
-    <image source="images/65e46cba3024ce361191384861ccadbadb9d2ac0.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(120,60)(20,0)
+
+      \multiput(30,10)(30,0){4}{\circle*{2}}
+      \multiput(30,60)(30,0){4}{\circle*{2}}
+      \multiput(15,25)(15,0){4}{\circle*{2}}
+      \multiput(15,35)(15,0){4}{\circle*{2}}
+      \multiput(15,45)(15,0){4}{\circle*{2}}
+      \multiput(90,25)(15,0){4}{\circle*{2}}
+      \multiput(90,35)(15,0){4}{\circle*{2}}
+      \multiput(90,45)(15,0){4}{\circle*{2}}
+      \put(70,21){POND}
+      \put(70,44){PARK}
+      \end{picture}
+    </latex-image>
+    <image>
   </introduction>
   <xi:include  href="section7-1.ptx" />
 </chapter>

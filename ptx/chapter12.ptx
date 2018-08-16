@@ -50,7 +50,40 @@
 
   <figure xml:id="fsaM0">
     <caption>A Finite State Acceptor, <m>M_0</m>.</caption>
-    <image source="images/8cda5ea978e045d3ee9f4b7e9019d8d727b7280d.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(100,45)(20,-10)
+
+      \put(35,5){\circle{6}} \put(65,5){\circle{6}}
+      \put(95,5){\circle{6}} \put(125,5){\circle{6}}
+      \put(35,25){\circle{6}} \put(65,25){\circle{6}}
+      \put(65,25){\circle{7}} \put(95,25){\circle{6}}
+      \put(125,25){\circle{6}} \put(125,25){\circle{7}}
+      \put(40,5){\line(1,0){20}} \put(70,5){\line(1,0){20}}
+      \put(100,5){\line(1,0){20}} \put(40,25){\line(1,0){20}}
+      \put(70,25){\line(1,0){20}} \put(100,25){\line(1,0){20}}
+      \put(35.5,10){\line(0,1){10}} \put(65.5,10){\line(0,1){10}}
+      \put(95.5,10){\line(0,1){10}} \put(125.5,10){\line(0,1){10}}
+      \qbezier(93,0)(93,-5)(95,-5) \qbezier(95,-5)(97,-5)(97,0)
+      \put(34,4){q} \put(64,4){x} \put(94,4){z} \put(124,4){w}
+      \put(34,24){p} \put(64,24){s} \put(94,24){u} \put(124,24){v}
+      \put(60,31){START}
+      \put(50,1){0} \put(80,1){0} \put(110,1){0} \put(50,26){1}
+      \put(80,26){0} \put(110,26){0} \put(32,14){0} \put(62,14){1}
+      \put(92,14){1} \put(126,14){1} \put(96,-9){0,1}
+      \put(58,4){\(\blacktriangleright\)}
+      \put(58,24){\(\blacktriangleright\)}
+      \put(88,4){\(\blacktriangleright\)}
+      \put(88,24){\(\blacktriangleright\)}
+      \put(118,24){\(\blacktriangleright\)}
+      \put(99,24){\(\blacktriangleleft\)} \put(99,4){\(\blacktriangleleft\)}
+      \put(34,9){\(\blacktriangledown\)} \put(64,9){\(\blacktriangledown\)}
+      \put(94,9){\(\blacktriangledown\)} \put(124,9){\(\blacktriangledown\)}
+      \put(34,18){\(\blacktriangle\)} \put(64,18){\(\blacktriangle\)}
+      \put(124,18){\(\blacktriangle\)} \put(96,-1){\(\blacktriangle\)}
+      \end{picture}
+    </latex-image>
+    <image>
   </figure>
 
   <problem xml:id="L0">
@@ -199,7 +232,26 @@
 
   <figure xml:id="ffssaa2">
     <caption>A Minimal Finite State Acceptor</caption>
-    <image source="images/af21da1968373dd5a04cce216626e7e6029472d0.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(110,40)(20,0)
+
+      \put(59,30){\(L_0\)} \put(58,10){\(L_00\)}
+      \put(100,30){\(L_01\)} \put(102,10){\(Z(L_0)\)}
+      \put(66,31){\line(1,0){30}} \put(66,11){\line(1,0){30}}
+      \put(60,15){\line(0,1){12}} \put(104,15){\line(0,1){12}}
+      \qbezier(113,13)(117,13)(117,11) \qbezier(117,11)(117,9)(113,9)
+      \put(81,32){1} \put(81,7){1} \put(57,21){0} \put(105,21){0}
+      \put(118,10){0,1}
+      \put(65,30){\(\blacktriangleleft\)}
+      \put(95,30){\(\blacktriangleright\)}
+      \put(95,10){\(\blacktriangleright\)}
+      \put(59,14){\(\blacktriangledown\)} \put(59,26){\(\blacktriangle\)}
+      \put(103,14){\(\blacktriangledown\)}
+      \put(112,12){\(\blacktriangleleft\)}
+      \end{picture}
+    </latex-image>
+    <image>
   </figure>
 
   <p>
@@ -447,7 +499,37 @@
 
   <figure xml:id="figM1">
     <caption>FSA <m>M_1</m> for <m>L_1 = (111)^*1</m></caption>
-    <image source="images/3c3978f3322dfbd92e9a7e76d0834d979995b381.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(130,35)
+      \put(-20,-8){
+      \put(40,40){\circle{6}} \put(40,40){\circle{7}}
+      \put(60,40){\circle{6}} \put(80,40){\circle{6}}
+      \put(100,40){\circle{6}} \put(100,40){\circle{7}}
+      \put(120,40){\circle{6}} \put(40,9){\circle{6}}
+      \put(80,9){\circle{6}} \put(100,9){\circle{6}}
+      \put(100,9){\circle{7}} \put(120,9){\circle{6}}
+      \put(45,40){\line(1,0){10}} \put(65,40){\line(1,0){10}}
+      \put(85,40){\line(1,0){9}} \put(106,40){\line(1,0){9}}
+      \put(85,9){\line(1,0){9}} \put(106,9){\line(1,0){9}}
+      \put(40,14){\line(0,1){20}} \put(80,14){\line(0,1){20}}
+      \put(120,14){\line(0,1){20}}
+      \put(39,39){s} \put(59,39){t} \put(79,39){u} \put(99,39){v}
+      \put(119,39){w} \put(39,8){r} \put(79,8){z} \put(99,8){y}
+      \put(119,8){x} \put(59,8){\(M_1\)}
+      \put(50,41){1} \put(69,41){1} \put(89,41){1} \put(110,41){1}
+      \put(37,21){1} \put(77,21){1} \put(121,21){1} \put(90,5){1}
+      \put(110,5){1}
+      \put(54,39){\(\blacktriangleright\)}
+      \put(74,39){\(\blacktriangleright\)}
+      \put(93,39){\(\blacktriangleright\)}
+      \put(114,39){\(\blacktriangleright\)}
+      \put(119,13){\(\blacktriangledown\)}
+      \put(105,8){\(\blacktriangleleft\)} \put(84,8){\(\blacktriangleleft\)}
+      \put(79,33){\(\blacktriangle\)} \put(39,33){\(\blacktriangle\)}}
+      \end{picture}
+    </latex-image>
+    <image>
   </figure>
 
   <problem>

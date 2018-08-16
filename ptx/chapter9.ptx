@@ -21,9 +21,35 @@
       </statement>
     </problem>
 
-    <figure xml:id="ST">
+    <figure xml:id="WG2">
       <caption>Power Grid Spanning Tree</caption>
-      <image source="images/1931eff99d1013ff2d79c130927c9b1ffa26c8e7.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(45,40)(0,0)
+        \put(15,0){
+        \put(20,20){\circle*{2}}  \put(15,19)D
+        \put(30,10){\circle*{2}}  \put(29,5)F
+        \put(30,30){\circle*{2}}  \put(29,33)A
+        \put(50,10){\circle*{2}}  \put(49,5)G
+        \put(50,30){\circle*{2}}  \put(49,33)B
+        \put(70,10){\circle*{2}}  \put(69,5)H
+        \put(70,30){\circle*{2}}  \put(69,33)C
+        \put(60,20){\circle*{2}}  \put(63,19)E
+        \put(50,10){\line(-1,0){20}}  \put(50,30){\line(-1,0){20}}
+        \put(30,10){\line(0,1){20}}  \put(20,20){\line(1,1){10}}
+        \put(20,20){\line(1,-1){10}}  \put(50,10){\line(0,1){20}}
+        \put(50,10){\line(1,0){20}}  \put(50,30){\line(1,0){20}}
+        \put(50,10){\line(1,1){20}} \put(50,30){\line(1,-1){20}}
+        \put(59,6){\(^{8}\)}  \put(31,18){\(^1\)}
+        \put(53,14){\(^{2}\)} \put(65.5,14){\(^{4}\)}
+        \put(46,18){\(^{11}\)} \put(39.5,6){\(^{6}\)}
+        \put(53,22){\(^{7}\)}  \put(65.5,22){\(^{9}\)}
+        \put(59,30){\(^{3}\)}  \put(39,30){\(^5\)}
+        \put(21.5,12){\(^{12}\)}  \put(21.5,24){\(^{10}\)}
+        }
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <p>
@@ -188,7 +214,39 @@
 
     <figure xml:id="WG">
       <caption>Weighted Graph</caption>
-      <image source="images/1f482f6522d7ac1b7cbf75e09647cfa581ea96f9.png"/>
+      <image>
+      <latex-image>
+        \begin{picture}(120,60)
+
+        \multiput(10,30)(15,0){4}{\circle*{2}}
+        \multiput(17.5,38)(15,0){3}{\circle*{2}}
+        \multiput(25,46)(15,0){2}{\circle*{2}}
+        \multiput(17.5,22)(15,0){3}{\circle*{2}}
+        \multiput(25,14)(15,0){2}{\circle*{2}} \put(32.5,6){\circle*{2}}
+        \put(17.5,46){\circle*{2}} \put(47.5,46){\circle*{2}}
+        \qbezier(32.5,6)(10,30)(10,30) \qbezier(40,14)(40,14)(17.5,38)
+        \qbezier(47.5,22)(25,46)(25,46) \qbezier(55,30)(55,30)(40,46)
+        \qbezier(32.5,6)(55,30)(55,30) \qbezier(25,14)(25,14)(47.5,38)
+        \qbezier(17.5,22)(40,46)(40,46) \qbezier(10,30)(10,30)(25,46)
+        \put(17.5,38){\line(0,1){8}} \put(47.5,38){\line(0,1){8}}
+        \put(17.5,46){\line(1,0){30}}
+        \put(26,7){8} \put(19,15){6} \put(11,23){7} \put(10,35){13}
+        \put(15,41){7} \put(21,47){5} \put(32,47){8} \put(43,47){3}
+        \put(49,42){8} \put(52,34){13} \put(53,23){7} \put(45,15){7}
+        \put(37,7){9} \put(25,18){12} \put(37,18){13} \put(19,26){8}
+        \put(30,26){9} \put(37,23){7} \put(45,26){7} \put(22,34){10}
+        \put(29,31){12} \put(34,30){10} \put(40,34){11} \put(22,39){9}
+        \put(27,39){6} \put(37,39){5} \put(42,39){4}
+        \put(65,0){\multiput(10,30)(15,0){4}{\circle*{2}}
+        \multiput(17.5,38)(15,0){3}{\circle*{2}}
+        \multiput(25,46)(15,0){2}{\circle*{2}}
+        \multiput(17.5,22)(15,0){3}{\circle*{2}}
+        \multiput(25,14)(15,0){2}{\circle*{2}} \put(32.5,6){\circle*{2}}
+        \put(17.5,46){\circle*{2}}
+        \put(47.5,46){\circle*{2}}}
+        \end{picture}
+      </latex-image>
+      <image>
     </figure>
 
     <problem xml:id="spt2">
@@ -241,9 +299,78 @@
       But unlike our other greedy algorithms, it <em>always works</em>!
     </p>
 
-    <figure xml:id="WG2">
-      <caption>A Connected Weighted Graph</caption>
-      <image source="images/e0651f8d310662c7fd4a7f46f53b220f74cc1b0f.png"/>
+    <p>
+      \begin{figure}[h]
+    </p>
+    <image>
+    <latex-image>
+      \begin{picture}(90,90)
+      \multiput(10,10)(15,0){6}{\circle*{2}}
+      \multiput(10,25)(15,0){6}{\circle*{2}}
+      \multiput(10,40)(15,0){6}{\circle*{2}}
+      \multiput(10,55)(15,0){6}{\circle*{2}}
+      \multiput(10,70)(15,0){6}{\circle*{2}}
+      \multiput(10,85)(15,0){6}{\circle*{2}}
+      \multiput(10,10)(15,0){6}{\line(0,1){4}}
+      \multiput(10,21)(15,0){6}{\line(0,1){8}}
+      \multiput(10,36)(15,0){6}{\line(0,1){8}}
+      \multiput(10,51)(15,0){6}{\line(0,1){8}}
+      \multiput(10,66)(15,0){6}{\line(0,1){8}}
+      \multiput(10,81)(15,0){6}{\line(0,1){4}}
+      \multiput(10,10)(0,15){6}{\line(1,0){4}}
+      \multiput(21,10)(0,15){6}{\line(1,0){8}}
+      \multiput(36,10)(0,15){6}{\line(1,0){8}}
+      \multiput(51,10)(0,15){6}{\line(1,0){8}}
+      \multiput(66,10)(0,15){6}{\line(1,0){8}}
+      \multiput(81,10)(0,15){6}{\line(1,0){4}}
+      \put(17,9){6} \put(17,24){3} \put(17,39){8} \put(17,54){9}
+      \put(17,69){4} \put(17,84){3} \put(32,9){1} \put(32,24){7}
+      \put(32,39){6} \put(32,54){8} \put(32,69){9} \put(32,84){7}
+      \put(47,9){7} \put(47,24){2} \put(47,39){4} \put(47,54){4}
+      \put(47,69){8} \put(47,84){9} \put(62,9){5} \put(62,24){9}
+      \put(62,39){7} \put(62,54){2} \put(62,69){5} \put(62,84){5}
+      \put(77,9){6} \put(77,24){5} \put(77,39){7} \put(77,54){6}
+      \put(77,69){3} \put(77,84){8} \put(9,16){4} \put(9,31){5}
+      \put(9,46){4} \put(9,61){3} \put(9,76){5} \put(24,16){9}
+      \put(24,31){2} \put(24,46){9} \put(24,61){1} \put(24,76){2}
+      \put(39,16){8} \put(39,31){1} \put(39,46){3} \put(39,61){5}
+      \put(39,76){8} \put(54,16){3} \put(54,31){8} \put(54,46){8}
+      \put(54,61){7} \put(54,76){7} \put(69,16){2} \put(69,31){3}
+      \put(69,46){5} \put(69,61){6} \put(69,76){3} \put(84,16){4}
+      \put(84,31){8} \put(84,46){7} \put(84,61){2} \put(84,76){6}
+      \end{picture}
+    </latex-image>
+    <image>
+    <p>
+      XXcaptionXXA Connected Weighted Graph</caption>
+    </p>
+    <image>
+    <latex-image>
+      \begin{picture}(100,60)
+      \multiput(10,30)(15,0){4}{\circle*{2}}
+      \multiput(17.5,38)(15,0){3}{\circle*{2}}
+      \multiput(25,46)(15,0){2}{\circle*{2}}
+      \multiput(17.5,22)(15,0){3}{\circle*{2}}
+      \multiput(25,14)(15,0){2}{\circle*{2}} \put(32.5,6){\circle*{2}}
+      \put(32.5,6){\circle{5}} \put(17.5,46){\circle*{2}}
+      \put(47.5,46){\circle*{2}}
+      \qbezier(32.5,6)(10,30)(10,30) \qbezier(40,14)(40,14)(17.5,38)
+      \qbezier(47.5,22)(25,46)(25,46) \qbezier(55,30)(55,30)(40,46)
+      \qbezier(32.5,6)(55,30)(55,30) \qbezier(25,14)(25,14)(47.5,38)
+      \qbezier(17.5,22)(40,46)(40,46) \qbezier(10,30)(10,30)(25,46)
+      \put(17.5,38){\line(0,1){8}} \put(47.5,38){\line(0,1){8}}
+      \put(17.5,46){\line(1,0){30}}
+
+      \put(65,0){\multiput(10,30)(15,0){4}{\circle*{2}}
+      \multiput(17.5,38)(15,0){3}{\circle*{2}}
+      \multiput(25,46)(15,0){2}{\circle*{2}}
+      \multiput(17.5,22)(15,0){3}{\circle*{2}}
+      \multiput(25,14)(15,0){2}{\circle*{2}} \put(32.5,6){\circle*{2}}
+      \put(32.5,6){\circle{5}} \put(17.5,46){\circle*{2}}
+      \put(47.5,46){\circle*{2}}}
+      \end{picture}
+    </latex-image>
+    <image>
     </figure>
 
     <theorem>

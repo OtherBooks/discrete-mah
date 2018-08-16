@@ -240,7 +240,56 @@
       </statement>
     </problem>
 
-    <image source="images/06dc680f445962d57deb3a90b0c259fb1745e88a.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(72,16)(0,0)
+
+      \put(0,0){\line(1,0){72}}
+      \put(0,0){\line(0,1){1}}
+      \put(0,1){\line(1,0){72}}
+      \put(72,0){\line(0,1){1}}
+      \put(15,4){\line(0,1){12}}
+      \put(16,4){\line(0,1){12}}
+      \put(15,16){\line(1,0){1}}
+      \put(36,3){\line(0,1){13}}
+      \put(37,3){\line(0,1){13}}
+      \put(36,16){\line(1,0){1}}
+      \put(57,2){\line(0,1){14}}
+      \put(58,2){\line(0,1){14}}
+      \put(57,16){\line(1,0){1}}
+
+      \put(15,1){
+      \put(0,1){\line(1,0){10}}
+      \put(0,1){\line(-1,0){9}}
+      \put(-9,1){\line(0,-1){1}}
+      \put(10,1){\line(0,-1){1}}
+      \put(0,2){\line(1,0){9}}
+      \put(0,2){\line(-1,0){8}}
+      \put(-8,2){\line(0,-1){1}}
+      \put(9,2){\line(0,-1){1}}
+      \put(0,3){\line(1,0){8}}
+      \put(0,3){\line(-1,0){7}}
+      \put(-7,3){\line(0,-1){1}}
+      \put(8,3){\line(0,-1){1}}}
+
+      \put(57,1){
+      \put(0,1){\line(1,0){7}}
+      \put(0,1){\line(-1,0){6}}
+      \put(-6,1){\line(0,-1){1}}
+      \put(7,1){\line(0,-1){1}}}
+
+      \put(36,1){
+      \put(0,1){\line(1,0){6}}
+      \put(0,1){\line(-1,0){5}}
+      \put(-5,1){\line(0,-1){1}}
+      \put(6,1){\line(0,-1){1}}
+      \put(0,2){\line(1,0){5}}
+      \put(0,2){\line(-1,0){4}}
+      \put(-4,2){\line(0,-1){1}}
+      \put(5,2){\line(0,-1){1}}}
+      \end{picture}
+    </latex-image>
+    <image>
     <p>
       <em>Towers of Hanoi</em>
       The Towers of Hanoi is a mathematical puzzle with a history worth Googling.

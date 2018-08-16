@@ -100,7 +100,26 @@
 
   <figure xml:id="STS">
     <caption>Spanning Tree <m>S</m></caption>
-    <image source="images/d28938ba359117bc6fa83b7fadc182e5ab885e04.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(60,60)
+      \put(30,0){
+      \multiput(10,30)(15,0){4}{\circle*{2}}
+      \multiput(17.5,38)(15,0){3}{\circle*{2}}
+      \multiput(25,46)(15,0){2}{\circle*{2}}
+      \multiput(17.5,22)(15,0){3}{\circle*{2}}
+      \multiput(25,14)(15,0){2}{\circle*{2}} \put(32.5,6){\circle*{2}}
+      \put(17.5,46){\circle*{2}} \put(47.5,46){\circle*{2}}
+      \qbezier(32.5,6)(40,14)(40,14) \qbezier(25,14)(25,14)(47.5,38)
+      \qbezier(17.5,22)(17.5,22)(32.5,38) \qbezier(10,30)(10,30)(25,46)
+      \qbezier(40,14)(40,14)(17.5,38) \qbezier(47.5,22)(40,30)(40,30)
+      \qbezier(55,30)(55,30)(47.5,38) \put(47.5,38){\line(0,1){8}}
+      \put(17.5,46){\line(1,0){7.5}} \put(40,46){\line(1,0){7.5}}
+      }
+
+      \end{picture}
+    </latex-image>
+    <image>
   </figure>
 
   <p>

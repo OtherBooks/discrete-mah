@@ -42,9 +42,45 @@
       You will be paid for each trip that visits all five stores.
     </p>
 
-    <figure xml:id="HF">
-      <caption>Health Food Stores</caption>
-      <image source="images/92f6c504f9639e95fd832ed35cce755ddd3f6a7c.png"/>
+    <figure>
+      <image>
+      <latex-image>
+        \begin{xxpicture}(50,50)(-20,0)
+        \put(40,7){
+        \put(0,0){\circle*{2}}
+        \put(-25,15){\circle*{2}}
+        \put(25,15){\circle*{2}}
+        \put(-10,30){\circle*{2}}
+        \put(10,30){\circle*{2}}
+        \qbezier(0,0)(-12.5,7.5)(-25,15)
+        \qbezier(0,0)(12.5,7.5)(25,15)
+        \qbezier(0,0)(-5,15)(-10,30)
+        \qbezier(0,0)(5,15)(10,30)
+        \put(25,15){\line(-1,0){50}}
+        \qbezier(25,15)(7.5,22.5)(-10,30)
+        \qbezier(25,15)(17.5,22.5)(10,30)
+        \put(10,30){\line(-1,0){20}}
+        \qbezier(10,30)(-7.5,22.5)(-25,15)
+        \qbezier(-10,30)(-17.5,22.5)(-25,15)
+        \put(3,23){\(^{100}\)}
+        \put(-6,23){\(^{30}\)}
+        \put(-1.25,11){\(^{55}\)}
+        \put(-9.5,16){\(^{50}\)}
+        \put(7,16){\(^{40}\)}
+        \put(14,4){\(^{65}\)}
+        \put(-18,4){\(^{110}\)}
+        \put(-1,30){\(^{60}\)}
+        \put(17.5,22){\(^{70}\)}
+        \put(-20,22){\(^{90}\)}
+        \put(-1,-6)D
+        \put(28,14)C
+        \put(-30,14)E
+        \put(-13,32)A
+        \put(11,32)B}
+        \end{xxpicture}
+      </latex-image>
+      <image>
+      XXcaptionXXHealth Food StoresYY
     </figure>
 
     <p>
@@ -162,7 +198,7 @@
           <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m> and <m>F</m>.
           Starting with <m>A</m>, there are 5 places we can go:
           <m>B</m>, <m>C</m>, <m>D</m>,
-          <m>E</m> or <m>F</m>. { <image source="images/0975d1b880239e4cd5985223ba9cc18946b2d384.png"/> } From any one of these,
+          <m>E</m> or <m>F</m>. { <image> <latex-image> \begin{xxpicture}(100,45)(-10,0) \put(-8,-3){ \put(55,5){\circle*{.5}} \multiput(15,15)(20,0){5}{\circle*{.5}} \put(55,5){ \put(0,0){\line(0,1){10}} \qbezier(0,0)(-10,5)(-20,10) \qbezier(0,0)(10,5)(20,10) \qbezier(0,0)(-20,5)(-40,10) \qbezier(0,0)(20,5)(40,10) \put(-.5,-4)A {\thicklines \put(0,25){\vector(0,1){10}} \put(20,25){\vector(1,2){5}} \put(40,25){\vector(1,1){10}} \put(-40,25){\vector(-1,1){10}}}} \put(15,15){ \put(0,0){\circle*{.5}} \put(2.5,10){\circle*{.5}} \put(-2.5,10){\circle*{.5}} \put(7.5,10){\circle*{.5}} \put(-7.5,10){\circle*{.5}} \qbezier(0,0)(2.5,10)(2.5,10) \qbezier(0,0)(-2.5,10)(-2.5,10) \qbezier(0,0)(7.5,10)(7.5,10) \qbezier(0,0)(-7.5,10)(-7.5,10) \put(-2,-2)B \put(-10,9)C \put(-5,9)D \put(0,9)E \put(5,9)F} \put(35,15){ \put(0,0){\circle*{.5}} \put(2.5,10){\circle*{.5}} \put(-2.5,10){\circle*{.5}} \put(7.5,10){\circle*{.5}} \put(-7.5,10){\circle*{.5}} \qbezier(0,0)(2.5,10)(2.5,10) \qbezier(0,0)(-2.5,10)(-2.5,10) \qbezier(0,0)(7.5,10)(7.5,10) \qbezier(0,0)(-7.5,10)(-7.5,10) \put(-2,-2)C \put(-10,9)B \put(-5,9)D \put(0,9)E \put(5,9)F} \put(55,15){ \put(0,0){\circle*{.5}} \put(2.5,10){\circle*{.5}} \put(-2.5,10){\circle*{.5}} \put(7.5,10){\circle*{.5}} \put(-7.5,10){\circle*{.5}} \qbezier(0,0)(2.5,10)(2.5,10) \qbezier(0,0)(-2.5,10)(-2.5,10) \qbezier(0,0)(7.5,10)(7.5,10) \qbezier(0,0)(-7.5,10)(-7.5,10) \put(-2,-2)D \put(-10,9)B \put(-5,9)C \put(0,9)E \put(5,9)F} \put(75,15){ \put(0,0){\circle*{.5}} \put(2.5,10){\circle*{.5}} \put(-2.5,10){\circle*{.5}} \put(7.5,10){\circle*{.5}} \put(-7.5,10){\circle*{.5}} \qbezier(0,0)(2.5,10)(2.5,10) \qbezier(0,0)(-2.5,10)(-2.5,10) \qbezier(0,0)(7.5,10)(7.5,10) \qbezier(0,0)(-7.5,10)(-7.5,10) \put(2,-2)E \put(-10,9)B \put(-5,9)C \put(0,9)D \put(5,9)F} \put(95,15){ \put(0,0){\circle*{.5}} \put(2.5,10){\circle*{.5}} \put(-2.5,10){\circle*{.5}} \put(7.5,10){\circle*{.5}} \put(-7.5,10){\circle*{.5}} \qbezier(0,0)(2.5,10)(2.5,10) \qbezier(0,0)(-2.5,10)(-2.5,10) \qbezier(0,0)(7.5,10)(7.5,10) \qbezier(0,0)(-7.5,10)(-7.5,10) \put(2,-2)F \put(-10,9)B \put(-5,9)C \put(0,9)D \put(5,9)E} \put(32.5,25){ \multiput(-5,10)(5,0){3}{\circle*{.5}} \multiput(-12.5,15)(5,0){6}{\circle*{.5}} \multiput(-12.5,20)(5,0){6}{\circle*{.5}} \put(0,0){\line(0,1){10}} \qbezier(0,0)(-5,10)(-5,10) \qbezier(0,0)(5,10)(5,10) \qbezier(0,10)(2.5,15)(2.5,15) \qbezier(0,10)(-2.5,15)(-2.5,15) \qbezier(5,10)(7.5,15)(7.5,15) \qbezier(5,10)(12.5,15)(12.5,15) \qbezier(-5,10)(-7.5,15)(-7.5,15) \qbezier(-5,10)(-12.5,15)(-12.5,15) \multiput(-12.5,15)(5,0){6}{\line(0,1){5}} \put(-2.5,8)E \put(-7.5,8)B \put(5,8)F \put(-15,14)E \put(-15,19)F \put(-10,14)F \put(-10,19)E \put(-5,14)B \put(-5,19)F \put(3,14)F \put(3,19)B \put(8,14)B \put(8,19)E \put(13,14)E \put(13,19)B} } \end{xxpicture} </latex-image> <image> } From any one of these,
           say C, there are 4 places we can go: B, D, E, F. From D we can continue to any of 3 places: B, E or F. From F we have 2 choices: B or E, and from each of these there is only 1 choice.
           The total number of inequivalent Hamilton circuits in this complete graph with six vertices is therefore <m>5\times 4\times 3\times 2\times 1 = 5! = 120</m>.</fn></p>
       </statement>
@@ -335,9 +371,47 @@
       </statement>
     </problem>
 
-    <figure xml:id="HC">
-      <caption>Weighted Graph</caption>
-      <image source="images/9c7c6c7ee1db396bfe09f2101a0e85c47ddc3f2c.png"/>
+    <figure>
+      <image>
+      <latex-image>
+        \begin{xxpicture}(55,45)(-20,0)
+
+        \put(40,7){
+        \put(0,0){\circle*{2}}
+        \put(-25,15){\circle*{2}}
+        \put(25,15){\circle*{2}}
+        \put(-10,30){\circle*{2}}
+        \put(10,30){\circle*{2}}
+        \qbezier(0,0)(-12.5,7.5)(-25,15)
+        \qbezier(0,0)(12.5,7.5)(25,15)
+        \qbezier(0,0)(-5,15)(-10,30)
+        \qbezier(0,0)(5,15)(10,30)
+        \put(25,15){\line(-1,0){50}}
+        \qbezier(25,15)(7.5,22.5)(-10,30)
+        \qbezier(25,15)(17.5,22.5)(10,30)
+        \put(10,30){\line(-1,0){20}}
+        \qbezier(10,30)(-7.5,22.5)(-25,15)
+        \qbezier(-10,30)(-17.5,22.5)(-25,15)
+        \put(4,23){\(^{200}\)}
+        \put(-7.5,23){\(^{340}\)}
+        \put(-1.75,11){\(^{165}\)}
+        \put(-11,16){\(^{185}\)}
+        \put(7,16){\(^{360}\)}
+        \put(14,4){\(^{320}\)}
+        \put(-18,4){\(^{302}\)}
+        \put(-1.5,30){\(^{500}\)}
+        \put(17.5,22){\(^{305}\)}
+        \put(-21,22){\(^{205}\)}
+        \put(-1,-6)S
+        \put(28,14)R
+        \put(-30,14)T
+        \put(-13,32)P
+        \put(11,32)Q}
+
+        \end{xxpicture}
+      </latex-image>
+      <image>
+      XXcaptionXXWeighted GraphYY
     </figure>
 
     <problem xml:id="BF4HC">
@@ -392,9 +466,35 @@
       </statement>
     </problem>
 
-    <figure xml:id="fig_incomplete">
-      <caption>An Incomplete Weighted Graph</caption>
-      <image source="images/c8c7286dbc56e5d5ccb77b179b08239598d33e4d.png"/>
+    <figure>
+      <image>
+      <latex-image>
+        \begin{xxpicture}(45,40)(0,0)
+        \put(15,0){
+        \put(20,20){\circle*{2}}  \put(15,19)D
+        \put(30,10){\circle*{2}}  \put(29,5)F
+        \put(30,30){\circle*{2}}  \put(29,33)A
+        \put(50,10){\circle*{2}}  \put(49,5)G
+        \put(50,30){\circle*{2}}  \put(49,33)B
+        \put(70,10){\circle*{2}}  \put(69,5)H
+        \put(70,30){\circle*{2}}  \put(69,33)C
+        \put(60,20){\circle*{2}}  \put(63,19)E
+        \put(50,10){\line(-1,0){20}}  \put(50,30){\line(-1,0){20}}
+        \put(30,10){\line(0,1){20}}  \put(20,20){\line(1,1){10}}
+        \put(20,20){\line(1,-1){10}}  \put(50,10){\line(0,1){20}}
+        \put(50,10){\line(1,0){20}}  \put(50,30){\line(1,0){20}}
+        \put(50,10){\line(1,1){20}} \put(50,30){\line(1,-1){20}}
+        \put(59,6){\(^{8}\)}  \put(31,18){\(^1\)}
+        \put(53,14){\(^{2}\)} \put(65.5,14){\(^{4}\)}
+        \put(46,18){\(^{11}\)} \put(39.5,6){\(^{6}\)}
+        \put(53,22){\(^{7}\)}  \put(65.5,22){\(^{9}\)}
+        \put(59,30){\(^{3}\)}  \put(39,30){\(^5\)}
+        \put(21.5,12){\(^{12}\)}  \put(21.5,24){\(^{10}\)}
+        }
+        \end{xxpicture}
+      </latex-image>
+      <image>
+      XXcaptionXXAn Incomplete Weighted GraphYY
     </figure>
 
     <problem xml:id="prob_incomplete">

@@ -290,8 +290,8 @@
 
     <p>
       Using this language, we can restate <xref ref="p1">Problem</xref>
-      as <q>How many unordered samples of size two can be chosen without replacement (or `<q>without repetition</q>) from the four-element <q>population</q>
-      (Andrew, Bob, Carly, Diane)?</q>' In <xref ref="p2">Problem</xref>,
+      as <q>How many unordered samples of size two can be chosen without replacement (or ``without repetition</q>) from the four-element <q>population</q>
+      (Andrew, Bob, Carly, Diane)?'' In <xref ref="p2">Problem</xref>,
       we sought an ordered sample of size two without replacement (repetition) from the same population.
       Finally, in <xref ref="p3">Problem</xref>
       we desired an ordered sample of size two <q>with replacement</q> (or

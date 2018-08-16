@@ -13,7 +13,7 @@
           <ul>
             <li>
               <p>
-                {(W)} Pure Spring Water (65<m>c\hspace{-1.5mm}|</m>) or {(C)} Coca-Cola (45<m>c\hspace{-1.5mm}|</m>).
+                {(W)} Pure Spring Water (65<m>c|</m>) or {(C)} Coca-Cola (45<m>c|</m>).
               </p>
             </li>
           </ul>
@@ -59,7 +59,56 @@
       </li>
     </ol>
   </p>
-  <image source="images/9497143ef70bfcfd84a82d35b20219d6ea3d3060.png"/>
+  <image>
+  <latex-image>
+    \begin{picture}(50,35)(-70,10)
+
+    \put(10,3){
+    \put(-80,15){\circle{10}} \put(-40,15){\circle{10}}
+    \put(-10,15){\circle{10}} \put(-22,7){Start}
+    \put(15,15){\circle{10}} \put(-40,30){\circle{12}}
+    \put(34,30){\circle{10}}
+    \put(-60,5){\circle{10}}
+    \put(-60,-10){\circle{10}} \put(5,0){\circle{10}}
+    \put(34,0){\circle{10}}
+    \put(-83,14){\(50w\)} \put(-41,14){\(w\)} \put(-11,14){\(s\)}
+    \put(14,14){\(c\)} \put(-44.5,29){\(100w\)} \put(31.5,29){\(50c\)}
+    \put(-63,4){\(25w\)} \put(-63,-11){\(75w\)} \put(2,-1){\(75c\)}
+    \put(31.5,-1){\(25c\)}
+    \put(12,0){\line(1,0){16}} \put(-3,15){\line(1,0){10}}
+    \put(-17,15){\line(-1,0){15}}
+    \put(-47,15){\line(-1,0){25}}
+    \put(-80,30){\line(1,0){33}} \put(-33,30){\line(1,0){61}}
+    \put(22,17){\line(1,0){10}}  
+    \put(22,13){\line(1,0){10}}  
+    \put(-53,5){\line(1,0){13}}
+    \put(-53,-10){\line(1,0){43}} \put(-10,0){\line(1,0){8}}
+    \put(-80,-10){\line(1,0){14}}
+    \put(-80,30){\line(0,-1){8}} \put(-10,30){\line(0,-1){8}}
+    \put(32,22){\line(0,-1){5}} \put(32,13){\line(0,-1){7}}
+    \put(35,23){\line(0,-1){16}}
+    \put(-60,13){\line(0,-1){3}} \put(-40,5){\line(0,1){3}}
+    \put(-60,0){\line(0,-1){3}} \put(-10,8){\line(0,-1){18}}
+    \put(-80,-10){\line(0,1){19}}
+    \put(-50,29){\tr} \put(5,14){\tr} \put(-73,14){\tl}
+    \put(-33,14){\tl} \put(-53,4){\tl} \put(11.5,-1){\tl}
+    \put(-11.5,22){\td} \put(-61.5,-5){\td} \put(30.5,6){\td}   \put(-61.5,12){\tu}
+    \put(-11.5,6){\tu} \put(30.5,21){\tu} \put(33.5,21){\tu}  \put(-68,-11){\tr}
+    \put(-70,32){h/<ndash />} \put(-30,32){R/W+35} \put(10,32){R/C+5}
+    \put(-55,17){h/<ndash />} \put(-27,17){W/<ndash />}   \put(0,17){C/<ndash />}
+    \put(25,18){h/<ndash />}  \put(36,13){q/<ndash />}    \put(25,9){q/<ndash />}
+    \put(-37,5){q/<ndash />}  \put(-72,10){q/<ndash />}   \put(-79,0){q/<ndash />}
+    \put(-40,-15){R/W+10} \put(-5,-10){R/C+30} \put(20,-5){h/<ndash />}
+    \put(-56,-4){h/<ndash />}
+    }
+    \end{picture}
+  </latex-image>
+  <image>
+
+  <figure>
+    XXcaptionXXTransition diagram for a Water / Coke Machine.YY
+  </figure>
+
   <p>
     The start state is <q><m>s</m></q>,
     and each other state has a name that indicates what it is to remember.
@@ -130,7 +179,18 @@
     A transition diagram is a labeled directed graph whose vertices are the states of <m>Q</m>,
     and we label the arrow
   </p>
-  <image source="images/b22e1a1b6db9bea2f37ce8a19ee0e856ac377edf.png"/>
+  <image>
+  <latex-image>
+    \begin{picture}(50,30)(-70,0)
+
+    \put(15,0){
+    \put(-40,15){\circle{6}} \put(-14.5,15){\circle{6}}
+    \put(-31,18){\(a/d\)} \put(-41,14){\(q\)} \put(-16,14){\(q'\)}
+    \put(-35,15){\line(1,0){15}} \put(-22,14){\tr}
+    }
+    \end{picture}
+  </latex-image>
+  <image>
   <p>
     from state <m>q</m> to state <m>q'</m> with <m>a/d</m> if <m>\delta(q,a) = (q',d)</m>, that is,
     in state <m>q\in Q</m> reading input symbol

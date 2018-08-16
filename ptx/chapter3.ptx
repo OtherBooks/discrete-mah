@@ -172,7 +172,122 @@
       The following illustrations are
       <em>Venn diagrams</em> for the sets just defined.
     </p>
-    <image source="images/3e9220d92af9b4b4ef487c1c7c98473cd261978e.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(160,30)(20,0)
+      \put(15,0){
+      \put(0,0){\line(1,0){30}} \put(0,20){\line(1,0){30}}
+      \put(0,0){\line(0,1){20}} \put(30,0){\line(0,1){20}}
+      \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+      \put(9,9){\(\A\)}\put(19,9){\(\B\)}
+      \multiput(14,11)(1,0){3}{\circle*{.5}}
+      \multiput(14,12)(1,0){3}{\circle*{.5}}
+      \multiput(14,13)(1,0){3}{\circle*{.5}}
+      \multiput(15,14)(1,0){1}{\circle*{.5}}
+      \multiput(14,10)(1,0){4}{\circle*{.5}}
+      \multiput(14,9)(1,0){3}{\circle*{.5}}
+      \multiput(14,8)(1,0){3}{\circle*{.5}}
+      \multiput(14,7)(1,0){3}{\circle*{.5}}
+      \multiput(15,6)(1,0){1}{\circle*{.5}}}
+
+      \put(50,0){
+      \put(0,0){\line(1,0){30}} \put(0,20){\line(1,0){30}}
+      \put(0,0){\line(0,1){20}} \put(30,0){\line(0,1){20}}
+      \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+      \put(9,9){\(\A\)}\put(19,9){\(\B\)}
+      \multiput(4,11)(1,0){13}{\circle*{.5}}
+      \multiput(4,12)(1,0){13}{\circle*{.5}}
+      \multiput(4,13)(1,0){13}{\circle*{.5}}
+      \multiput(5,14)(1,0){11}{\circle*{.5}}
+      \multiput(6,15)(1,0){9}{\circle*{.5}}
+      \multiput(7,16)(1,0){7}{\circle*{.5}}
+      \multiput(10,17)(1,0){1}{\circle*{.5}}
+      \multiput(3,10)(1,0){14}{\circle*{.5}}
+      \multiput(4,9)(1,0){13}{\circle*{.5}}
+      \multiput(4,8)(1,0){13}{\circle*{.5}}
+      \multiput(4,7)(1,0){13}{\circle*{.5}}
+      \multiput(5,6)(1,0){11}{\circle*{.5}}
+      \multiput(6,5)(1,0){9}{\circle*{.5}}
+      \multiput(7,4)(1,0){7}{\circle*{.5}}
+      \multiput(10,3)(1,0){1}{\circle*{.5}}
+      \multiput(26,11)(-1,0){9}{\circle*{.5}}
+      \multiput(26,12)(-1,0){10}{\circle*{.5}}
+      \multiput(26,13)(-1,0){10}{\circle*{.5}}
+      \multiput(25,14)(-1,0){10}{\circle*{.5}}
+      \multiput(24,15)(-1,0){9}{\circle*{.5}}
+      \multiput(23,16)(-1,0){7}{\circle*{.5}}
+      \multiput(20,17)(-1,0){1}{\circle*{.5}}
+      \multiput(27,10)(-1,0){10}{\circle*{.5}}
+      \multiput(26,9)(-1,0){9}{\circle*{.5}}
+      \multiput(26,8)(-1,0){10}{\circle*{.5}}
+      \multiput(26,7)(-1,0){10}{\circle*{.5}}
+      \multiput(25,6)(-1,0){10}{\circle*{.5}}
+      \multiput(24,5)(-1,0){9}{\circle*{.5}}
+      \multiput(23,4)(-1,0){7}{\circle*{.5}}
+      \multiput(20,3)(-1,0){1}{\circle*{.5}} }
+
+      \put(85,0){
+      \put(0,0){\line(1,0){30}} \put(0,20){\line(1,0){30}}
+      \put(0,0){\line(0,1){20}} \put(30,0){\line(0,1){20}}
+      \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+      \put(9,9){\(\A\)}\put(19,9){\(\B\)}
+      \multiput(4,11)(1,0){9}{\circle*{.5}}
+      \multiput(4,12)(1,0){10}{\circle*{.5}}
+      \multiput(4,13)(1,0){10}{\circle*{.5}}
+      \multiput(5,14)(1,0){10}{\circle*{.5}}
+      \multiput(6,15)(1,0){9}{\circle*{.5}}
+      \multiput(7,16)(1,0){7}{\circle*{.5}}
+      \multiput(10,17)(1,0){1}{\circle*{.5}}
+      \multiput(3,10)(1,0){10}{\circle*{.5}}
+      \multiput(4,9)(1,0){9}{\circle*{.5}}
+      \multiput(4,8)(1,0){10}{\circle*{.5}}
+      \multiput(4,7)(1,0){10}{\circle*{.5}}
+      \multiput(5,6)(1,0){10}{\circle*{.5}}
+      \multiput(6,5)(1,0){9}{\circle*{.5}}
+      \multiput(7,4)(1,0){7}{\circle*{.5}}
+      \multiput(10,3)(1,0){1}{\circle*{.5}} }
+
+      \put(120,0){
+      \put(0,0){\line(1,0){30}} \put(0,20){\line(1,0){30}}
+      \put(0,0){\line(0,1){20}} \put(30,0){\line(0,1){20}}
+      \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+      \put(9,9){\(\A\)}\put(19,9){\(\B\)}
+      \multiput(0,0)(1,0){30}{\circle*{.5}}
+      \multiput(0,1)(1,0){30}{\circle*{.5}}
+      \multiput(0,2)(1,0){30}{\circle*{.5}}
+      \multiput(0,3)(1,0){30}{\circle*{.5}}
+      \multiput(0,4)(1,0){17}{\circle*{.5}}
+      \multiput(0,5)(1,0){16}{\circle*{.5}}
+      \multiput(0,6)(1,0){15}{\circle*{.5}}
+      \multiput(0,7)(1,0){14}{\circle*{.5}}
+      \multiput(0,8)(1,0){14}{\circle*{.5}}
+      \multiput(0,9)(1,0){14}{\circle*{.5}}
+      \multiput(0,10)(1,0){14}{\circle*{.5}}
+      \multiput(0,11)(1,0){14}{\circle*{.5}}
+      \multiput(0,12)(1,0){14}{\circle*{.5}}
+      \multiput(0,13)(1,0){14}{\circle*{.5}}
+      \multiput(0,14)(1,0){15}{\circle*{.5}}
+      \multiput(0,15)(1,0){16}{\circle*{.5}}
+      \multiput(0,16)(1,0){17}{\circle*{.5}}
+      \multiput(0,17)(1,0){30}{\circle*{.5}}
+      \multiput(0,18)(1,0){30}{\circle*{.5}}
+      \multiput(0,19)(1,0){30}{\circle*{.5}}
+      \multiput(27,11)(1,0){3}{\circle*{.5}}
+      \multiput(27,12)(1,0){3}{\circle*{.5}}
+      \multiput(27,13)(1,0){3}{\circle*{.5}}
+      \multiput(26,14)(1,0){4}{\circle*{.5}}
+      \multiput(25,15)(1,0){5}{\circle*{.5}}
+      \multiput(24,16)(1,0){6}{\circle*{.5}}
+      \multiput(28,10)(1,0){2}{\circle*{.5}}
+      \multiput(27,9)(1,0){3}{\circle*{.5}}
+      \multiput(27,8)(1,0){3}{\circle*{.5}}
+      \multiput(27,7)(1,0){3}{\circle*{.5}}
+      \multiput(26,6)(1,0){4}{\circle*{.5}}
+      \multiput(25,5)(1,0){5}{\circle*{.5}}
+      \multiput(24,4)(1,0){6}{\circle*{.5}}}
+      \end{picture}
+    </latex-image>
+    <image>
     <me>
       \A\cap \B \qquad\qquad\qquad \A\cup \B \qquad\qquad\qquad \A \sim   \B \qquad\qquad\qquad \sim \B
     </me>
@@ -200,12 +315,149 @@
           </me>
           The moment a student feels s/he has made progress,
           I put the marker in his or her hand and have them show the class to start a discussion.
-          <image source="images/a3b3058ca00e86c7adc3297bda80ac06ad1dafc0.png"/>
+          <image>
+          <latex-image>
+            \begin{picture}(160,30)(20,0)
+            \put(30,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(4,11)(1,0){13}{\circle*{.5}}
+            \multiput(4,12)(1,0){13}{\circle*{.5}}
+            \multiput(4,13)(1,0){13}{\circle*{.5}}
+            \multiput(5,14)(1,0){11}{\circle*{.5}}
+            \multiput(6,15)(1,0){9}{\circle*{.5}}
+            \multiput(7,16)(1,0){7}{\circle*{.5}}
+            \multiput(10,17)(1,0){1}{\circle*{.5}}
+            \multiput(3,10)(1,0){14}{\circle*{.5}}
+            \multiput(4,9)(1,0){13}{\circle*{.5}}
+            \multiput(4,8)(1,0){13}{\circle*{.5}}
+            \multiput(4,7)(1,0){13}{\circle*{.5}}
+            \multiput(5,6)(1,0){11}{\circle*{.5}}
+            \multiput(6,5)(1,0){9}{\circle*{.5}}
+            \multiput(7,4)(1,0){7}{\circle*{.5}}
+            \multiput(10,3)(1,0){1}{\circle*{.5}}}
+
+            \put(65,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(14,11)(1,0){13}{\circle*{.5}}
+            \multiput(14,12)(1,0){13}{\circle*{.5}}
+            \multiput(14,13)(1,0){13}{\circle*{.5}}
+            \multiput(19,14)(1,0){7}{\circle*{.5}}
+            \multiput(20,15)(1,0){5}{\circle*{.5}}
+            \multiput(21,16)(1,0){3}{\circle*{.5}}
+            \multiput(13,10)(1,0){14}{\circle*{.5}}
+            \multiput(14,9)(1,0){13}{\circle*{.5}}
+            \multiput(14,8)(1,0){13}{\circle*{.5}}
+            \multiput(14,7)(1,0){13}{\circle*{.5}}
+            \multiput(15,6)(1,0){11}{\circle*{.5}}
+            \multiput(16,5)(1,0){9}{\circle*{.5}}
+            \multiput(17,4)(1,0){7}{\circle*{.5}}
+            \multiput(20,3)(1,0){1}{\circle*{.5}}
+            \multiput(9,21)(1,0){13}{\circle*{.5}}
+            \multiput(9,22)(1,0){13}{\circle*{.5}}
+            \multiput(9,23)(1,0){13}{\circle*{.5}}
+            \multiput(10,24)(1,0){11}{\circle*{.5}}
+            \multiput(11,25)(1,0){9}{\circle*{.5}}
+            \multiput(12,26)(1,0){7}{\circle*{.5}}
+            \multiput(15,27)(1,0){1}{\circle*{.5}}
+            \multiput(8,20)(1,0){14}{\circle*{.5}}
+            \multiput(9,19)(1,0){13}{\circle*{.5}}
+            \multiput(9,18)(1,0){13}{\circle*{.5}}
+            \multiput(9,17)(1,0){13}{\circle*{.5}}
+            \multiput(10,16)(1,0){11}{\circle*{.5}}
+            \multiput(11,15)(1,0){9}{\circle*{.5}}
+            \multiput(12,14)(1,0){7}{\circle*{.5}}
+            \multiput(15,13)(1,0){1}{\circle*{.5}}}
+
+            \put(100,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(14,11)(1,0){4}{\circle*{.5}}
+            \multiput(14,12)(1,0){3}{\circle*{.5}}
+            \multiput(14,13)(1,0){3}{\circle*{.5}}
+            \multiput(15,14)(1,0){1}{\circle*{.5}}
+            \multiput(13,10)(1,0){5}{\circle*{.5}}
+            \multiput(14,9)(1,0){4}{\circle*{.5}}
+            \multiput(14,8)(1,0){3}{\circle*{.5}}
+            \multiput(14,7)(1,0){3}{\circle*{.5}}
+            \multiput(15,6)(1,0){1}{\circle*{.5}}
+            \multiput(9,17)(1,0){2}{\circle*{.5}}
+            \multiput(10,16)(1,0){4}{\circle*{.5}}
+            \multiput(11,15)(1,0){5}{\circle*{.5}}
+            \multiput(12,14)(1,0){4}{\circle*{.5}}
+            \multiput(15,13)(1,0){1}{\circle*{.5}}}
+
+            \end{picture}
+          </latex-image>
+          <image>
           <me>
             \qquad \A \qquad\qquad\qquad \B \cup \C \qquad\qquad \A \cap (\B
             \cup \C)
           </me>
-          <image source="images/5134882e952e23ce8aa0c2ee38416a7a821cb4ea.png"/>
+          <image>
+          <latex-image>
+            \begin{picture}(160,30)(20,0)
+            \put(30,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(14,11)(1,0){3}{\circle*{.5}}
+            \multiput(14,12)(1,0){3}{\circle*{.5}}
+            \multiput(14,13)(1,0){3}{\circle*{.5}}
+            \multiput(15,14)(1,0){1}{\circle*{.5}}
+            \multiput(14,10)(1,0){4}{\circle*{.5}}
+            \multiput(14,9)(1,0){3}{\circle*{.5}}
+            \multiput(14,8)(1,0){3}{\circle*{.5}}
+            \multiput(14,7)(1,0){3}{\circle*{.5}}
+            \multiput(15,6)(1,0){1}{\circle*{.5}}}
+
+            \put(65,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(9,17)(1,0){2}{\circle*{.5}}
+            \multiput(10,16)(1,0){4}{\circle*{.5}}
+            \multiput(11,15)(1,0){5}{\circle*{.5}}
+            \multiput(12,14)(1,0){4}{\circle*{.5}}}
+
+            \put(100,0){
+            \put(0,0){\line(1,0){30}} \put(0,30){\line(1,0){30}}
+            \put(0,0){\line(0,1){30}} \put(30,0){\line(0,1){30}}
+            \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+            \put(15,20){\circle{15}}
+            \put(9,9)A \put(19,9)B \put(14,19)C
+            \multiput(14,11)(1,0){4}{\circle*{.5}}
+            \multiput(14,12)(1,0){3}{\circle*{.5}}
+            \multiput(14,13)(1,0){3}{\circle*{.5}}
+            \multiput(15,14)(1,0){1}{\circle*{.5}}
+            \multiput(13,10)(1,0){5}{\circle*{.5}}
+            \multiput(14,9)(1,0){4}{\circle*{.5}}
+            \multiput(14,8)(1,0){3}{\circle*{.5}}
+            \multiput(14,7)(1,0){3}{\circle*{.5}}
+            \multiput(15,6)(1,0){1}{\circle*{.5}}
+            \multiput(9,17)(1,0){2}{\circle*{.5}}
+            \multiput(10,16)(1,0){4}{\circle*{.5}}
+            \multiput(11,15)(1,0){5}{\circle*{.5}}
+            \multiput(12,14)(1,0){4}{\circle*{.5}}
+            \multiput(15,13)(1,0){1}{\circle*{.5}}}
+
+            \end{picture}
+          </latex-image>
+          <image>
           <me>
             \qquad \A \cap \B \qquad\qquad\qquad \A \cap \C \qquad   (\A \cap \B) \cup (\A \cap \C)
           </me>
@@ -471,7 +723,47 @@
     <p>
       We illustrate <m>\A \oplus \B</m> via a Venn diagram.
     </p>
-    <image source="images/1a8ebf5109cb4912d113e7e0a46e46adc91e7f3d.png"/>
+    <image>
+    <latex-image>
+      \begin{picture}(160,30)(20,0)
+      \put(67,5){
+      \put(0,0){\line(1,0){30}} \put(0,20){\line(1,0){30}}
+      \put(0,0){\line(0,1){20}} \put(30,0){\line(0,1){20}}
+      \put(10,10){\circle{15}} \put(20,10){\circle{15}}
+      \put(9,9)A\put(19,9)B
+      \multiput(26,11)(-1,0){9}{\circle*{.5}}
+      \multiput(26,12)(-1,0){10}{\circle*{.5}}
+      \multiput(26,13)(-1,0){10}{\circle*{.5}}
+      \multiput(25,14)(-1,0){10}{\circle*{.5}}
+      \multiput(24,15)(-1,0){9}{\circle*{.5}}
+      \multiput(23,16)(-1,0){7}{\circle*{.5}}
+      \multiput(20,17)(-1,0){1}{\circle*{.5}}
+      \multiput(27,10)(-1,0){10}{\circle*{.5}}
+      \multiput(26,9)(-1,0){9}{\circle*{.5}}
+      \multiput(26,8)(-1,0){10}{\circle*{.5}}
+      \multiput(26,7)(-1,0){10}{\circle*{.5}}
+      \multiput(25,6)(-1,0){10}{\circle*{.5}}
+      \multiput(24,5)(-1,0){9}{\circle*{.5}}
+      \multiput(23,4)(-1,0){7}{\circle*{.5}}
+      \multiput(20,3)(-1,0){1}{\circle*{.5}}
+      \multiput(4,11)(1,0){9}{\circle*{.5}}
+      \multiput(4,12)(1,0){10}{\circle*{.5}}
+      \multiput(4,13)(1,0){10}{\circle*{.5}}
+      \multiput(5,14)(1,0){10}{\circle*{.5}}
+      \multiput(6,15)(1,0){9}{\circle*{.5}}
+      \multiput(7,16)(1,0){7}{\circle*{.5}}
+      \multiput(10,17)(1,0){1}{\circle*{.5}}
+      \multiput(3,10)(1,0){10}{\circle*{.5}}
+      \multiput(4,9)(1,0){9}{\circle*{.5}}
+      \multiput(4,8)(1,0){10}{\circle*{.5}}
+      \multiput(4,7)(1,0){10}{\circle*{.5}}
+      \multiput(5,6)(1,0){10}{\circle*{.5}}
+      \multiput(6,5)(1,0){9}{\circle*{.5}}
+      \multiput(7,4)(1,0){7}{\circle*{.5}}
+      \multiput(10,3)(1,0){1}{\circle*{.5}} }
+      \end{picture}
+    </latex-image>
+    <image>
 
     <problem>
       <statement>
